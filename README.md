@@ -51,7 +51,46 @@ Bedrock is a WordPress boilerplate for developers that want to manage their proj
 
 ## Getting Started
 
-See the [Bedrock installation documentation](https://roots.io/bedrock/docs/installation/).
+1. Make sure you have composer [install here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
+
+2. In the current idbkl directory, run composer like this:
+```bash
+composer install
+```
+
+3. Locate flexor template to run composer again
+```bash
+# In ibkl root directory
+cd web/app/themes/flexor
+```
+
+4. Install using composer
+```bash
+composer install
+```
+
+5. Run Yarn to install js dependencies
+```bash
+yarn
+```
+<details>
+  <summary>How to install yarn</summary>
+  Visit this <a href='https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable'>yarn installation link</a> to install yarn cli in your system
+</details>
+
+6. Update `bud.config.js` with your local dev URL in `web/app/themes/flexor/bud.config.js`
+
+7. Create `.env` file in root folder and copy paste from `.env.example` and configure your wordpress databases and hostnames.
+
+8. To Compile assets, read below details:
+<details>
+  <summary>Build Assets</summary>
+  Run in <code>/web/app/themes/flexor</code> <code>yarn build</code>
+</details>
+<details>
+  <summary>Build Dev Assets</summary>
+  Run in <code>/web/app/themes/flexor</code> <code>yarn dev</code>
+</details>
 
 ## Stay Connected
 
