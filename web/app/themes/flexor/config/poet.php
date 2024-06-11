@@ -66,7 +66,14 @@ return [
     */
 
     'block' => [
-        // 'sage/accordion',
+        'sage/accordion' => [
+            'attributes' => [
+                'title' => [
+                    'default' => 'Lorem ipsum',
+                    'type' => 'string',
+                ],
+            ],
+        ],
     ],
 
     /*
@@ -80,10 +87,10 @@ return [
     */
 
     'block_category' => [
-        // 'cta' => [
-        //     'title' => 'Call to Action',
-        //     'icon' => 'star-filled',
-        // ],
+        'flexor' => [
+            'title' => 'Flexor',
+            'icon' => 'art',
+        ],
     ],
 
     /*
@@ -110,10 +117,15 @@ return [
         //     'description' => 'Draw attention to the main focus of the page, and highlight key CTAs',
         //     'categories' => ['all'],
         // ],
-        'sage/fake-paragraph' => [
-            'title' => 'Fake Paragraph',
-            'description' => 'Filler content used instead of actual content for testing purposes',
-            'categories' => ['all']
+        'sage/banner' => [
+            'title' => 'Banner',
+            'description' => 'Home Page Banner',
+            'categories' => ['home']
+        ],
+        'sage/about' => [
+            'title' => 'About Us',
+            'description' => 'Home Page About Us',
+            'categories' => ['home', 'all']
         ]
     ],
 
@@ -130,6 +142,12 @@ return [
     'block_pattern_category' => [
         'all' => [
             'label' => 'All Patterns',
+        ],
+        'home' => [
+            'label' => 'Home',
+        ],
+        'blog' => [
+            'label' => 'Blog',
         ],
     ],
 
@@ -153,10 +171,7 @@ return [
     |
     */
 
-    'palette' => [
-        // 'red' => '#ff0000',
-        // 'blue' => '#0000ff',
-    ],
+    'palette' => 'colors.json',
 
     /*
     |--------------------------------------------------------------------------

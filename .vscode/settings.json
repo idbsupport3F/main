@@ -1,8 +1,0 @@
-{
-    "[jinja-php]": {
-        "editor.autoClosingBrackets": "always"
-    },
-    "[php]": {
-        "editor.autoClosingBrackets": "always"
-    }
-}

@@ -49,6 +49,33 @@ Bedrock is a WordPress boilerplate for developers that want to manage their proj
 - Autoloader for mu-plugins (use regular plugins as mu-plugins)
 - Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
 
+# Package Installed
+1. Main
+    ```
+    "php": ">=8.0",
+    "roots/bedrock"
+    ```
+1. Sage Theme `Flexor`
+    ```
+    --- Dev
+    "php": ">=8.0",
+    "log1x/poet": "^2.1",
+    "log1x/sage-directives": "^2.0",
+    "roots/acorn": "^4.2"
+    "@roots/sage": "6.20.0",
+    "@roots/bud-sass": "^6.21.0",
+    "@roots/bud": "6.20.0",
+    --- Client
+    "@popperjs/core": "^2.11.8",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "glightbox": "^3.3.0",
+    "imagesloaded": "^5.0.0",
+    "isotope-layout": "^3.0.6",
+    "swiper": "^11.1.4"
+    ```
+
 ## Getting Started
 
 1. Make sure you have composer [install here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
@@ -91,6 +118,143 @@ yarn
   <summary>Build Dev Assets</summary>
   Run in <code>/web/app/themes/flexor</code> <code>yarn dev</code>
 </details>
+
+## Development Tips
+### Create custom blocks
+1. Make sure you have `poet.php` config file in `web/app/themes/your-theme/config/poet.php`. If not, run this command in your console:
+```bash
+wp acorn vendor:publish --provider="Log1x\Poet\PoetServiceProvider"
+# or
+wp acorn vendor:publish
+# ^^^ Then choose "Log1x Poet PoetServiceProvider"
+```
+
+2. Add new config for blocks in `poet.php` that was created earlier:
+```php
+// ...
+'block' => [
+    'sage/accordion' => [
+        'attributes' => [
+            'title' => [
+                'default' => 'Lorem ipsum',
+                'type' => 'string',
+            ],
+        ],
+    ],
+],
+// ...
+```
+
+3. Create blocks file inside your theme folder in `resources/views/blocks/example.blade.php`.
+
+4. Add this example code in `example.blade.php`:
+```jinja
+<div class="wp-block-accordion {{ $data->className ?? '' }}">
+  @isset ($data->title)
+    <h2>{!! $data->title !!}</h2>
+  @endisset
+
+  <div>
+    {!! $content ?? 'Please feed me InnerBlocks.' !!}
+  </div>
+</div>
+```
+
+5. Add this code to register your own block type inside `scripts` folder in `editor.js`:
+```js
+/**
+ * Accordian Block Register
+ * 
+ * @see {@link https://github.com/Log1x/poet/issues/22#issuecomment-792573232}
+ */
+
+import { __ } from '@wordpress/i18n'
+import { registerBlockType } from '@wordpress/blocks'
+import { InnerBlocks } from '@wordpress/block-editor'
+
+/** components */
+import edit from './accordion/edit'
+
+registerBlockType(`sage/accordion`, {
+    title: __(`Accordion`, `sage`),
+    category: `flexor`,
+    icon: `format-image`,
+    attributes: {
+        accordions: {
+            type: 'array',
+            default: [{ label: 'New accordion' }],
+        },
+    },
+    edit
+})
+```
+> Make sure that the first argument for `registerBlockType` must be `theme-name/block-name` format.
+<details>
+  <summary>Why there is no <code>save</code> property?</summary>
+  Due to this <a href="https://github.com/Log1x/poet">Poet package</a> that I installed, we already had our blade laravel view setup for the save renderer. No need to add it here...
+</details>
+<details>
+  <summary>Where to find <code>icon</code> tags?</summary>
+  Just visit this <a href="https://developer.wordpress.org/resource/dashicons/">page</a> that wordpress specifically used. It is called Dashicons.
+</details>
+
+6. Since you added `edit.js` import file from your `editor.js` file above, we need to create a file based on that directory example in `resources/scripts/accordion/edit.js`. Then add this codes :
+```js
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ */
+import { __ } from '@wordpress/i18n';
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ */
+import { useBlockProps } from '@wordpress/block-editor';
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
+ *
+ * @return {Element} Element to render.
+ */
+export default function Edit() {
+    return (
+        <p {...useBlockProps()}>
+            {__(
+                'Swiper Logo Slider – hello from the editor!',
+                'swiper-logo-slider'
+            )}
+        </p>
+    );
+}
+```
+<details>
+  <summary>Woah! Where to learn this format?</summary>
+  Just visit this <a href="https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/">page</a>. You also can learn attributes fetching from <a href="https://developer.wordpress.org/block-editor/reference-guides/block-api/block-attributes/#query-source">here</a>.
+</details>
+
+7. When you finished, published the package and build the file.
+```bash
+# Run Acorn Publish the vendor
+wp acorn vendor:publish --provider="Log1x\Poet\PoetServiceProvider"
+# or
+wp acorn vendor:publish
+# ^^^ Then choose "Log1x Poet PoetServiceProvider"
+
+#-----------------------------------------------
+
+# Finally Run Yarn
+yarn build
+#or
+yarn dev
+```
+
 
 ## Stay Connected
 
