@@ -66,14 +66,7 @@ return [
     */
 
     'block' => [
-        'sage/accordion' => [
-            'attributes' => [
-                'title' => [
-                    'default' => 'Lorem ipsum',
-                    'type' => 'string',
-                ],
-            ],
-        ],
+        'sage/swiperlogo'
     ],
 
     /*
@@ -125,6 +118,11 @@ return [
         'sage/about' => [
             'title' => 'About Us',
             'description' => 'Home Page About Us',
+            'categories' => ['home', 'all']
+        ],
+        'sage/services' => [
+            'title' => 'Services',
+            'description' => 'Home Page Services',
             'categories' => ['home', 'all']
         ]
     ],

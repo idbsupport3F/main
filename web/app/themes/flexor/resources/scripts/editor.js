@@ -19,17 +19,42 @@ import { registerBlockType } from '@wordpress/blocks'
 import { InnerBlocks } from '@wordpress/block-editor'
 
 /** components */
-import edit from './accordion/edit'
+import images from './blocks/images'
 
-registerBlockType(`sage/accordion`, {
-    title: __(`Accordion`, `sage`),
+registerBlockType(`sage/swiperlogo`, {
+    title: __(`Swiper Logo`, `sage`),
     category: `flexor`,
-    icon: `format-image`,
-    attributes: {
-        accordions: {
+    icon: `format-gallery`,
+    apiVersion: 3,
+	supports: {
+		align: [ 'full' ],
+	},
+	attributes: {
+        images: {
             type: 'array',
-            default: [{ label: 'New accordion' }],
+            source: 'query',
+            selector: 'img',
+            query: {
+                id: {
+                    type: 'string',
+                    source: 'attribute',
+                    attribute: 'src',
+                },
+                alt: {
+                    type: 'string',
+                    source: 'attribute',
+                    attribute: 'alt',
+                },
+            },
+            default: [
+                { id: "https://picsum.photos/116/50", alt: "test image" }
+            ]
         },
-    },
-    edit
+        totalImage: {
+            type: 'number',
+            default: 0
+        }
+	},
+    edit: images,
+    save: () => <InnerBlocks.Content />
 })
