@@ -8,12 +8,15 @@ use Illuminate\View\Component;
 
 class SwiperLogo extends Component
 {
+    public $title;
+    public $images;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($images = [])
     {
         $this->title = $this->generateRandomString(5);
+        $this->images = $images;
     }
 
     function generateRandomString($length = 10) {

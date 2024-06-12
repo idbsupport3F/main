@@ -1,7 +1,8 @@
 /**
- * Custom Image Blocks
+ * Custom Image Blocks Tutorial
  * 
  * @see https://www.youtube.com/watch?v=WxAGNN-xtwc
+ * @package https://github.com/10up/block-components
  */
 
 /**
@@ -11,7 +12,7 @@
  */
 import { __ } from '@wordpress/i18n';
 
-import {  } from '@wordpress/blocks';
+// import {  } from '@wordpress/blocks';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -28,9 +29,18 @@ import { Image, MediaToolbar } from '@10up/block-components';
  * 
  * @see https://developer.wordpress.org/block-editor/reference-guides/components
  */
-import { __experimentalNumberControl as NumberControl, PanelBody, PanelHeader, PanelRow, Panel } from '@wordpress/components';
+import { __experimentalNumberControl as NumberControl, PanelBody, PanelHeader, PanelRow, Panel, Button } from '@wordpress/components';
 
 import { useState } from '@wordpress/element';
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+
+// Get custom AttachmentImage component to display
+import AttachmentImage from './getImage';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -46,21 +56,44 @@ export default function Edit(props) {
 
 	const { totalImage, images } = attributes;
 
-	const [state, setState] = useState(0);
-
 	const setTotalImageNumber = function(val){
+		if(images.length > val){
+			removeImageCount(val);
+		} else {
+			setImage({ id: null, alt: ""}, val);
+		}
 		setAttributes({ totalImage: val })
 	}
 
-	const setImage = function(image) {
-		setAttributes( { images: [...images, { id: image.id, alt: image.alt }] })
+	const setImage = function(image, i) {
+		if(image.id === null) {
+			setAttributes({
+				images: [...images, image]
+			})
+		} else {
+			setAttributes({
+				images: images.map((val, iImage) => {
+					if(i === iImage) {
+						val.id = image.id;
+						val.alt = image.alt;
+					}
+					return val;
+				})
+			})
+		}
 	}
 
-	const removeImage = function(image) {
+	const removeImageCount = function(val) {
+		setAttributes({
+			images: images.splice(0, val)
+		})
+	}
+
+	const removeImage = function(id) {
 		setAttributes({ 
 			images: images.map((val, i) => {
-				if(image.id === val) {
-					return null;
+				if(id === val.id) {
+					return { id: null, alt: "" };
 				}
 				return val;
 			}) 
@@ -74,7 +107,7 @@ export default function Edit(props) {
 					<PanelBody title='Logo Images'>
 						<PanelRow>
 						<NumberControl
-							label="Total Client's Logo"
+							label={__("Total Client's Logo", "sage")}
 							isShiftStepEnabled={ true }
 							onChange={ setTotalImageNumber }
 							shiftStep={ 2 }
@@ -82,32 +115,44 @@ export default function Edit(props) {
 							value={ totalImage }
 						/>
 						</PanelRow>						
-						{[...Array(totalImage).keys()].map((image, i) => {
-							console.log(attributes)
+						{images.map((image, i) => {
+							console.log("Attributes: ",attributes)
 							return (
-								<PanelRow key={i}>
-									<Image 
-									isOptional
-									label={"Logo" + (i + 1)}
-									size='logo-client'
-									key={i}
-									id={image.id}
-									canEditImage={true}
-									onSelect={setImage}
-								/>
-								</PanelRow>
+								<React.Fragment key={i + "Images"}>
+									<PanelRow>
+										<Image 
+										labels={{
+											title: __('Select Logo Image ' + (i + 1), 'sage'),
+											instructions: __('Upload an image or pick one from your media library.', 'sage')
+										}}
+										size='logo-client'
+										key={i}
+										id={image.id}
+										canEditImage={true}
+										onSelect={(image) => setImage(image, i)}
+									/>
+									</PanelRow>
+									<PanelRow>
+										<Button variant='link' isDestructive onClick={(e) => removeImage(image.id)}>{__('Remove Logo Image ' + (i + 1), 'sage')}</Button>
+									</PanelRow>
+								</React.Fragment>
 							)
 						})}
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
-			{images.map((image, i) => {
-				<Image 
-					key={image.id}
-					id={image.id}
-					size='logo-client'
-				/>
-			})}
+			{images.length > 0 && <Swiper
+				spaceBetween={50}
+				slidesPerView={3}
+				onSlideChange={() => console.log('slide change')}
+				onSwiper={(swiper) => console.log(swiper)}
+				>
+				{images.map((image, i) => {
+					<SwiperSlide key={i + "Swiper"}>
+						<AttachmentImage imageId={image.id} size='logo-client' key={i + 'image'} />
+					</SwiperSlide>
+				})}
+			</Swiper>}
 		</div>
 	);
 }

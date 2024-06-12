@@ -29,32 +29,6 @@ registerBlockType(`sage/swiperlogo`, {
 	supports: {
 		align: [ 'full' ],
 	},
-	attributes: {
-        images: {
-            type: 'array',
-            source: 'query',
-            selector: 'img',
-            query: {
-                id: {
-                    type: 'string',
-                    source: 'attribute',
-                    attribute: 'src',
-                },
-                alt: {
-                    type: 'string',
-                    source: 'attribute',
-                    attribute: 'alt',
-                },
-            },
-            default: [
-                { id: "https://picsum.photos/116/50", alt: "test image" }
-            ]
-        },
-        totalImage: {
-            type: 'number',
-            default: 0
-        }
-	},
     edit: images,
-    save: () => <InnerBlocks.Content />
+    save: () => <InnerBlocks/>
 })

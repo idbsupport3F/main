@@ -2,10 +2,10 @@
 import 'bootstrap';
 import domReady from '@roots/sage/client/dom-ready';
 import GLightbox from 'glightbox';
-import 'swiper';
+import Swiper from 'swiper';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import 'imagesloaded';
+import imagesloaded from 'imagesloaded';
 
 /**
  * Application entrypoint

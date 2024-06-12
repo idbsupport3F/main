@@ -1,5 +1,4 @@
 <div class="container" data-aos="fade-up" data-aos-delay="100">
-@isset($data->images)
 <div class="swiper">
     <script type="application/json" class="swiper-config">
     {
@@ -10,7 +9,7 @@
         },
         "slidesPerView": "auto",
         "pagination": {
-        "el": ".{{!! $title !!}}",
+        "el": ".{!! $title !!}",
         "type": "bullets",
         "clickable": true
         },
@@ -36,10 +35,9 @@
     </script>
     <div class="swiper-wrapper align-items-center">
     @foreach ($images as $val)
-        <div class="swiper-slide"><img src="{!! $val->url !!}" class="img-fluid" alt="{!! $val->alt !!}"></div>
+        <div class="swiper-slide"><img src="{{ $val['id'] }}" class="img-fluid" alt="{{ $val['alt'] }}"></div>
     </div>
     @endforeach
-    <div class="{{!! $title !!}}"></div>
+    <div class="{!! $title !!}"></div>
 </div>
-@endisset
 </div>

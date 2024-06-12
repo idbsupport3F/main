@@ -1,9 +1,6 @@
-<div class="wp-block-accordion {{ $data->className ?? '' }}">
-  @isset ($data->title)
-    <h2>{!! $data->title !!}</h2>
-  @endisset
-
-  <div>
+@isset ($data->images)
+<x-swiper-logo :images="$data->images"/>
+<div>
     {!! $content ?? 'Please feed me InnerBlocks.' !!}
-  </div>
 </div>
+@endisset

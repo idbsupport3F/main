@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -66,7 +65,32 @@ return [
     */
 
     'block' => [
-        'sage/swiperlogo'
+        'sage/swiperlogo' => [
+            'attributes' => [
+                'images' => [
+                    'type' => 'array',
+                    'source' => 'query',
+                    'selector' => 'img',
+                    'query' => [
+                        'id' => [
+                            'type' => 'integer',
+                        ],
+                        'alt' => [
+                            'type' => 'string',
+                            'source' => 'attribute',
+                            'attribute' => 'alt',
+                        ],
+                    ],
+                    'default' => [
+                        [ 'id' => "https://picsum.photos/116/50", 'alt' => "test image" ]
+                    ]
+                ],
+                'totalImage' => [
+                    'type' => 'number',
+                    'default' => 0
+                ]
+            ]
+        ]
     ],
 
     /*
