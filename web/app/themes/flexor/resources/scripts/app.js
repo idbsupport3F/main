@@ -5,7 +5,11 @@ import GLightbox from 'glightbox';
 import Swiper from 'swiper';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import imagesloaded from 'imagesloaded';
+import imagesLoaded from 'imagesloaded';
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
+import 'swiper/scss/scrollbar';
 
 /**
  * Application entrypoint
@@ -22,7 +26,7 @@ domReady(async () => {
   }
 
   document.addEventListener('scroll', toggleScrolled);
-  window.addEventListener('load', toggleScrolled);
+  toggleScrolled();
 
   /**
    * Mobile nav toggle
@@ -67,9 +71,7 @@ domReady(async () => {
    */
   const preloader = document.querySelector('#preloader');
   if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
+    preloader.remove();
   }
 
   /**
@@ -93,7 +95,7 @@ domReady(async () => {
     });
   }
 
-  window.addEventListener('load', toggleScrollTop);
+  toggleScrollTop()
   document.addEventListener('scroll', toggleScrollTop);
 
   /**
@@ -107,7 +109,7 @@ domReady(async () => {
       mirror: false
     });
   }
-  window.addEventListener('load', aosInit);
+  aosInit();
 
   /**
    * Initiate glightbox
@@ -125,7 +127,7 @@ domReady(async () => {
       new Swiper(swiper, config);
     });
   }
-  window.addEventListener('load', initSwiper);
+  initSwiper();
 
   /**
    * Init isotope layout and filters
@@ -172,20 +174,18 @@ domReady(async () => {
   /**
    * Correct scrolling position upon page load for URLs containing hash links.
    */
-  window.addEventListener('load', function (e) {
-    if (window.location.hash) {
-      if (document.querySelector(window.location.hash)) {
-        setTimeout(() => {
-          let section = document.querySelector(window.location.hash);
-          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-          window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop),
-            behavior: 'smooth'
-          });
-        }, 100);
-      }
+  if (window.location.hash) {
+    if (document.querySelector(window.location.hash)) {
+      setTimeout(() => {
+        let section = document.querySelector(window.location.hash);
+        let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
+        window.scrollTo({
+          top: section.offsetTop - parseInt(scrollMarginTop),
+          behavior: 'smooth'
+        });
+      }, 100);
     }
-  });
+  }
 
   /**
    * Navmenu Scrollspy
@@ -206,7 +206,7 @@ domReady(async () => {
       }
     })
   }
-  window.addEventListener('load', navmenuScrollspy);
+  navmenuScrollspy()
   document.addEventListener('scroll', navmenuScrollspy);
 });
 

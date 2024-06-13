@@ -1,4 +1,4 @@
-import { useSelect } from '@wordpress/data';
+import { useSelect, withSelect } from '@wordpress/data';
 
 /**
  * AttachmentImage
@@ -17,7 +17,7 @@ export default function AttachmentImage({ imageId, size = 'full' }) {
 
 	const { image } = useSelect((select) => ({
 		image: select('core').getMedia(imageId),
-	}));
+	}),[imageId]);
 
 	const imageAttributes = () =>{
 		let attributes = {

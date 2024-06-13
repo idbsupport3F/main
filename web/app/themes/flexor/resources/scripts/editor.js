@@ -27,8 +27,11 @@ registerBlockType(`sage/swiperlogo`, {
     icon: `format-gallery`,
     apiVersion: 3,
 	supports: {
-		align: [ 'full' ],
+		className: false,
+        color: {
+            background:true
+        },
+        lock:false
 	},
-    edit: images,
-    save: () => <InnerBlocks/>
+    edit: images
 })

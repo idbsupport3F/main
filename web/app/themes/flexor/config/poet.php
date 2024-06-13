@@ -69,21 +69,11 @@ return [
             'attributes' => [
                 'images' => [
                     'type' => 'array',
-                    'source' => 'query',
-                    'selector' => 'img',
-                    'query' => [
-                        'id' => [
-                            'type' => 'integer',
-                        ],
-                        'alt' => [
-                            'type' => 'string',
-                            'source' => 'attribute',
-                            'attribute' => 'alt',
-                        ],
-                    ],
-                    'default' => [
-                        [ 'id' => "https://picsum.photos/116/50", 'alt' => "test image" ]
-                    ]
+                    'default' => []
+                ],
+                'imagesAlt' => [
+                    'type' => 'array',
+                    'default' => []
                 ],
                 'totalImage' => [
                     'type' => 'number',
