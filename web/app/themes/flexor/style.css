@@ -11,6 +11,3 @@ License URI:        https://opensource.org/licenses/MIT
 Requires PHP:       8.1
 Requires at least:  5.9
 */
-.has-raleway-font-family {
-    font-family: var(--heading-font);
-}

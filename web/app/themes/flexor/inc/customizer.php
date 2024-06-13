@@ -4,7 +4,7 @@
         $wp_customize->add_setting('site_email', array('default' => ''));
         $wp_customize->add_setting('site_phone', array('default' => ''));
         $wp_customize->add_setting('site_logo', array('default' => ''));
-        $wp_customize->add_setting('twitter', array('default' => ''));
+        $wp_customize->add_setting('twitter-x', array('default' => ''));
         $wp_customize->add_setting('facebook', array('default' => ''));
         $wp_customize->add_setting('instagram', array('default' => ''));
         $wp_customize->add_setting('linkedin', array('default' => ''));
@@ -74,12 +74,12 @@
         $wp_customize->add_control(
             new WP_Customize_Control(
                 $wp_customize,
-                'twitter',
+                'twitter-x',
                 array(
                     'label'     =>  __('Twitter URL:', 'sage'),
                     'type'      =>  'url',
                     'section'   =>  'social_media',
-                    'settings'  =>  'twitter'
+                    'settings'  =>  'twitter-x'
                 )
             )
         );

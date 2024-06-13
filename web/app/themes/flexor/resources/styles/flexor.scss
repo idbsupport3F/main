@@ -66,7 +66,7 @@ body {
 
 a {
     color: var(--accent-color);
-    text-decoration: none;
+    text-decoration: none !important;
     transition: 0.3s;
 }
 
@@ -2349,13 +2349,6 @@ section,
     font-size: 20px;
     margin-right: 8px;
     color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-    /* Add your styles here */
 }
 
 /*--------------------------------------------------------------

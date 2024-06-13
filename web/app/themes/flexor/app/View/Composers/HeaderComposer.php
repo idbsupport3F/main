@@ -104,8 +104,8 @@ class HeaderComposer extends Composer
     public function get_social_medias(){
         $social_media = array();
 
-        if(get_theme_mod('twitter')){
-            $social_media["twitter"] = esc_attr(get_theme_mod('twitter'));
+        if(get_theme_mod('twitter-x')){
+            $social_media["twitter-x"] = esc_attr(get_theme_mod('twitter-x'));
         }
 
         if(get_theme_mod('facebook')){

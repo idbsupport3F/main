@@ -7,9 +7,11 @@
         <i class="bi bi-phone d-flex align-items-center ms-4"><span>+{{ $phone }}</span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
+      @isset($social_medias)
       @foreach ($social_medias as $type => $link)
-          <a href="{{ $link }}" class="{{ $type }}"><i class="bi bi-{{$type}}-x"></i></a>
+          <a href="{{ $link }}" class="{{ $type }}"><i class="bi bi-{{$type}}"></i></a>
       @endforeach
+      @endisset
       </div>
     </div>
   </div><!-- End Top Bar -->
