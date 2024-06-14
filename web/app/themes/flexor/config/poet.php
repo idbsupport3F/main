@@ -127,17 +127,26 @@ return [
         'sage/banner' => [
             'title' => 'Banner',
             'description' => 'Home Page Banner',
-            'categories' => ['home']
+            'categories' => ['home'],
+            'keywords' => array('banner', 'home', 'images')
         ],
         'sage/about' => [
             'title' => 'About Us',
             'description' => 'Home Page About Us',
-            'categories' => ['home', 'all']
+            'categories' => ['home', 'all'],
+            'keywords' => array('about', 'two columns', 'image', 'text')
         ],
         'sage/services' => [
             'title' => 'Services',
             'description' => 'Home Page Services',
-            'categories' => ['home', 'all']
+            'categories' => ['services', 'all'],
+            'keywords' => array('icons', 'services')
+        ],
+        'sage/altservices' => [
+            'title' => 'Alternate Services',
+            'description' => 'Features/Services',
+            'categories' => ['services', 'all'],
+            'keywords' => array('alt', 'services', '')
         ]
     ],
 
@@ -183,7 +192,7 @@ return [
     |
     */
 
-    'palette' => 'colors.json',
+    'palette' => [],
 
     /*
     |--------------------------------------------------------------------------

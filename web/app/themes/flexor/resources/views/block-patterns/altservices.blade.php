@@ -1,0 +1,107 @@
+<!-- wp:group {"tagName":"section","metadata":{"name":"Alternative Services"},"align":"full","style":{"spacing":{"blockGap":"0","margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0"}}},"className":"alt-services","layout":{"type":"constrained","contentSize":"1320px"}} -->
+<section class="wp-block-group alignfull alt-services" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0"><!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"12px"}}}} -->
+<div class="wp-block-columns"><!-- wp:column {"width":"100%"} -->
+<div class="wp-block-column" style="flex-basis:100%"><!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"0","left":"0"},"margin":{"bottom":"28px"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+<div class="wp-block-group" style="margin-bottom:28px;padding-right:0;padding-left:0"><!-- wp:group {"metadata":{"name":"Service Item"},"style":{"spacing":{"padding":{"right":"0","left":"0"},"margin":{"bottom":"12px"}}},"className":"service-item position-relative","layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap","justifyContent":"center","verticalAlignment":"bottom"}} -->
+<div class="wp-block-group service-item position-relative" style="margin-bottom:12px;padding-right:0;padding-left:0"><!-- wp:image {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"className":"blob-image img"} -->
+<figure class="wp-block-image blob-image img" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px"><img src="@asset('images/services-1.jpg')"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:group {"metadata":{"name":"Details"},"align":"full","style":{"color":{"background":"rgba(255,255,255,0.95)"},"border":{"radius":"8px"},"spacing":{"blockGap":"15px","padding":{"top":"var:preset|spacing|30","right":"30px","bottom":"30px","left":"30px"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":184}},"className":"details","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"bottom","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull details has-background" style="border-radius:8px;background-color:rgba(255,255,255,0.95);min-height:184px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:var(--wp--preset--spacing--30);padding-right:30px;padding-bottom:30px;padding-left:30px"><!-- wp:group {"align":"full","style":{"border":{"radius":"0px"},"spacing":{"blockGap":"0px","padding":{"top":"0px","right":"var:preset|spacing|50","bottom":"0px","left":"var:preset|spacing|50"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":27}},"className":"full-width","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"top","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull full-width" style="border-radius:0px;min-height:27px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:var(--wp--preset--spacing--50);padding-bottom:0px;padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"layout":{"contentSize":"152.58999633789062px","type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px"><!-- wp:heading {"textAlign":"center","style":{"color":{"text":"rgba(71,61,58,1)"},"typography":{"fontSize":"22px","fontWeight":"700","lineHeight":"1.2"},"spacing":{"margin":{"top":"0px","bottom":"0px","right":"0px","left":"0px"}}},"className":"wp-block-heading full-width text-nowrap has-raleway-font-family","fontFamily":"headline"} -->
+<h2 class="wp-block-heading has-text-align-center full-width text-nowrap has-raleway-font-family has-text-color has-headline-font-family" style="color:rgba(71,61,58,1);margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:22px;font-weight:700;line-height:1.2">Nesciunt Mete</h2>
+<!-- /wp:heading --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","style":{"border":{"radius":"0px"},"spacing":{"blockGap":"0px","padding":{"top":"0px","right":"11.6px","bottom":"0px","left":"11.6px"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":72}},"className":"full-width","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"top","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull full-width" style="border-radius:0px;min-height:72px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:11.6px;padding-bottom:0px;padding-left:11.6px"><!-- wp:group {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"layout":{"contentSize":"512.8800048828125px","type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px"><!-- wp:paragraph {"align":"center","style":{"color":{"text":"rgba(49,48,48,0.9)"},"typography":{"fontSize":"14px","fontWeight":"400","lineHeight":"1.7"},"spacing":{"margin":{"top":"0px","bottom":"0px","right":"0px","left":"0px"}}},"className":"full-width","fontFamily":"paragraph"} -->
+<p class="has-text-align-center full-width has-text-color has-paragraph-font-family" style="color:rgba(49,48,48,0.9);margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:14px;font-weight:400;line-height:1.7">Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus<br>dolores iure perferendis.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"Service Item"},"style":{"spacing":{"padding":{"right":"0","left":"0"}}},"className":"service-item position-relative","layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap","justifyContent":"center","verticalAlignment":"bottom"}} -->
+<div class="wp-block-group service-item position-relative" style="padding-right:0;padding-left:0"><!-- wp:image {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"className":"blob-image img"} -->
+<figure class="wp-block-image blob-image img" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px"><img src="@asset('images/services-2.jpg')"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:group {"metadata":{"name":"Details"},"align":"full","style":{"color":{"background":"rgba(255,255,255,0.95)"},"border":{"radius":"8px"},"spacing":{"blockGap":"15px","padding":{"top":"var:preset|spacing|30","right":"30px","bottom":"30px","left":"30px"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":184}},"className":"details","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"bottom","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull details has-background" style="border-radius:8px;background-color:rgba(255,255,255,0.95);min-height:184px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:var(--wp--preset--spacing--30);padding-right:30px;padding-bottom:30px;padding-left:30px"><!-- wp:group {"align":"full","style":{"border":{"radius":"0px"},"spacing":{"blockGap":"0px","padding":{"top":"0px","right":"var:preset|spacing|50","bottom":"0px","left":"var:preset|spacing|50"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":27}},"className":"full-width","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"top","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull full-width" style="border-radius:0px;min-height:27px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:var(--wp--preset--spacing--50);padding-bottom:0px;padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"layout":{"contentSize":"152.58999633789062px","type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px"><!-- wp:heading {"textAlign":"center","style":{"color":{"text":"rgba(71,61,58,1)"},"typography":{"fontSize":"22px","fontWeight":"700","lineHeight":"1.2"},"spacing":{"margin":{"top":"0px","bottom":"0px","right":"0px","left":"0px"}}},"className":"wp-block-heading full-width text-nowrap has-raleway-font-family","fontFamily":"headline"} -->
+<h2 class="wp-block-heading has-text-align-center full-width text-nowrap has-raleway-font-family has-text-color has-headline-font-family" style="color:rgba(71,61,58,1);margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:22px;font-weight:700;line-height:1.2">Nesciunt Mete</h2>
+<!-- /wp:heading --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","style":{"border":{"radius":"0px"},"spacing":{"blockGap":"0px","padding":{"top":"0px","right":"11.6px","bottom":"0px","left":"11.6px"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":72}},"className":"full-width","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"top","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull full-width" style="border-radius:0px;min-height:72px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:11.6px;padding-bottom:0px;padding-left:11.6px"><!-- wp:group {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"layout":{"contentSize":"512.8800048828125px","type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px"><!-- wp:paragraph {"align":"center","style":{"color":{"text":"rgba(49,48,48,0.9)"},"typography":{"fontSize":"14px","fontWeight":"400","lineHeight":"1.7"},"spacing":{"margin":{"top":"0px","bottom":"0px","right":"0px","left":"0px"}}},"className":"full-width","fontFamily":"paragraph"} -->
+<p class="has-text-align-center full-width has-text-color has-paragraph-font-family" style="color:rgba(49,48,48,0.9);margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:14px;font-weight:400;line-height:1.7">Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus<br>dolores iure perferendis.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"100%"} -->
+<div class="wp-block-column" style="flex-basis:100%"><!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"0","left":"0"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+<div class="wp-block-group" style="padding-right:0;padding-left:0"><!-- wp:group {"metadata":{"name":"Service Item"},"style":{"spacing":{"padding":{"right":"0","left":"0"},"margin":{"bottom":"12px"}}},"className":"service-item position-relative","layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap","justifyContent":"center","verticalAlignment":"bottom"}} -->
+<div class="wp-block-group service-item position-relative" style="margin-bottom:12px;padding-right:0;padding-left:0"><!-- wp:image {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"className":"blob-image img"} -->
+<figure class="wp-block-image blob-image img" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px"><img src="@asset('images/services-3.jpg')"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:group {"metadata":{"name":"Details"},"align":"full","style":{"color":{"background":"rgba(255,255,255,0.95)"},"border":{"radius":"8px"},"spacing":{"blockGap":"15px","padding":{"top":"var:preset|spacing|30","right":"30px","bottom":"30px","left":"30px"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":184}},"className":"details","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"bottom","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull details has-background" style="border-radius:8px;background-color:rgba(255,255,255,0.95);min-height:184px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:var(--wp--preset--spacing--30);padding-right:30px;padding-bottom:30px;padding-left:30px"><!-- wp:group {"align":"full","style":{"border":{"radius":"0px"},"spacing":{"blockGap":"0px","padding":{"top":"0px","right":"var:preset|spacing|50","bottom":"0px","left":"var:preset|spacing|50"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":27}},"className":"full-width","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"top","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull full-width" style="border-radius:0px;min-height:27px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:var(--wp--preset--spacing--50);padding-bottom:0px;padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"layout":{"contentSize":"152.58999633789062px","type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px"><!-- wp:heading {"textAlign":"center","style":{"color":{"text":"rgba(71,61,58,1)"},"typography":{"fontSize":"22px","fontWeight":"700","lineHeight":"1.2"},"spacing":{"margin":{"top":"0px","bottom":"0px","right":"0px","left":"0px"}}},"className":"wp-block-heading full-width text-nowrap has-raleway-font-family","fontFamily":"headline"} -->
+<h2 class="wp-block-heading has-text-align-center full-width text-nowrap has-raleway-font-family has-text-color has-headline-font-family" style="color:rgba(71,61,58,1);margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:22px;font-weight:700;line-height:1.2">Nesciunt Mete</h2>
+<!-- /wp:heading --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","style":{"border":{"radius":"0px"},"spacing":{"blockGap":"0px","padding":{"top":"0px","right":"11.6px","bottom":"0px","left":"11.6px"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":72}},"className":"full-width","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"top","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull full-width" style="border-radius:0px;min-height:72px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:11.6px;padding-bottom:0px;padding-left:11.6px"><!-- wp:group {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"layout":{"contentSize":"512.8800048828125px","type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px"><!-- wp:paragraph {"align":"center","style":{"color":{"text":"rgba(49,48,48,0.9)"},"typography":{"fontSize":"14px","fontWeight":"400","lineHeight":"1.7"},"spacing":{"margin":{"top":"0px","bottom":"0px","right":"0px","left":"0px"}}},"className":"full-width","fontFamily":"paragraph"} -->
+<p class="has-text-align-center full-width has-text-color has-paragraph-font-family" style="color:rgba(49,48,48,0.9);margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:14px;font-weight:400;line-height:1.7">Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus<br>dolores iure perferendis.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"Service Item"},"style":{"spacing":{"padding":{"right":"0","left":"0"}}},"className":"service-item position-relative","layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap","justifyContent":"center","verticalAlignment":"bottom"}} -->
+<div class="wp-block-group service-item position-relative" style="padding-right:0;padding-left:0"><!-- wp:image {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"className":"blob-image img"} -->
+<figure class="wp-block-image blob-image img" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px"><img src="@asset('images/services-4.jpg')"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:group {"metadata":{"name":"Details"},"align":"full","style":{"color":{"background":"rgba(255,255,255,0.95)"},"border":{"radius":"8px"},"spacing":{"blockGap":"15px","padding":{"top":"var:preset|spacing|30","right":"30px","bottom":"30px","left":"30px"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":184}},"className":"details","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"bottom","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull details has-background" style="border-radius:8px;background-color:rgba(255,255,255,0.95);min-height:184px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:var(--wp--preset--spacing--30);padding-right:30px;padding-bottom:30px;padding-left:30px"><!-- wp:group {"align":"full","style":{"border":{"radius":"0px"},"spacing":{"blockGap":"0px","padding":{"top":"0px","right":"var:preset|spacing|50","bottom":"0px","left":"var:preset|spacing|50"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":27}},"className":"full-width","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"top","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull full-width" style="border-radius:0px;min-height:27px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:var(--wp--preset--spacing--50);padding-bottom:0px;padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"layout":{"contentSize":"152.58999633789062px","type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px"><!-- wp:heading {"textAlign":"center","style":{"color":{"text":"rgba(71,61,58,1)"},"typography":{"fontSize":"22px","fontWeight":"700","lineHeight":"1.2"},"spacing":{"margin":{"top":"0px","bottom":"0px","right":"0px","left":"0px"}}},"className":"wp-block-heading full-width text-nowrap has-raleway-font-family","fontFamily":"headline"} -->
+<h2 class="wp-block-heading has-text-align-center full-width text-nowrap has-raleway-font-family has-text-color has-headline-font-family" style="color:rgba(71,61,58,1);margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:22px;font-weight:700;line-height:1.2">Nesciunt Mete</h2>
+<!-- /wp:heading --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","style":{"border":{"radius":"0px"},"spacing":{"blockGap":"0px","padding":{"top":"0px","right":"11.6px","bottom":"0px","left":"11.6px"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":72}},"className":"full-width","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"top","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull full-width" style="border-radius:0px;min-height:72px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:11.6px;padding-bottom:0px;padding-left:11.6px"><!-- wp:group {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"layout":{"contentSize":"512.8800048828125px","type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px"><!-- wp:paragraph {"align":"center","style":{"color":{"text":"rgba(49,48,48,0.9)"},"typography":{"fontSize":"14px","fontWeight":"400","lineHeight":"1.7"},"spacing":{"margin":{"top":"0px","bottom":"0px","right":"0px","left":"0px"}}},"className":"full-width","fontFamily":"paragraph"} -->
+<p class="has-text-align-center full-width has-text-color has-paragraph-font-family" style="color:rgba(49,48,48,0.9);margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:14px;font-weight:400;line-height:1.7">Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus<br>dolores iure perferendis.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></section>
+<!-- /wp:group -->

@@ -80,7 +80,6 @@ export default function Edit(props) {
 	}
 
 	const setImage = function(imageId, i) {
-		console.log("Set Images")
 		if(imageId === null) {
 			setAttributes({
 				images: [...images, imageId],
@@ -146,7 +145,6 @@ export default function Edit(props) {
 						/>
 						</PanelRow>						
 						{images.map((id, i) => {
-							console.log("Attributes: ",attributes)
 							return (
 								<React.Fragment key={i + "Images"}>
 									<PanelRow>
@@ -172,47 +170,49 @@ export default function Edit(props) {
 				</Panel>
 			</InspectorControls>
 			<div className="container" data-aos="fade-up" data-aos-delay="100">
-				{images.length > 0 && <Swiper
-					wrapperClass='align-items-center'
-					spaceBetween={50}
-					loop={true}
-					speed={600}
-					autoplay={{
-						delay:600
-					}}
-					slidesPerView={"auto"}
-					pagination={{
-						type:'bullets',
-						clickable: true,
-						el: "swiper-pagination"
-					}}
-					breakpoints={{
-						320: {
-							slidesPerView: 2,
-							spaceBetween: 40
-						},
-						480: {
-							slidesPerView: 3,
-							spaceBetween: 60
-						},
-						640: {
-							slidesPerView: 4,
-							spaceBetween: 80
-						},
-						992: {
-							slidesPerView:6,
-							spaceBetween: 120
-						}
-					}}
-					>
-						{images.map((image, i) => {
-							return (
-								<SwiperSlide className={'swiper-slide'} key={i + "Swiper"}>
-									<AttachmentImage imageId={image} size='logo-client' key={i + 'image'} />
-								</SwiperSlide>
-							)
-						})}
-				</Swiper>}
+				{
+					images.length > 0 && <Swiper
+						wrapperClass='align-items-center'
+						spaceBetween={50}
+						loop={true}
+						speed={600}
+						autoplay={{
+							delay:600
+						}}
+						slidesPerView={"auto"}
+						pagination={{
+							type:'bullets',
+							clickable: true,
+							el: "swiper-pagination"
+						}}
+						breakpoints={{
+							320: {
+								slidesPerView: 2,
+								spaceBetween: 40
+							},
+							480: {
+								slidesPerView: 3,
+								spaceBetween: 60
+							},
+							640: {
+								slidesPerView: 4,
+								spaceBetween: 80
+							},
+							992: {
+								slidesPerView:6,
+								spaceBetween: 120
+							}
+						}}
+						>
+							{images.map((image, i) => {
+								return (
+									<SwiperSlide className={'swiper-slide'} key={i + "Swiper"}>
+										<AttachmentImage imageId={image} size='logo-client' key={i + 'image'} />
+									</SwiperSlide>
+								)
+							})}
+					</Swiper>
+				}
 			</div>
 		</section>
 	);

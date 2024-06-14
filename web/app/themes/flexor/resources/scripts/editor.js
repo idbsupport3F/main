@@ -20,6 +20,7 @@ import { InnerBlocks } from '@wordpress/block-editor'
 
 /** components */
 import images from './blocks/images'
+import icons from './blocks/customIcon'
 
 registerBlockType(`sage/swiperlogo`, {
     title: __(`Swiper Logo`, `sage`),
@@ -34,4 +35,15 @@ registerBlockType(`sage/swiperlogo`, {
         lock:false
 	},
     edit: images
+})
+
+registerBlockType('sage/customicons', {
+    title: __('Custom Icon', 'sage'),
+    category: 'flexor',
+    icon: 'heart',
+    apiVersion: 3,
+    supports: {
+        lock:false
+    },
+    edit: icons
 })
