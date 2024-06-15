@@ -3,13 +3,30 @@ import 'bootstrap';
 import domReady from '@roots/sage/client/dom-ready';
 import GLightbox from 'glightbox';
 import Swiper from 'swiper';
+// import Swiper core and required modules
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import imagesLoaded from 'imagesloaded';
-import 'swiper/scss';
-import 'swiper/scss/navigation';
-import 'swiper/scss/pagination';
-import 'swiper/scss/scrollbar';
+import 'swiper/css/bundle';
+
+function ismatch(str) {
+  var ret = null;
+  var tab = ['data-aos_', 'data-aos-delay_', 'data-aos-duration_', 'data-aos-easing_'];
+  Object.values(tab).forEach(function (value) {
+    if (String(str).match(value)) {
+      ret = str.split('_');
+      return false;
+    }
+  });
+  return ret;
+}
+
+// forEach method, could be shipped as part of an Object Literal/Module
+var forEachElement = function (array, callback, scope) {
+  for (var i = 0; i < array.length; i++) {
+    callback.call(scope, i, array[i]); // passes back stuff we need
+  }
+};
 
 /**
  * Application entrypoint
@@ -101,15 +118,16 @@ domReady(async () => {
   /**
    * Animation on scroll function and init
    */
-  function aosInit() {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
+  document.querySelectorAll('.animate-aos').forEach((val, i) => {
+    var $this = val;
+    var tab = $this.getAttribute('class').split(' ')
+    var keep;
+    Object.values(tab).forEach(function (item) {
+      var ello = ismatch(item)
+      if (ello !== null)
+        $this.setAttribute(ello[0], ello[1]);
     });
-  }
-  aosInit();
+  })
 
   /**
    * Initiate glightbox
@@ -124,43 +142,10 @@ domReady(async () => {
   function initSwiper() {
     document.querySelectorAll('.swiper').forEach(function (swiper) {
       let config = JSON.parse(swiper.querySelector('.swiper-config').innerHTML.trim());
+      config['modules'] = [Navigation, Pagination, Autoplay]
       new Swiper(swiper, config);
     });
   }
-  initSwiper();
-
-  /**
-   * Init isotope layout and filters
-   */
-  document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function () {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
-      });
-    });
-
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function (filters) {
-      filters.addEventListener('click', function () {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
-      }, false);
-    });
-
-  });
 
   /**
    * Frequently Asked Questions Toggle
@@ -208,6 +193,23 @@ domReady(async () => {
   }
   navmenuScrollspy()
   document.addEventListener('scroll', navmenuScrollspy);
+
+  /**
+   * Initialize Swiper
+   */
+  initSwiper();
+
+  /**
+   * DO NOT REMOVE BELOW CODE. IT MUST HAPPEN AT LAST LINE OF DOM READY EXECUTION!
+   * Must Execute AOS at the final stage for this to happen due to onload, we are trying to adjust css into data-attribute such as `data-aos="fade-out"`.
+   */
+  AOS.init({
+    duration: 600,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  });
+
 });
 
 /**

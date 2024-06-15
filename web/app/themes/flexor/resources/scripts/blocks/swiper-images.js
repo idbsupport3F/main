@@ -35,12 +35,10 @@ import { useState, useEffect } from '@wordpress/element';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 // Import Swiper styles
-import 'swiper/scss';
-import 'swiper/scss/navigation';
-import 'swiper/scss/pagination';
-import 'swiper/scss/scrollbar';
+import 'swiper/css/bundle';
 
 // Get custom AttachmentImage component to display
 import AttachmentImage from './getImage';
@@ -172,6 +170,7 @@ export default function Edit(props) {
 			<div className="container" data-aos="fade-up" data-aos-delay="100">
 				{
 					images.length > 0 && <Swiper
+						modules={[Pagination, Autoplay, Navigation]}
 						wrapperClass='align-items-center'
 						spaceBetween={50}
 						loop={true}

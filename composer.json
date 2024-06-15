@@ -79,6 +79,9 @@
     "wordpress-install-dir": "web/wp"
   },
   "scripts": {
+    "post-install-cmd":[
+      "@php -r \"chdir('web/app/themes/flexor') && passthru('composer install && yarn') && exit(0) || exit(1);\""
+    ],
     "post-root-package-install": [
       "php -r \"copy('.env.example', '.env');\"",
       "composer run remove-old-wp-themes"
@@ -97,6 +100,15 @@
       "rm -rf web/wp/wp-content/themes/twentyseventeen",
       "rm -rf web/wp/wp-content/themes/twentynineteen",
       "rm -rf web/wp/wp-content/themes/twentytwenty"
+    ],
+    "build-theme":[
+      "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn build --clean') && exit(0) || exit(1);\""
+    ],
+    "dev-theme":[
+      "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn dev') && exit(0) || exit(1);\""
+    ],
+    "vendor:publish":[
+      "@php -r \"chdir('web/app/themes/flexor') && passthru('wp acorn vendor:publish') && exit(0) || exit(1);\""
     ],
     "test": [
       "phpcs"
