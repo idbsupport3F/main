@@ -49,7 +49,7 @@ Bedrock is a WordPress boilerplate for developers that want to manage their proj
 - Autoloader for mu-plugins (use regular plugins as mu-plugins)
 - Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
 
-# Package Installed
+## Package Installed
 1. Main
     ```
     "php": ">=8.0",
@@ -86,43 +86,27 @@ git clone https://github.com/ammein/idbkl
 
 2. Make sure you have composer [install here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
 
-3. Then, you need to create new `.env` file to store all the server/database info here. Then copy all the codes from `.env.example` to your new created `.env` file and adjust your server/database data in it. For more info, you can refer (Bedrock documentation here)[https://roots.io/bedrock/docs/installation/#getting-started].
-> P/s: Don't push this to repo! I already did `.gitignore` for this specific file as it holds secret of your data in production server!
+3. Then, you need to create new `.env` file to store all the server/database info here. Then copy all the codes from `.env.example` to your new created `.env` file and adjust your server/database data in it. For more info, you can refer [Bedrock documentation here](https://roots.io/bedrock/docs/installation/#getting-started).
+> P/s: Make sure in your own public/private repo, this `.env` file won't be able to view by any parties. It should be hold secretly in server using superadmin access.
 
 4. In the current idbkl directory, run composer like this:
     ```bash
     composer install
     ```
-
-5. Locate flexor template to run composer again
-    ```bash
-    # In ibkl root directory
-    cd web/app/themes/flexor
-    ```
-
-6. Install using composer
-    ```bash
-    composer install
-    ```
-
-7. Run Yarn to install js dependencies
-    ```bash
-    yarn
-    ```
     <details>
-      <summary>How to install yarn</summary>
+      <summary>Don't have command for <code>yarn</code>?</summary>
       Visit this <a href='https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable'>yarn installation link</a> to install yarn cli in your system
     </details>
 
-8. Update `bud.config.js` with your local dev URL in `web/app/themes/flexor/bud.config.js`
+5. Update `bud.config.js` with your local dev URL in `web/app/themes/flexor/bud.config.js`
 
-9. To Compile assets, read below details:
+6. To Compile assets, run this command in your root folder `idbkl`:
     ```bash
     # Build Asset
-    yarn build
+    composer run-script build-theme
 
     # Build Asset as development (Hot Reload)
-    yarn dev
+    composer run-script dev-theme
     ```
 
 ## Development Tips
@@ -131,9 +115,7 @@ git clone https://github.com/ammein/idbkl
 
 1. Make sure you have `poet.php` config file in `web/app/themes/your-theme/config/poet.php`. If not, run this command in your console:
     ```bash
-    wp acorn vendor:publish --provider="Log1x\Poet\PoetServiceProvider"
-    # or
-    wp acorn vendor:publish
+    composer run-script vendor:publish
     # ^^^ Then choose "Log1x Poet PoetServiceProvider"
     ```
 
@@ -152,9 +134,9 @@ git clone https://github.com/ammein/idbkl
     ],
     // ...
     ```
-> Blocks are registered using the namespace/label defined when (registering the block with the editor)[https://developer.wordpress.org/block-editor/developers/block-api/block-registration/#registerblocktype]. 
+> Blocks are registered using the `namespace/label` defined when [registering the block with the editor](https://developer.wordpress.org/block-editor/developers/block-api/block-registration/#registerblocktype). 
 
-> If no namespace is provided, the current theme's (text domain)[https://developer.wordpress.org/themes/functionality/internationalization/#loading-text-domain] will be used instead.
+> If no namespace is provided, the current theme's [text domain](https://developer.wordpress.org/themes/functionality/internationalization/#loading-text-domain) will be used instead.
 
 3. Create blocks file inside your theme folder in `resources/views/blocks/accordion.blade.php`.
 
@@ -244,22 +226,64 @@ git clone https://github.com/ammein/idbkl
       Just visit this <a href="https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/">page</a>. You also can learn attributes fetching from <a href="https://developer.wordpress.org/block-editor/reference-guides/block-api/block-attributes/#query-source">here</a>.
     </details>
 
-7. When you finished, published the package and build the file.
+7. When you finished, published the package and build the file from root folder.
     ```bash
-    # Run Acorn Publish the vendor
-    wp acorn vendor:publish --provider="Log1x\Poet\PoetServiceProvider"
-    # or
-    wp acorn vendor:publish
+    composer run-script vendor:publish
     # ^^^ Then choose "Log1x Poet PoetServiceProvider"
 
     #-----------------------------------------------
 
     # Finally Run Yarn
-    yarn build
+    composer run-script build-theme
     #or
-    yarn dev
+    composer run-script build-dev
     ```
 
+## Gutenberg Editor Tips
+### AOS Animation
+You can animate your container, text or even anything by just using class names! We use this [AOS plugin](https://michalsnik.github.io/aos/) for you to refer to.
+
+<details>
+  <summary>How to navigate to CSS Classes in Gutenberg?</summary>
+  In Gutenberg Editor, you'll see this view on your end.
+  
+  ![Gutenberg](./web/app/themes/flexor/resources/images/readme-images/gutenberg.png)
+
+  Add **Pattern** by simply clicking the `+` icon on top left corner.
+  ![Add Button](./web/app/themes/flexor/resources/images/readme-images/add-pattern.png)
+
+  Say that you finished add a new pattern for your front end, you have to open layer panel on top left corner area that has an icon for `list` to view the layers.
+  ![Layer Button](./web/app/themes/flexor/resources/images/readme-images/layer-panel.png)
+
+  Once you selected your desire layer item to animate, click an icon named `Settings` to view layer properties.
+  ![Layer Button](./web/app/themes/flexor/resources/images/readme-images/layer-properties.png)
+
+  Then click `Advanced` dropdown button to adjust `Additional CSS Class(es)`
+  ![Advanced](./web/app/themes/flexor/resources/images/readme-images/advanced.png)
+
+  You'll see this field for you to add your additional css classes
+  ![CSS Classes](./web/app/themes/flexor/resources/images/readme-images/css-classes.png)
+</details>
+
+Now to animate using AOS animation? You have to add class names for this AOS animation to work. Here is an example:
+```
+animate-aos data-aos_fade-up data-aos-delay_100
+```
+This will translates your layer in html to be like this as an example:
+```html
+<div class="aos-animate" data-aos="fade-up" data-aos-delay="100">...</div>
+```
+> NOTE: We have to provide your functionality to be like this without you even need to adjust html attribute yourself. Also, Gutenberg Editor won't allow to add custom `data-` attributes which is quite a bummer for customization feature.
+
+To conclude, this is an explanation on why this css classes name work:
+
+`animate-aos` => **A selection class name to trigger AOS feature to work.**
+
+`data-aos_fade-up` => **Translates from `data-aos="fade-up"`**
+
+`data-aos-delay_100` => **Translates from `data-aos-delay="100"`**
+
+> You'll see how using `_` (underscore) formatting is actually a replacement for `=` in `data-aos="fade-up"`
 
 ## Stay Connected
 

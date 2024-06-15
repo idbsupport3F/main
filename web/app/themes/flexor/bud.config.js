@@ -145,7 +145,7 @@ export default async (app) => {
    * @see {@link https://bud.js.org/reference/bud.watch}
    */
   app
-    .setUrl('http://ibdkl.local')
+    .setUrl('http://idbkl.local')
     .setProxyUrl('http://example.test')
     .watch(['resources/views', 'app']);
 
@@ -216,7 +216,50 @@ export default async (app) => {
             "fontFamily": "'Roboto',  system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
           },
         ]
-
+      },
+      styles: {
+        // https://fullsiteediting.com/lessons/theme-json-typography-options/
+        elements: {
+          h1: {
+            typography: {
+              "fontFamily": "var(--wp--preset--font-family--headline)"
+            }
+          },
+          h2: {
+            typography: {
+              "fontFamily": "var(--wp--preset--font-family--headline)"
+            }
+          },
+          h3: {
+            typography: {
+              "fontFamily": "var(--wp--preset--font-family--headline)"
+            }
+          },
+          h4: {
+            typography: {
+              "fontFamily": "var(--wp--preset--font-family--headline)"
+            }
+          },
+          h5: {
+            typography: {
+              "fontFamily": "var(--wp--preset--font-family--headline)"
+            }
+          },
+          h6: {
+            typography: {
+              "fontFamily": "var(--wp--preset--font-family--headline)"
+            }
+          },
+          p: {
+            typography: {
+              "fontFamily": "var(--wp--preset--font-family--paragraph)"
+            }
+          },
+        }
+      },
+      layout: {
+        contentSize: "1320px",
+        wideSize: "1320px"
       }
     })
     // For Bootstrap config

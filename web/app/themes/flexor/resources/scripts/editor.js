@@ -19,7 +19,7 @@ import { registerBlockType } from '@wordpress/blocks'
 import { InnerBlocks } from '@wordpress/block-editor'
 
 /** components */
-import images from './blocks/images'
+import images from './blocks/swiper-images'
 import icons from './blocks/customIcon'
 
 registerBlockType(`sage/swiperlogo`, {
