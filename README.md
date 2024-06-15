@@ -79,28 +79,33 @@ Bedrock is a WordPress boilerplate for developers that want to manage their proj
 
 ## Getting Started
 
-1. Make sure you have composer [install here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
+1. Clone this github using this command:
+```bash
+git clone https://github.com/ammein/idbkl
+```
 
-2. Then, you need to create new `.env` file to store all the server/database info here. Then copy all the codes from `.env.example` to your new created `.env` file and adjust your server/database data in it. For more info, you can refer (Bedrock documentation here)[https://roots.io/bedrock/docs/installation/#getting-started].
+2. Make sure you have composer [install here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
+
+3. Then, you need to create new `.env` file to store all the server/database info here. Then copy all the codes from `.env.example` to your new created `.env` file and adjust your server/database data in it. For more info, you can refer (Bedrock documentation here)[https://roots.io/bedrock/docs/installation/#getting-started].
 > P/s: Don't push this to repo! I already did `.gitignore` for this specific file as it holds secret of your data in production server!
 
-3. In the current idbkl directory, run composer like this:
+4. In the current idbkl directory, run composer like this:
     ```bash
     composer install
     ```
 
-4. Locate flexor template to run composer again
+5. Locate flexor template to run composer again
     ```bash
     # In ibkl root directory
     cd web/app/themes/flexor
     ```
 
-5. Install using composer
+6. Install using composer
     ```bash
     composer install
     ```
 
-6. Run Yarn to install js dependencies
+7. Run Yarn to install js dependencies
     ```bash
     yarn
     ```
@@ -109,9 +114,9 @@ Bedrock is a WordPress boilerplate for developers that want to manage their proj
       Visit this <a href='https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable'>yarn installation link</a> to install yarn cli in your system
     </details>
 
-7. Update `bud.config.js` with your local dev URL in `web/app/themes/flexor/bud.config.js`
+8. Update `bud.config.js` with your local dev URL in `web/app/themes/flexor/bud.config.js`
 
-8. To Compile assets, read below details:
+9. To Compile assets, read below details:
     ```bash
     # Build Asset
     yarn build
