@@ -20,18 +20,19 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, BlockControls, InspectorControls } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 
-import { Image, MediaToolbar } from '@10up/block-components';
+import { Image } from '@10up/block-components';
 
 /**
  * Wordpress Block's Component
  * 
  * @see https://developer.wordpress.org/block-editor/reference-guides/components
  */
-import { __experimentalNumberControl as NumberControl, PanelBody, PanelHeader, PanelRow, Panel, Button } from '@wordpress/components';
+import { __experimentalNumberControl as NumberControl, PanelBody, PanelRow, Panel, Button, Placeholder } from '@wordpress/components';
 
-import { useState, useEffect } from '@wordpress/element';
+import { useState } from '@wordpress/element';
+import { image as iconImage } from '@wordpress/icons';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -58,15 +59,6 @@ export default function Edit(props) {
 	const { totalImage, images, imagesAlt } = attributes;
 
 	const [ tempImages, setTempImages ] = useState([]);
-
-	// useEffect(()=>{
-	// 	images.forEach((val, index) => {
-	// 		setImage({
-	// 			id: val.id,
-	// 			alt: 
-	// 		})
-	// 	})
-	// }, [images])
 
 	const setTotalImageNumber = function(val){
 		if(images.length > val){
@@ -138,14 +130,17 @@ export default function Edit(props) {
 							isShiftStepEnabled={ true }
 							onChange={ setTotalImageNumber }
 							shiftStep={ 2 }
+							spinControls='custom'
 							min={0}
 							value={ totalImage }
+							help={__('Use "+" & "-" button to increase/decrease client\'s testimonial(s)', 'sage')}
 						/>
 						</PanelRow>						
 						{images.map((id, i) => {
 							return (
 								<React.Fragment key={i + "Images"}>
 									<PanelRow>
+										<Placeholder label={__('Select Logo Image ' + (i + 1), 'sage')} icon={iconImage}>
 										<Image 
 										labels={{
 											title: __('Select Logo Image ' + (i + 1), 'sage'),
@@ -157,9 +152,8 @@ export default function Edit(props) {
 										canEditImage={true}
 										onSelect={(image) => setImage(image, i)}
 									/>
-									</PanelRow>
-									<PanelRow>
-										<Button variant='link' isDestructive onClick={(e) => removeImage(id, i)}>{__('Remove Logo Image ' + (i + 1), 'sage')}</Button>
+									{id && <Button variant='link' isDestructive onClick={(e) => removeImage(id, i)}>{__('Remove Logo Image ' + (i + 1), 'sage')}</Button>}
+									</Placeholder>
 									</PanelRow>
 								</React.Fragment>
 							)

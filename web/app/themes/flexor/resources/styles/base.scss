@@ -1076,18 +1076,9 @@ section,
 --------------------------------------------------------------*/
 .testimonials {
     --default-color: #ffffff;
-    --background-color: var(--alt-background-color);
     --heading-color: #ffffff;
     padding: 80px 0;
     position: relative;
-}
-
-.testimonials:before {
-    content: "";
-    background: color-mix(in srgb, var(--background-color), transparent 30%);
-    position: absolute;
-    inset: 0;
-    z-index: 2;
 }
 
 .testimonials .testimonials-bg {

@@ -1,6 +1,5 @@
 <?php
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Post Types
@@ -69,18 +68,34 @@ return [
             'attributes' => [
                 'images' => [
                     'type' => 'array',
-                    'default' => []
+                    'default' => [],
                 ],
                 'imagesAlt' => [
                     'type' => 'array',
-                    'default' => []
+                    'default' => [],
                 ],
                 'totalImage' => [
                     'type' => 'number',
-                    'default' => 0
+                    'default' => 0,
+                ],
+            ],
+        ],
+        'sage/testimonials' => [
+            'attributes' => [
+                'clients' => [
+                    'type' => 'array',
+                    'default' => []
+                ],
+                'classNames' => [
+                    'type' => 'string',
+                    'default' => ''
+                ],
+                'styles' => [
+                    'type' => 'object',
+                    'default' => (object)[]
                 ]
-            ]
-        ]
+            ],
+        ],
     ],
 
     /*
@@ -128,26 +143,32 @@ return [
             'title' => 'Banner',
             'description' => 'Home Page Banner',
             'categories' => ['home'],
-            'keywords' => array('banner', 'home', 'images')
+            'keywords' => ['banner', 'home', 'images'],
         ],
         'sage/about' => [
             'title' => 'About Us',
             'description' => 'Home Page About Us',
             'categories' => ['home', 'all'],
-            'keywords' => array('about', 'two columns', 'image', 'text')
+            'keywords' => ['about', 'two columns', 'image', 'text'],
         ],
         'sage/services' => [
             'title' => 'Services',
             'description' => 'Home Page Services',
             'categories' => ['services', 'all'],
-            'keywords' => array('icons', 'services')
+            'keywords' => ['icons', 'services'],
         ],
         'sage/altservices' => [
             'title' => 'Alternate Services',
             'description' => 'Features/Services',
             'categories' => ['services', 'all'],
-            'keywords' => array('alt', 'services', '')
-        ]
+            'keywords' => ['alt', 'services'],
+        ],
+        'sage/testimonials' => [
+            'title' => 'Testimonials',
+            'description' => 'Testimonials',
+            'categories' => ['testimonials', 'all'],
+            'keywords' => ['testimonial', 'clients'],
+        ],
     ],
 
     /*
@@ -210,5 +231,4 @@ return [
     'admin_menu' => [
         // 'gutenberg',
     ],
-
 ];

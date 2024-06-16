@@ -105,6 +105,7 @@
       "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn build --clean') && exit(0) || exit(1);\""
     ],
     "dev-theme":[
+      "Composer\\Config::disableProcessTimeout",
       "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn dev') && exit(0) || exit(1);\""
     ],
     "vendor:publish":[

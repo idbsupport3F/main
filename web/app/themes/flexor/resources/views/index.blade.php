@@ -11,8 +11,6 @@
     {!! get_search_form(false) !!}
   @endif --}}
 
-  @include('partials.swiper-logo.blade.php', ['images' => array('url' => 'https://lorempixel.com/50/50/', 'alt' => 'small image')])
-
   {{-- @while(have_posts()) @php(the_post())
     @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
   @endwhile
