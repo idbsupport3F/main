@@ -68,6 +68,13 @@ add_action('after_setup_theme', function () {
     add_image_size( 'logo-client', 116 ); // 300 pixels wide (and unlimited height)
 
     /**
+     * Add Testimonial Image Size
+     * 
+     * @link https://developer.wordpress.org/reference/functions/add_image_size/
+     */
+    add_image_size('testimonial', 100, 100);
+
+    /**
      * Disable the default block patterns.
      *
      * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#disabling-the-default-block-patterns

@@ -1,0 +1,5 @@
+<!-- wp:cover {"url":"@asset('images/testimonials-bg.jpg')","dimRatio":0,"minHeight":487,"contentPosition":"center center","tagName":"section","metadata":{"name":"Testimonials"},"align":"full","className":"blob-image testimonials section"} -->
+<section class="wp-block-cover alignfull blob-image testimonials section" style="min-height:487px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background" alt="" src="@asset('images/testimonials-bg.jpg')" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group"><!-- wp:sage/testimonials {"clients":[{"image":null,"alt":"","name":"Saul Goodman","star":2,"description":"Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.","role":"CEO \u0026 Founder"}]} /--></div>
+<!-- /wp:group --></div></section>
+<!-- /wp:cover -->

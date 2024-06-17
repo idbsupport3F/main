@@ -21,6 +21,7 @@ import { InnerBlocks } from '@wordpress/block-editor'
 /** components */
 import images from './blocks/swiper-images'
 import icons from './blocks/customIcon'
+import testimonials from './blocks/testimonials'
 
 registerBlockType(`sage/swiperlogo`, {
     title: __(`Swiper Logo`, `sage`),
@@ -46,4 +47,15 @@ registerBlockType('sage/customicons', {
         lock:false
     },
     edit: icons
+})
+
+registerBlockType('sage/testimonials', {
+    title: __('Testimonials', 'sage'),
+    category: 'flexor',
+    icon: 'format-quote',
+    apiVersion: 3,
+    supports: {
+        lock: false
+    },
+    edit: testimonials
 })
