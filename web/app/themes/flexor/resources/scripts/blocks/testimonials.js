@@ -37,6 +37,7 @@ import { color, image } from '@wordpress/icons';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { useSelect } from '@wordpress/data';
 
 // Import Swiper styles
 import 'swiper/css/bundle';
@@ -59,6 +60,8 @@ export default function Edit(props) {
     const { clients, classNames, styles } = attributes;
 
     const [ total, setTotal ] = useState(clients.length);
+
+    const colorPalette = useSelect('core/block-editor').getSettings().colors;
 
     const setTotalClient = useCallback((val) => {
         setTotal(val)
@@ -260,6 +263,7 @@ export default function Edit(props) {
                 <PanelRow>
                     <Placeholder label={__('Name Color', 'sage')} icon={color}>
                         <ColorPalette
+                            colors={colorPalette}
                             enableAlpha={true}
                             value={styles?.nameColor}
                             onChange={(val) => setStyles({
@@ -271,6 +275,7 @@ export default function Edit(props) {
                 <PanelRow>
                     <Placeholder label={__('Role Color', 'sage')} icon={color}>
                         <ColorPalette
+                            colors={colorPalette}
                             enableAlpha={true}
                             value={styles?.roleColor}
                             onChange={(val) => setStyles({
@@ -282,6 +287,7 @@ export default function Edit(props) {
                 <PanelRow>
                     <Placeholder label={__('Star Color', 'sage')} icon={color}>
                         <ColorPalette
+                            colors={colorPalette}
                             enableAlpha={true}
                             value={styles?.starColor}
                             onChange={(val) => setStyles({
@@ -293,6 +299,7 @@ export default function Edit(props) {
                 <PanelRow>
                     <Placeholder label={__('Quote Color', 'sage')} icon={color}>
                         <ColorPalette
+                            colors={colorPalette}
                             enableAlpha={true}
                             value={styles?.quoteColor}
                             onChange={(val) => setStyles({
@@ -304,6 +311,7 @@ export default function Edit(props) {
                 <PanelRow>
                     <Placeholder label={__('Description Color', 'sage')} icon={color}>
                         <ColorPalette
+                            colors={colorPalette}
                             enableAlpha={true}
                             value={styles?.descriptionColor}
                             onChange={(val) => setStyles({

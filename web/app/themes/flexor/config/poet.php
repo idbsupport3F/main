@@ -169,6 +169,18 @@ return [
             'categories' => ['testimonials', 'all'],
             'keywords' => ['testimonial', 'clients'],
         ],
+        'sage/teams' => [
+            'title' => 'Teams',
+            'description' => 'Teams Section',
+            'categories' => ['about', 'all'],
+            'keywords' => ['about', 'teams']
+        ],
+        'sage/pricing' => [
+            'title' => 'Pricing',
+            'description' => 'Pricing Section',
+            'categories' => ['pricing', 'all'],
+            'keywords' => ['pricing', 'price', 'columns']
+        ]
     ],
 
     /*
@@ -191,6 +203,12 @@ return [
         'blog' => [
             'label' => 'Blog',
         ],
+        'testimonials' => [
+            'label' => 'Testimonials'
+        ],
+        'pricing' => [
+            'label' => 'Pricing'
+        ]
     ],
 
     /*

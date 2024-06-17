@@ -9,7 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'swiper/css/bundle';
 
-function ismatch(str) {
+function ismatchAOS(str) {
   var ret = null;
   var tab = ['data-aos_', 'data-aos-delay_', 'data-aos-duration_', 'data-aos-easing_'];
   Object.values(tab).forEach(function (value) {
@@ -123,7 +123,7 @@ domReady(async () => {
     var tab = $this.getAttribute('class').split(' ')
     var keep;
     Object.values(tab).forEach(function (item) {
-      var ello = ismatch(item)
+      var ello = ismatchAOS(item)
       if (ello !== null)
         $this.setAttribute(ello[0], ello[1]);
     });
