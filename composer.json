@@ -79,6 +79,9 @@
     "wordpress-install-dir": "web/wp"
   },
   "scripts": {
+    "pre-install-cmd": [
+      "Composer\\Config::disableProcessTimeout"
+    ],
     "post-install-cmd":[
       "@php -r \"chdir('web/app/themes/flexor') && passthru('composer install && yarn') && exit(0) || exit(1);\""
     ],

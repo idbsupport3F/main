@@ -1,0 +1,10 @@
+{
+    "props": {
+        "inputDir": "node_modules/bootstrap-icons/icons",
+        "outputDir": "resources/scripts/helper",
+        "fileName": "bootstrap-icons",
+        "outputType": [
+            "js"
+        ]
+    }
+}

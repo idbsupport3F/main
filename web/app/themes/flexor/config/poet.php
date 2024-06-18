@@ -96,6 +96,30 @@ return [
                 ]
             ],
         ],
+        'sage/icon' => [
+            'attributes' => [
+                'icon' => [
+                    'type' => 'object',
+                    'default' => (object)[]
+                ],
+                'link' => [
+                    'type' => 'boolean',
+                    'default' => false
+                ],
+                'target' => [
+                    'type' => 'boolean',
+                    'default' => false
+                ],
+                'color' => [
+                    'type' => 'string',
+                    'default' => '#000'
+                ],
+                'size' => [
+                    'type' => 'string',
+                    'default' => '16px'
+                ]
+            ]
+        ]
     ],
 
     /*
@@ -148,37 +172,37 @@ return [
         'sage/about' => [
             'title' => 'About Us',
             'description' => 'Home Page About Us',
-            'categories' => ['home', 'all'],
+            'categories' => ['home'],
             'keywords' => ['about', 'two columns', 'image', 'text'],
         ],
         'sage/services' => [
             'title' => 'Services',
             'description' => 'Home Page Services',
-            'categories' => ['services', 'all'],
+            'categories' => ['services'],
             'keywords' => ['icons', 'services'],
         ],
         'sage/altservices' => [
             'title' => 'Alternate Services',
             'description' => 'Features/Services',
-            'categories' => ['services', 'all'],
+            'categories' => ['services'],
             'keywords' => ['alt', 'services'],
         ],
         'sage/testimonials' => [
             'title' => 'Testimonials',
             'description' => 'Testimonials',
-            'categories' => ['testimonials', 'all'],
+            'categories' => ['testimonials'],
             'keywords' => ['testimonial', 'clients'],
         ],
         'sage/teams' => [
             'title' => 'Teams',
             'description' => 'Teams Section',
-            'categories' => ['about', 'all'],
+            'categories' => ['about'],
             'keywords' => ['about', 'teams']
         ],
         'sage/pricing' => [
             'title' => 'Pricing',
             'description' => 'Pricing Section',
-            'categories' => ['pricing', 'all'],
+            'categories' => ['pricing'],
             'keywords' => ['pricing', 'price', 'columns']
         ]
     ],
@@ -194,9 +218,6 @@ return [
     */
 
     'block_pattern_category' => [
-        'all' => [
-            'label' => 'All Patterns',
-        ],
         'home' => [
             'label' => 'Home',
         ],
