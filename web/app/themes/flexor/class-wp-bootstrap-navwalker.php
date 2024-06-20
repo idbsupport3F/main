@@ -220,7 +220,7 @@ if (!class_exists('WP_Bootstrap_Navwalker')) :
                 $atts['href']          = '#';
                 $atts['data-toggle']   = 'dropdown';
                 $atts['aria-expanded'] = 'false';
-                $atts['class']         = 'dropdown-toggle nav-link';
+                $atts['class']         = 'dropdown-toggle toggle-dropdown nav-link';
                 $atts['id']            = 'menu-item-dropdown-' . $item->ID;
             } else {
                 if (true === $this->has_schema) {
@@ -318,8 +318,11 @@ if (!class_exists('WP_Bootstrap_Navwalker')) :
                 $item_output .= $this->linkmod_element_close($linkmod_type);
             } else {
                 // With no link mod type set this must be a standard <a> tag.
+                $item_output .= apply_filters('wp_nav_menu_before_a_tags', '',  $item, $atts, $args);
                 $item_output .= '</a>';
             }
+
+            $item_output .= apply_filters('wp_nav_menu_after_a_tags', '', $item, $atts, $args);
 
             $item_output .= isset($args->after) ? $args->after : '';
 

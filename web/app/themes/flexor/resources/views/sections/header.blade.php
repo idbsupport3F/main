@@ -27,14 +27,13 @@
         <h1 class="sitename">{!! $title !!}</h1>
         @endif
       </a>
-
       <nav id="navmenu" class="navmenu" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
       {{-- https://developer.wordpress.org/reference/functions/wp_nav_menu/ --}}
         {!! wp_nav_menu( array(
               'theme_location'  => 'primary_navigation',
               'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
               'container'       => false,
-              'menu_class'      => 'navbar-nav mr-auto',
+              'menu_class'      => 'mr-auto',
               'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
               'walker'          => new WP_Bootstrap_Navwalker()
           ) ) !!}

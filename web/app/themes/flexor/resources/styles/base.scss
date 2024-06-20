@@ -262,11 +262,13 @@
         color: var(--nav-dropdown-hover-color);
     }
 
-    .navmenu .active i,
-    .navmenu .active:focus i {
+    .navmenu .active i{
         background-color: var(--accent-color);
         color: var(--contrast-color);
-        transform: rotate(180deg);
+
+        &:focus{
+            transform: rotate(180deg);
+        }
     }
 
     .navmenu .dropdown ul {
