@@ -1,5 +1,23 @@
 <?php
 require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/menu.php';
+
+/*
+|--------------------------------------------------------------------------
+| Register Bootstrap Class Navigation
+|--------------------------------------------------------------------------
+|
+| https://github.com/wp-bootstrap/wp-bootstrap-navwalker
+|
+*/
+if (!file_exists(get_template_directory() . '/class-wp-bootstrap-navwalker.php')) {
+    // File does not exist... return an error.
+    return new WP_Error('class-wp-bootstrap-navwalker-missing', __('It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker'));
+} else {
+    // File exists... require it.
+    require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+}
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader

@@ -8,6 +8,7 @@
         $wp_customize->add_setting('facebook', array('default' => ''));
         $wp_customize->add_setting('instagram', array('default' => ''));
         $wp_customize->add_setting('linkedin', array('default' => ''));
+        $wp_customize->add_setting('show_site_contacts', array('default' => ''));
 
         //Sections
         $wp_customize->add_section(
@@ -29,6 +30,20 @@
         );
 
         // Controls
+        // Show Site Contacts
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'show_site_contacts',
+                array(
+                    'label'     =>  __('Show Header Site Contacts?', 'sage'),
+                    'type'      =>  'checkbox',
+                    'section'   =>  'site_contact',
+                    'settings'  =>  'show_site_contacts'
+                )
+            )
+        );
+
         // Email Address
         $wp_customize->add_control(
             new WP_Customize_Control(

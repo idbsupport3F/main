@@ -115,6 +115,10 @@
       "Composer\\Config::disableProcessTimeout",
       "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn dev') && exit(0) || exit(1);\""
     ],
+    "debug-theme":[
+      "Composer\\Config::disableProcessTimeout",
+      "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn debug') && exit(0) || exit(1);\""
+    ],
     "vendor:publish":[
       "@php -r \"chdir('web/app/themes/flexor') && passthru('wp acorn vendor:publish') && exit(0) || exit(1);\""
     ],
