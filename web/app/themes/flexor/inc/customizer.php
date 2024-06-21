@@ -8,6 +8,7 @@
         $wp_customize->add_setting('facebook', array('default' => ''));
         $wp_customize->add_setting('instagram', array('default' => ''));
         $wp_customize->add_setting('linkedin', array('default' => ''));
+        $wp_customize->add_setting('show_site_contacts', array('default' => ''));
 
         //Sections
         $wp_customize->add_section(
@@ -29,6 +30,20 @@
         );
 
         // Controls
+        // Show Site Contacts
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'show_site_contacts',
+                array(
+                    'label'     =>  __('Show Header Site Contacts?', 'sage'),
+                    'type'      =>  'checkbox',
+                    'section'   =>  'site_contact',
+                    'settings'  =>  'show_site_contacts'
+                )
+            )
+        );
+
         // Email Address
         $wp_customize->add_control(
             new WP_Customize_Control(
@@ -127,5 +142,50 @@
         );
     }
 
+    /**
+     * Adjust Menu to control depth
+     */
+    add_action('customize_register', function ($wp_customize) {
+        $wp_customize->add_setting('menu_depth', array('default' => 3));
+        // Get Existing Panel named 'nav_menus'
+        $panel = $wp_customize->get_panel('nav_menus');
+        // Add Custom Panel
+        $wp_customize->add_panel('menu_depth_panel', array(
+            'priority' => 12,
+            'title' => 'Menu Depth',
+            'description' => 'You can set the depth of your header menu items in this template'
+        ));
+        // Add Custom Section
+        $wp_customize->add_section(
+            'menu_depth_section',
+            array(
+                'title' => __('Adjust Depth', 'sage'),
+                'description' => __('You may adjust the depth value of a page that appears in header.', 'sage'),
+                'panel' =>  $panel->id,
+            )
+        );
+        // Depth Number
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'menu_depth',
+                array(
+                    'label'         =>  __('Menu Depth:', 'sage'),
+                    'type'          =>  'number',
+                    'section'       =>  'menu_depth_section',
+                    'description'   =>  'How many levels of the hierarchy are to be included.',
+                    'input_attrs'   =>  [
+                        'value'         =>  1,
+                        'min'           => 0,
+                        'max'           => 10,
+                        'placeholder'   => 'Insert your desire depth hierarchy'
+                    ],
+                    'settings'      =>  'menu_depth'
+                )
+            )
+        );
+    }, 12);
+
+    //
     add_action('customize_register', 'site_contact');
 ?>

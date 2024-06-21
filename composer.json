@@ -104,12 +104,20 @@
       "rm -rf web/wp/wp-content/themes/twentynineteen",
       "rm -rf web/wp/wp-content/themes/twentytwenty"
     ],
+    "upgrade-theme": [
+      "Composer\\Config::disableProcessTimeout",
+      "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn upgrade') && exit(0) || exit(1);\""
+    ],
     "build-theme":[
       "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn build --clean') && exit(0) || exit(1);\""
     ],
     "dev-theme":[
       "Composer\\Config::disableProcessTimeout",
       "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn dev') && exit(0) || exit(1);\""
+    ],
+    "debug-theme":[
+      "Composer\\Config::disableProcessTimeout",
+      "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn debug') && exit(0) || exit(1);\""
     ],
     "vendor:publish":[
       "@php -r \"chdir('web/app/themes/flexor') && passthru('wp acorn vendor:publish') && exit(0) || exit(1);\""

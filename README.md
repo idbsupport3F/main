@@ -49,6 +49,27 @@ Bedrock is a WordPress boilerplate for developers that want to manage their proj
 - Autoloader for mu-plugins (use regular plugins as mu-plugins)
 - Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
 
+## Requirements
+- PHP >= 8.0
+- [Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
+- [Yarn](https://yarnpkg.com/)
+- NodeJS >= 20.
+
+### Sage Package Compatibilty Setup
+#### Windows users. 
+> WSL is required in order to use Sage. Build commands must be ran from a [WSL environment](https://docs.microsoft.com/en-us/windows/wsl/).
+
+Sage relies on Node.js based tools to manage dependencies and build assets. We recommend using [Volta](https://github.com/volta-cli/volta) to install and manage Node.js. We also recommend using [Yarn](https://yarnpkg.com/). [After installing Volta](https://docs.volta.sh/guide/getting-started):
+
+```bash
+# Install the latest Node.js LTS release
+$ volta install node
+
+# Globally install Yarn
+$ npm install --global yarn
+```
+> Make sure you installed all the requirements above before proceed to "Getting Started" instructions...
+
 ## Package Installed
 1. Main
     ```
@@ -108,6 +129,13 @@ git clone https://github.com/ammein/idbkl
     # Build Asset as development (Hot Reload)
     composer run-script dev-theme
     ```
+
+### Troubleshoot Getting Started
+If you receieved error while building the theme, it may due to the package mismatched with your current installed packaged. You need to run this command from your root folder:
+```bash
+# Upgrade Flexor Packages (Client)
+composer run-script upgrade-theme
+```
 
 ## Development Tips
 ### Create custom blocks

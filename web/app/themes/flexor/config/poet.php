@@ -103,8 +103,7 @@ return [
                     'default' => (object)[]
                 ],
                 'link' => [
-                    'type' => 'boolean',
-                    'default' => false
+                    'type' => 'string'
                 ],
                 'target' => [
                     'type' => 'boolean',
@@ -112,11 +111,23 @@ return [
                 ],
                 'color' => [
                     'type' => 'string',
-                    'default' => '#000'
                 ],
                 'size' => [
                     'type' => 'string',
                     'default' => '16px'
+                ],
+                'defaultIconStyle' => [
+                    'type' => 'boolean',
+                    'default' => false
+                ],
+                'paddingIconStyle' => [
+                    'type' => 'array',
+                    'default' => [
+                        'top' => '22px',
+                        'bottom' => '22px',
+                        'left' => '22px',
+                        'right' => '22px'
+                    ]
                 ]
             ]
         ]

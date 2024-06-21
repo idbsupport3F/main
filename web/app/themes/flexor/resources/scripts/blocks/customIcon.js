@@ -19,11 +19,11 @@ import { useBlockProps, InspectorControls, BlockControls } from '@wordpress/bloc
  * 
  * @see https://developer.wordpress.org/block-editor/reference-guides/components
  */
-import { PanelBody, PanelRow, Panel, ToggleControl, PanelHeader, ToolbarGroup, ColorPalette, __experimentalUnitControl as UnitControl, Placeholder } from '@wordpress/components';
+import { PanelBody, PanelRow, Panel, ToggleControl, PanelHeader, ToolbarGroup, ColorPalette, __experimentalUnitControl as UnitControl, Placeholder, TextControl, __experimentalBoxControl as BoxControl } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
 
-import { color as labelColor } from '@wordpress/icons';
+import { color as labelColor, settings } from '@wordpress/icons';
 
 /**
  * Custom Block Components to grab IconPicker component
@@ -55,9 +55,7 @@ export default function Edit(props) {
 
     const { attributes, setAttributes } = props;
 
-    const { icon, link, target, color, size } = attributes;
-
-    // const iconSet = useIcons('sage/bootstrap-icons');
+    const { icon, link, target, color, size, defaultIconStyle, paddingIconStyle } = attributes;
 
     const colorPalette = useSelect('core/block-editor').getSettings().colors;
 
@@ -85,6 +83,19 @@ export default function Edit(props) {
         })
     }, [color])
 
+    const setDefaultIconStyle = useCallback((val) => {
+        setAttributes({
+            defaultIconStyle: val
+        })
+    }, [defaultIconStyle])
+
+    const setPaddingIconStyle = useCallback((val) => {
+        console.log('Padding:', val)
+        setAttributes({
+            paddingIconStyle: val
+        })
+    }, [paddingIconStyle])
+
 
     const handleIconSelection = useCallback((val) => {
         setAttributes({
@@ -107,21 +118,21 @@ export default function Edit(props) {
             </BlockControls>
             <InspectorControls>
                 <Panel>
-                    <PanelBody title="Icon Settings">
+                    <PanelBody title={__("Icon Settings", 'sage')}>
                         <PanelRow>
-                            <ToggleControl
-                                checked={link}
-                                label={__("Link Pressed?", "sage")}
+                            <TextControl
+                                value={link}
+                                label={__("Link Rel:", "sage")}
                                 onChange={(val) => setLink(val)}
                             />
                         </PanelRow>
-                        <PanelRow>
+                        {link && link.length > 0 && <PanelRow>
                             <ToggleControl
                                 checked={target}
                                 label={__("Open in new tab?", "sage")}
                                 onChange={(val) => setTarget(val)}
                             />
-                        </PanelRow>
+                        </PanelRow>}
                         <PanelRow>
                             <UnitControl
                                 label={__("Icon Size", "sage")}
@@ -130,7 +141,16 @@ export default function Edit(props) {
                                 value={size}
                             />
                         </PanelRow>
+                    </PanelBody>
+                    <PanelBody title={__('Style Settings')} initialOpen={false}>
                         <PanelRow>
+                            <ToggleControl
+                                checked={defaultIconStyle}
+                                label={__("Use Default Icon Style?", "sage")}
+                                onChange={(val) => setDefaultIconStyle(val)}
+                            />
+                        </PanelRow>
+                        {!defaultIconStyle && <PanelRow>
                             <Placeholder label={__('Icon Color', 'sage')} icon={labelColor}>
                                 <ColorPalette
                                     colors={colorPalette}
@@ -139,14 +159,44 @@ export default function Edit(props) {
                                     onChange={(val) => setColor(val)}
                                 />
                             </Placeholder>
-                        </PanelRow>
+                        </PanelRow>}
+                        {defaultIconStyle && <PanelRow>
+                            <Placeholder label={__('Container Padding Setting')} icon={settings}>
+                                <BoxControl
+                                    label={__('Padding', 'sage')}
+                                    values={paddingIconStyle}
+                                    resetValues={{
+                                        top: '22px',
+                                        right: '22px',
+                                        bottom: '22px',
+                                        left: '22px'
+                                    }}
+                                    onChange={(val) => setPaddingIconStyle(val)}
+                                />
+                            </Placeholder>
+                        </PanelRow>}
                     </PanelBody>
                 </Panel>
             </InspectorControls>
-            <InlineIconPicker style={{
-                color: color,
-                width: size
-            }} value={icon} onChange={handleIconSelection} className="icon-preview" />
+            {defaultIconStyle ? <div className={defaultIconStyle ? "icon-component" : ""} style={{
+                paddingTop: paddingIconStyle['top'] ? paddingIconStyle['top'] : 0,
+                paddingRight: paddingIconStyle['right'] ? paddingIconStyle['right'] : 0,
+                paddingBottom: paddingIconStyle['bottom'] ? paddingIconStyle['bottom'] : 0,
+                paddingLeft: paddingIconStyle['left'] ? paddingIconStyle['left'] : 0
+            }}>
+                <InlineIconPicker style={{
+                    color: color,
+                    width: size,
+                    height: size
+                }} value={icon} onChange={handleIconSelection} className={"icon-preview"} />
+            </div>
+                :
+                <InlineIconPicker style={{
+                    color: color,
+                    width: size,
+                    height: size
+                }} value={icon} onChange={handleIconSelection} className={"icon-preview"} />
+            }
         </div>
     );
 }
