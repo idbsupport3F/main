@@ -32,6 +32,21 @@ var forEachElement = function (array, callback, scope) {
  * Application entrypoint
  */
 domReady(async () => {
+
+  /**
+   * Animation on scroll function and init
+   */
+    document.querySelectorAll('.animate-aos').forEach((val, i) => {
+      var $this = val;
+      var tab = $this.getAttribute('class').split(' ')
+      var keep;
+      Object.values(tab).forEach(function (item) {
+        var ello = ismatchAOS(item)
+        if (ello !== null)
+          $this.setAttribute(ello[0], ello[1]);
+      });
+    })
+
   /**
      * Apply .scrolled class to the body as the page is scrolled down
      */
@@ -114,20 +129,6 @@ domReady(async () => {
 
   toggleScrollTop()
   document.addEventListener('scroll', toggleScrollTop);
-
-  /**
-   * Animation on scroll function and init
-   */
-  document.querySelectorAll('.animate-aos').forEach((val, i) => {
-    var $this = val;
-    var tab = $this.getAttribute('class').split(' ')
-    var keep;
-    Object.values(tab).forEach(function (item) {
-      var ello = ismatchAOS(item)
-      if (ello !== null)
-        $this.setAttribute(ello[0], ello[1]);
-    });
-  })
 
   /**
    * Initiate glightbox

@@ -31,7 +31,7 @@
       {{-- https://developer.wordpress.org/reference/functions/wp_nav_menu/ --}}
         {!! wp_nav_menu( array(
               'theme_location'  => 'primary_navigation',
-              'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+              'depth'           => get_theme_mod('menu_depth') ? esc_attr(get_theme_mod('menu_depth')) : 1, // 1 = no dropdowns, 2 = with dropdowns.
               'container'       => false,
               'menu_class'      => 'mr-auto',
               'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',

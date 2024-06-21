@@ -68,8 +68,7 @@ $ volta install node
 # Globally install Yarn
 $ npm install --global yarn
 ```
-
-## Composer Package System Installation
+> Make sure you installed all the requirements above before proceed to "Getting Started" instructions...
 
 ## Package Installed
 1. Main
@@ -132,7 +131,11 @@ git clone https://github.com/ammein/idbkl
     ```
 
 ### Troubleshoot Getting Started
-If you receieved an error like this
+If you receieved error while building the theme, it may due to the package mismatched with your current installed packaged. You need to run this command from your root folder:
+```bash
+# Upgrade Flexor Packages (Client)
+composer run-script upgrade-theme
+```
 
 ## Development Tips
 ### Create custom blocks
