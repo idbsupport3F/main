@@ -238,7 +238,12 @@ composer run-script upgrade-theme
     *
     * @return {Element} Element to render.
     */
-    export default function Edit() {
+    export default function Edit(props) {
+
+        const { attributes, setAttributes } = props;
+
+        const { title } = attributes;
+
         return (
             <p {...useBlockProps()}>
                 {__(

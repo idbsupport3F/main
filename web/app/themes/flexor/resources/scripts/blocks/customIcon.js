@@ -32,14 +32,11 @@ import { color as labelColor, settings } from '@wordpress/icons';
  */
 
 import {
-    IconPicker,
     IconPickerToolbarButton,
     InlineIconPicker,
 } from '@10up/block-components';
 
-import { useCallback, useEffect, useState } from '@wordpress/element';
-
-import { useIcons } from '@10up/block-components';
+import { useCallback} from '@wordpress/element';
 
 // import { iconSet } from '../helper'
 

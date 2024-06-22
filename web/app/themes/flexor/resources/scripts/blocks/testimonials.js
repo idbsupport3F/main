@@ -179,14 +179,13 @@ export default function Edit(props) {
                     <PanelHeader>
                         Testimonial Block to add your client's testimonial
                     </PanelHeader>
-                    <PanelBody title='Testimonial Settings' initialOpen={true}>
+                    <PanelBody title={__('Testimonial Settings', 'sage')} initialOpen={true}>
                         <PanelRow>
                             <NumberControl
                                 label={__("Total Client\'s Testimonial(s)", "sage")}
-                                isShiftStepEnabled={true}
+                                isShiftStepEnabled={false}
                                 onChange={setTotalClient}
                                 spinControls='custom'
-                                shiftStep={2}
                                 min={0}
                                 value={total}
                                 help={__('Once set, you must set all client\'s info below listed in tabs. Use "+" & "-" button to increase/decrease client\'s testimonial(s)','sage')}
@@ -194,7 +193,7 @@ export default function Edit(props) {
                         </PanelRow>
                         <PanelRow>
                             <TextControl 
-                                label={__('Additional Class(es) for your container')}
+                                label={__('Additional Class(es) for your container', 'sage')}
                                 help={__('You can put AOS animation classname such as "data-aos_fade-up" and other aos attributes', 'sage')}
                                 value={classNames}
                                 onChange={(val) => setClassNames(val)}
@@ -203,7 +202,7 @@ export default function Edit(props) {
                     </PanelBody>
                     {clients.map((client, i) => {
                         return (
-                            <PanelBody key={i + "-total-client"} title={'Client ' + (i + 1)} initialOpen={false}>
+                            <PanelBody key={i + "-total-client"} title={__('Client ' + (i + 1), 'sage')} initialOpen={false}>
                                 <PanelRow>
                                     <Placeholder label={__('Client\'s Image', 'sage')} icon={image} instructions={__('Image Size Recommended: 100x100', 'sage')}>
                                     <Image

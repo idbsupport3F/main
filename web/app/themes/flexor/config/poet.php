@@ -130,6 +130,14 @@ return [
                     ]
                 ]
             ]
+        ],
+        'sage/faq' => [
+            'attributes' => [
+                'faq' => [
+                    'type' => 'object',
+                    'default' => (object)[]
+                ]
+            ]
         ]
     ],
 
@@ -215,6 +223,12 @@ return [
             'description' => 'Pricing Section',
             'categories' => ['pricing'],
             'keywords' => ['pricing', 'price', 'columns']
+        ],
+        'sage/faq' => [
+            'title' => 'FAQ',
+            'description' => 'FAQ section',
+            'categories' => ['faq'],
+            'keywords' => ['faq', 'frequent asked questions', 'questions']
         ]
     ],
 
@@ -240,6 +254,9 @@ return [
         ],
         'pricing' => [
             'label' => 'Pricing'
+        ],
+        'faq' => [
+            'label' => 'FAQ'
         ]
     ],
 
