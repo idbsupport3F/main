@@ -18,10 +18,19 @@ import { __ } from '@wordpress/i18n'
 import { registerBlockType } from '@wordpress/blocks'
 import { registerIcons } from '@10up/block-components';
 
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ */
+import { InnerBlocks } from '@wordpress/block-editor';
+
 /** components */
 import images from './blocks/swiper-images'
 import icons from './blocks/customIcon'
 import testimonials from './blocks/testimonials'
+import faq from './blocks/faq'
 import { iconsPaths } from './helper/bootstrap-icons'
 
 registerBlockType(`sage/swiperlogo`, {
@@ -59,6 +68,20 @@ registerBlockType('sage/icon', {
         lock: false
     },
     edit: icons
+})
+
+registerBlockType('sage/faq', {
+    title: __('FAQ', 'sage'),
+    category: 'flexor',
+    icon: 'info',
+    apiVersion: 3,
+    supports: {
+        lock: false
+    },
+    edit: faq,
+    save() {
+        return <InnerBlocks.Content/>
+    }
 })
 
 /**
