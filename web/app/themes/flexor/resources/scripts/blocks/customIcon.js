@@ -19,7 +19,9 @@ import { useBlockProps, InspectorControls, BlockControls } from '@wordpress/bloc
  * 
  * @see https://developer.wordpress.org/block-editor/reference-guides/components
  */
-import { PanelBody, PanelRow, Panel, ToggleControl, PanelHeader, ToolbarGroup, ColorPalette, __experimentalUnitControl as UnitControl, Placeholder, TextControl, __experimentalBoxControl as BoxControl } from '@wordpress/components';
+import {
+    PanelBody, PanelRow, Panel, ToggleControl, ToolbarGroup, ColorPalette, __experimentalUnitControl as UnitControl, Placeholder, TextControl, __experimentalBoxControl as BoxControl, __experimentalToggleGroupControl as ToggleGroupControl,
+    __experimentalToggleGroupControlOption as ToggleGroupControlOption, } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
 
@@ -36,7 +38,7 @@ import {
     InlineIconPicker,
 } from '@10up/block-components';
 
-import { useCallback} from '@wordpress/element';
+import { useCallback } from '@wordpress/element';
 
 // import { iconSet } from '../helper'
 
@@ -52,7 +54,7 @@ export default function Edit(props) {
 
     const { attributes, setAttributes } = props;
 
-    const { icon, link, target, color, size, defaultIconStyle, paddingIconStyle } = attributes;
+    const { icon, link, target, color, size, defaultIconStyle, paddingIconStyle, hover } = attributes;
 
     const colorPalette = useSelect('core/block-editor').getSettings().colors;
 
@@ -61,6 +63,12 @@ export default function Edit(props) {
             link: val
         })
     }, [link])
+
+    const setHover = useCallback((val) => {
+        setAttributes({
+            hover: val
+        })
+    }, [hover])
 
     const setTarget = useCallback((val) => {
         setAttributes({
@@ -157,25 +165,33 @@ export default function Edit(props) {
                                 />
                             </Placeholder>
                         </PanelRow>}
-                        {defaultIconStyle && <PanelRow>
-                            <Placeholder label={__('Container Padding Setting')} icon={settings}>
-                                <BoxControl
-                                    label={__('Padding', 'sage')}
-                                    values={paddingIconStyle}
-                                    resetValues={{
-                                        top: '22px',
-                                        right: '22px',
-                                        bottom: '22px',
-                                        left: '22px'
-                                    }}
-                                    onChange={(val) => setPaddingIconStyle(val)}
-                                />
-                            </Placeholder>
-                        </PanelRow>}
+                        {defaultIconStyle && <React.Fragment>
+                            <PanelRow>
+                                <Placeholder label={__('Container Padding Setting')} icon={settings}>
+                                    <BoxControl
+                                        label={__('Padding', 'sage')}
+                                        values={paddingIconStyle}
+                                        resetValues={{
+                                            top: '22px',
+                                            right: '22px',
+                                            bottom: '22px',
+                                            left: '22px'
+                                        }}
+                                        onChange={(val) => setPaddingIconStyle(val)}
+                                    />
+                                </Placeholder>
+                            </PanelRow>
+                            <PanelRow>
+                                <ToggleGroupControl label={__('Default style with or without hover effect:')} value={hover} onChange={(val) => setHover(val)} isBlock>
+                                    <ToggleGroupControlOption value="hover" label={__('✅ With Hover', 'sage')} />
+                                    <ToggleGroupControlOption value="nohover" label={__('🚫 Without Hover', 'sage')} />
+                                </ToggleGroupControl>
+                            </PanelRow>
+                        </React.Fragment>}
                     </PanelBody>
                 </Panel>
             </InspectorControls>
-            {defaultIconStyle ? <div className={defaultIconStyle ? "icon-component" : ""} style={{
+            {defaultIconStyle ? <div className={defaultIconStyle ? hover === "hover" ? "icon-component" : "icon-component-no-hover" : ""} style={{
                 paddingTop: paddingIconStyle['top'] ? paddingIconStyle['top'] : 0,
                 paddingRight: paddingIconStyle['right'] ? paddingIconStyle['right'] : 0,
                 paddingBottom: paddingIconStyle['bottom'] ? paddingIconStyle['bottom'] : 0,

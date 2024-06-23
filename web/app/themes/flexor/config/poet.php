@@ -120,6 +120,11 @@ return [
                     'type' => 'boolean',
                     'default' => false
                 ],
+                'hover' => [
+                    'type' => 'string',
+                    'enum' => ['hover', 'nohover'],
+                    'default' => 'hover'
+                ],
                 'paddingIconStyle' => [
                     'type' => 'array',
                     'default' => [
@@ -136,6 +141,20 @@ return [
                 'faq' => [
                     'type' => 'object',
                     'default' => (object)[]
+                ]
+            ]
+        ],
+        'sage/link' => [
+            'attributes' => [
+                'link' => [
+                    'type' => 'string'
+                ],
+                'newTab' => [
+                    'type' => 'boolean',
+                    'default' => false
+                ],
+                'text' => [
+                    'type' => 'string'
                 ]
             ]
         ]

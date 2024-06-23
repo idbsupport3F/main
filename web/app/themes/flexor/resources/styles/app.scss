@@ -6,3 +6,54 @@
 .stack-column {
     gap: 0.5em !important;
 }
+
+/*--------------------------------------------------------------
+# Component Styling
+--------------------------------------------------------------*/
+
+.link-container-component {
+    text-decoration: none !important;
+    color: unset;
+    cursor: pointer;
+}
+
+.icon-component {
+    background: var(--accent-color);
+    margin: 0;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    transition: ease-in-out 0.3s;
+    border: 2px solid var(--accent-color);
+
+    svg {
+        fill: var(--contrast-color);
+    }
+
+    &:hover {
+        background: var(--contrast-color);
+        border: 2px solid var(--accent-color);
+
+        svg {
+            fill: var(--accent-color);
+        }
+    }
+}
+
+.icon-component-no-hover {
+    background: var(--accent-color);
+    margin: 0;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    transition: ease-in-out 0.3s;
+    border: 2px solid var(--accent-color);
+
+    svg {
+        fill: var(--contrast-color);
+    }
+}

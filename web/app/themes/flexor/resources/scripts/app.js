@@ -1,5 +1,5 @@
 // Import Bootstrap
-import 'bootstrap';
+import {Tooltip} from 'bootstrap';
 import domReady from '@roots/sage/client/dom-ready';
 import GLightbox from 'glightbox';
 import Swiper from 'swiper';
@@ -46,6 +46,21 @@ domReady(async () => {
           $this.setAttribute(ello[0], ello[1]);
       });
     })
+
+  /**
+   * Bootstrap Tooltip
+   * 
+   * @param {string} [tooltip='[data-bs-toggle="tooltip"]'] 
+   * @see https://getbootstrap.com/docs/5.0/components/tooltips/#example-enable-tooltips-everywhere
+   */
+  function bootstrapTooltip(tooltip = '[data-bs-toggle="tooltip"]'){
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll(tooltip))
+
+    return tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new Tooltip(tooltipTriggerEl)
+    })
+  }
+  var tooltipList = bootstrapTooltip();
 
   /**
      * Apply .scrolled class to the body as the page is scrolled down
