@@ -58,7 +58,6 @@ export default function Edit(props) {
                     iconSet: '',
                     source: ''
                 },
-                classNames: '',
                 title: ''
             }
         })

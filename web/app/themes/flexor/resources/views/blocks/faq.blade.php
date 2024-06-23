@@ -2,7 +2,9 @@
     @php
         $val = $data->faq
     @endphp
-    <div class="faq-item">
+    <div {!! get_block_wrapper_attributes([
+        'class' => 'faq-item'
+    ]) !!}>
         @isset($val['icon'])
             <div style="width:16px;" class="faq-icon">
                 {!! $val['icon']['source'] !!}

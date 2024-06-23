@@ -31,6 +31,7 @@ import images from './blocks/swiper-images'
 import icons from './blocks/customIcon'
 import testimonials from './blocks/testimonials'
 import faq from './blocks/faq'
+import link from './blocks/link'
 import { iconsPaths } from './helper/bootstrap-icons'
 
 registerBlockType(`sage/swiperlogo`, {
@@ -79,6 +80,20 @@ registerBlockType('sage/faq', {
         lock: false
     },
     edit: faq,
+    save() {
+        return <InnerBlocks.Content/>
+    }
+})
+
+registerBlockType('sage/link', {
+    title: __('Link Container', 'sage'),
+    category: 'flexor',
+    icon: 'admin-links',
+    apiVersion: 3,
+    supports: {
+        lock: false
+    },
+    edit: link,
     save() {
         return <InnerBlocks.Content/>
     }
