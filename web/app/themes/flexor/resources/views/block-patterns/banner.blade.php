@@ -24,7 +24,7 @@
 <p class="has-text-align-left has-text-color has-roboto-font-family" style="color:rgba(255,255,255,1);margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:16px;font-weight:400;line-height:1.5">Lorem ipsum dolor sit amet, consectetur<br>adipiscing elit, sed do eiusmod tempor incididunt<br>ut labore et dolore magna aliqua. Duis aute irure<br>dolor in reprehenderit Asperiores dolores sed et.<br>Tenetur quia eos. Autem tempore quibusdam vel<br>necessitatibus optio ad corporis.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:sage/link {"text":"Learn More","className":"more-btn"} -->
+<!-- wp:sage/link {"text":"Learn More","borderRadius":{"top":"20px","left":"20px","right":"20px","bottom":"20px"},"className":"more-btn"} -->
 <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
 <div class="wp-block-group alignwide"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"fontStyle":"normal","fontWeight":"700"},"elements":{"link":{"color":{"text":"var:preset|color|background500"}}},"layout":{"selfStretch":"fit","flexSize":null}},"textColor":"background500","fontFamily":"paragraph"} -->

@@ -1,0 +1,153 @@
+/*--------------------------------------------------------------
+# Component Styling
+--------------------------------------------------------------*/
+
+.link-container-component {
+    text-decoration: none !important;
+    color: unset;
+    cursor: pointer;
+}
+
+.icon {
+    display: block;
+}
+
+.icon-component {
+    background: var(--accent-color);
+    margin: 0;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    transition: ease-in-out 0.3s;
+    border: 2px solid var(--accent-color);
+    display: block;
+
+    svg {
+        fill: var(--contrast-color);
+    }
+
+    &:hover {
+        background: var(--contrast-color);
+        border: 2px solid var(--accent-color);
+
+        svg {
+            fill: var(--accent-color);
+        }
+    }
+}
+
+.icon-component-no-hover {
+    background: var(--accent-color);
+    margin: 0;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    transition: ease-in-out 0.3s;
+    border: 2px solid var(--accent-color);
+    display: block;
+
+    svg {
+        fill: var(--contrast-color);
+    }
+}
+
+.faq-item {
+    position: relative;
+    padding: 20px;
+    background-color: var(--contrast-color);
+    overflow: hidden;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.faq-active {
+        background-color: var(--accent-color);
+        transition: 0.3s;
+
+        h3 {
+            color: var(--contrast-color);
+
+            &:hover {
+                color: var(--contrast-color);
+            }
+        }
+
+        .faq-toggle {
+            color: var(--contrast-color);
+            transform: rotate(90deg);
+        }
+
+        .faq-icon {
+            color: var(--contrast-color);
+        }
+
+        .faq-content {
+            grid-template-rows: 1fr !important;
+            visibility: visible;
+            opacity: 1;
+            padding-top: 10px;
+            color: var(--contrast-color);
+        }
+    }
+
+    .faq-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 16px;
+        line-height: 0;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--accent-color);
+        }
+    }
+
+    .faq-icon {
+        position: absolute;
+        top: 22px;
+        left: 20px;
+        font-size: 20px;
+        line-height: 0;
+        transition: 0.3s;
+        color: var(--accent-color);
+    }
+
+    .faq-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: 0.3s ease-in-out;
+        visibility: hidden;
+        opacity: 0;
+
+        p {
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+    }
+
+    h3 {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+        margin: 0 30px 0 32px;
+        transition: 0.3s;
+
+        &:hover {
+            color: var(--accent-color);
+        }
+
+        span {
+            color: var(--accent-color);
+            padding-right: 5px;
+        }
+    }
+}

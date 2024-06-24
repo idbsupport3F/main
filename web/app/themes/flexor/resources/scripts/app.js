@@ -153,22 +153,60 @@ domReady(async () => {
   });
 
   /**
+   * Swiper default init that has config in it
+   * @param {Element} swiper 
+   */
+  function swiperDefaultInit(swiper){
+    let config = JSON.parse(swiper.querySelector('.swiper-config').innerHTML.trim());
+    config['modules'] = [Navigation, Pagination, Autoplay]
+    new Swiper(swiper, config);
+  }
+
+  /**
    * Init swiper sliders
    */
   function initSwiper() {
     document.querySelectorAll('.swiper').forEach(function (swiper) {
-      let config = JSON.parse(swiper.querySelector('.swiper-config').innerHTML.trim());
-      config['modules'] = [Navigation, Pagination, Autoplay]
-      new Swiper(swiper, config);
+      if(swiper.querySelector('.swiper-config')) {
+        swiperDefaultInit(swiper);
+      }
+
+      if(swiper.querySelector('.swiper-wrapper > .post')) {
+        swiper.querySelectorAll('.post').forEach((swiperItem) => {
+          swiperItem.classList.add('swiper-slide');
+        })
+        swiperDefaultInit(swiper);
+      }
     });
+  }
+
+  /**
+   * Toggle Display Inline Style
+   * 
+   * @param {Element} faqItem 
+   */
+  function toggleInnerContentDisplay(faqItem){
+    if (faqItem.classList.contains('faq-active')) {
+      Array.from(faqItem.querySelectorAll('.faq-content > *')).filter((item) => !!item.querySelector('p')).forEach((content) => {
+        content.style.removeProperty('display');
+      });
+    } else {
+      Array.from(faqItem.querySelectorAll('.faq-content > *')).filter((item) => !!item.querySelector('p')).forEach((content) => {
+        content.style.setProperty("display", "none")
+      });
+    }
   }
 
   /**
    * Frequently Asked Questions Toggle
    */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
+  document.querySelectorAll('.faq-item, .faq-toggle').forEach((faqItem) => {
+    toggleInnerContentDisplay(faqItem);
     faqItem.addEventListener('click', () => {
-      faqItem.parentNode.classList.toggle('faq-active');
+      faqItem.classList.toggle('faq-active');
+      toggleInnerContentDisplay(faqItem);
+      // console.log(faqItem.querySelector('.faq-content').children)
+      // faqItem.childNodes.classList.toggle('d-none');
     });
   });
 

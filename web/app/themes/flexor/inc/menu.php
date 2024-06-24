@@ -33,7 +33,7 @@
      * Remove default bootstrap class names on <a> tags after <li>
      */
     function remove_dropdown_toggle($atts, $item, $args, $depth){
-        if(str_contains($atts['class'], 'dropdown-toggle')){
+        if(array_key_exists('class', $atts) && str_contains($atts['class'], 'dropdown-toggle')){
             $atts['class'] = trim(str_replace('dropdown-toggle', '', $atts['class']));
             $atts['class'] = trim(str_replace('nav-link', '', $atts['class']));
         }

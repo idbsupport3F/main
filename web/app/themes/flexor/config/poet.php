@@ -10,19 +10,19 @@ return [
     |
     */
 
-    'post' => [
-        'book' => [
-            'enter_title_here' => 'Enter book title',
-            'menu_icon' => 'dashicons-book-alt',
-            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],
-            'show_in_rest' => true,
-            'has_archive' => false,
-            'labels' => [
-                'singular' => 'Book',
-                'plural' => 'Books',
-            ],
-        ],
-    ],
+    // 'post' => [
+    //     'book' => [
+    //         'enter_title_here' => 'Enter book title',
+    //         'menu_icon' => 'dashicons-book-alt',
+    //         'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],
+    //         'show_in_rest' => true,
+    //         'has_archive' => false,
+    //         'labels' => [
+    //             'singular' => 'Book',
+    //             'plural' => 'Books',
+    //         ],
+    //     ],
+    // ],
 
     /*
     |--------------------------------------------------------------------------
@@ -34,12 +34,12 @@ return [
     |
     */
 
-    'taxonomy' => [
-        'genre' => [
-            'links' => ['book'],
-            'meta_box' => 'radio',
-        ],
-    ],
+    // 'taxonomy' => [
+    //     'genre' => [
+    //         'links' => ['book'],
+    //         'meta_box' => 'radio',
+    //     ],
+    // ],
 
     /*
     |--------------------------------------------------------------------------
@@ -155,6 +155,18 @@ return [
                 ],
                 'text' => [
                     'type' => 'string'
+                ],
+                'border' => [
+                    'type' => 'object'
+                ],
+                'borderRadius' => [
+                    'type' => 'object',
+                    'default' => [
+                        'top' => '0px',
+                        'left' => '0px',
+                        'right' => '0px',
+                        'bottom' => '0px'
+                    ]
                 ]
             ]
         ]
@@ -245,9 +257,15 @@ return [
         ],
         'sage/faq' => [
             'title' => 'FAQ',
-            'description' => 'FAQ section',
+            'description' => 'FAQ Section',
             'categories' => ['faq'],
             'keywords' => ['faq', 'frequent asked questions', 'questions']
+        ],
+        'sage/posts' => [
+            'title' => 'News & Events',
+            'description' => 'News & Events Section',
+            'categories' => ['posts'],
+            'keywords' => ['blogs', 'post', 'posts', 'events', 'news']
         ]
     ],
 
@@ -276,6 +294,9 @@ return [
         ],
         'faq' => [
             'label' => 'FAQ'
+        ],
+        'posts' => [
+            'label' => 'Posts'
         ]
     ],
 

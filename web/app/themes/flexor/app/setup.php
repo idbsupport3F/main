@@ -49,7 +49,7 @@ add_action('after_setup_theme', function () {
      *
      * @link https://wptavern.com/gutenberg-10-5-embeds-pdfs-adds-verse-block-color-options-and-introduces-new-patterns
      */
-    // add_theme_support('block-templates');
+    remove_theme_support('block-templates');
 
     /**
      * Register the navigation menus.
@@ -58,6 +58,7 @@ add_action('after_setup_theme', function () {
      */
     register_nav_menus([
         'primary_navigation' => __('Primary Navigation', 'sage'),
+        'footer_navigation' => __('Footer Navigation', 'sage')
     ]);
 
     /**
@@ -80,6 +81,13 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#disabling-the-default-block-patterns
      */
     remove_theme_support('core-block-patterns');
+
+    /**
+     * Disable new block editor
+     * 
+     * @link https://wordpress.org/support/topic/error-in-widgets-with-new-wordpress-version-5-8-wp_enqueue_script-and-wp/
+     */
+    remove_theme_support('widgets-block-editor');
 
     /**
      * Enable plugins to manage the document title.

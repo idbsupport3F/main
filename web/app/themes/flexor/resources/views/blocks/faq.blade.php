@@ -13,14 +13,17 @@
         <h3>{!! isset($val['title']) ? $val['title'] : "" !!}</h3>
         @php
             $dom = new DOMDocument;
+            /**
+            *   Issue solved from this forum https://stackoverflow.com/a/9149241
+            */
+            libxml_use_internal_errors(true);
             $dom->loadHTML($content);
+            libxml_use_internal_errors(false);
             $nodes=[];
             $bodyNodes = $dom->getElementsByTagName('body');  // returns DOMNodeList object
             foreach($bodyNodes[0]->childNodes as $child)      // assuming 1 <body> node
             {
-                if($child->nodeName !== '#text') {
-                    $nodes[]=$child->nodeName;
-                }
+                $nodes[]=$child->nodeName;
             }
         @endphp
         <div class="faq-content" style="grid-template-rows:repeat({!! count($nodes) !!}, 0fr);">

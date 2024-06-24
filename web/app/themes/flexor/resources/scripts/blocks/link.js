@@ -25,13 +25,14 @@ import { Link } from '@10up/block-components';
  * @see https://developer.wordpress.org/block-editor/reference-guides/components
  */
 import {
-    PanelBody, PanelRow, Panel, PanelHeader, Placeholder } from '@wordpress/components';
+    PanelBody, PanelRow, Panel, PanelHeader, Placeholder, __experimentalBorderBoxControl as BorderBoxControl, __experimentalBoxControl as BoxControl
+} from '@wordpress/components';
 
-import { link as iconLink } from '@wordpress/icons';
+import { link as iconLink, border as iconBorder } from '@wordpress/icons';
 
 import { getBlockTypes } from '@wordpress/blocks';
 
-import { useRef } from '@wordpress/element';
+import { useRef, useEffect } from '@wordpress/element';
 
 /**
 * The edit function describes the structure of your block in the context of the
@@ -45,7 +46,7 @@ export default function Edit(props) {
 
     const { attributes, setAttributes } = props;
 
-    const { link, newTab, text } = attributes;
+    const { link, newTab, text, border, borderRadius } = attributes;
 
     const blocksDissalow = useRef([]);
 
@@ -60,14 +61,23 @@ export default function Edit(props) {
         newTab: false
     });
 
+    const setBorderRadius = value => setAttributes({
+        borderRadius: value
+    })
+
     const DISALLOWEDBLOCKS = getBlockTypes().map(block => block.name).filter(blockName => {
-        console.log(blockName);
-        if(!blockName.includes('link')) {
+        if (!blockName.includes('link')) {
             blocksDissalow.current.push(blockName)
         }
 
         return blocksDissalow.current.indexOf(blockName) !== -1;
     });
+
+    const setBorders = value => {
+        setAttributes({
+            border: value
+        })
+    }
 
     return (
         <div {...useBlockProps()}>
@@ -90,12 +100,31 @@ export default function Edit(props) {
                                 />
                             </Placeholder>
                         </PanelRow>
+                        <PanelRow>
+                            <Placeholder label={__('Border Style Control:', 'sage')} icon={iconBorder}>
+                                <BorderBoxControl
+                                    label={__('Border Style:', 'sage')}
+                                    value={border}
+                                    onChange={(val) => setBorders(val)}
+                                />
+                            </Placeholder>
+                        </PanelRow>
+                        <PanelRow>
+                            <Placeholder label={__('Border Radius Style Control:', 'sage')} icon={iconBorder}>
+                                <BoxControl
+                                    values={borderRadius}
+                                    onChange={(val) => setBorderRadius(val)}
+                                />
+                            </Placeholder>
+                        </PanelRow>
                     </PanelBody>
                 </Panel>
             </InspectorControls>
-            <a data-bs-toggle={text ? "tooltip" : null} data-bs-placement={text ? "top" : null} title={text ?? null} className='link-container-component'>
-                <InnerBlocks allowedBlocks={DISALLOWEDBLOCKS}/>
+            <a data-bs-toggle={text ? "tooltip" : null} data-bs-placement={text ? "top" : null} title={text ?? null} className='link-container-component' style={{
+                border
+            }}>
+                <InnerBlocks allowedBlocks={DISALLOWEDBLOCKS} />
             </a>
-        </div>
+        </div >
     );
 }

@@ -10,7 +10,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"FAQ Container"},"align":"wide","style":{"border":{"radius":"0px"},"spacing":{"blockGap":"20px","padding":{"top":"0px","right":"0px","bottom":"0px","left":"0px"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":458}},"className":"full-width faq-container","layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
+<!-- wp:group {"metadata":{"name":"Container"},"align":"wide","style":{"spacing":{"padding":{"right":"20px","left":"20px"}}},"layout":{"type":"constrained","contentSize":"800px"}} -->
+<div class="wp-block-group alignwide" style="padding-right:20px;padding-left:20px"><!-- wp:group {"metadata":{"name":"FAQ Container"},"align":"wide","style":{"border":{"radius":"0px"},"spacing":{"blockGap":"20px","padding":{"top":"0px","right":"0px","bottom":"0px","left":"0px"},"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"dimensions":{"minHeight":458}},"className":"full-width faq-container","layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group alignwide full-width faq-container" style="border-radius:0px;min-height:458px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px"><!-- wp:sage/faq {"faq":{"icon":{"name":"question","iconSet":"sage/bootstrap-icons","source":"\u003csvg fill=\u0022currentColor\u0022 viewBox=\u00220 0 16 16\u0022 height=\u002216\u0022 width=\u002216\u0022 xmlns=\u0022http://www.w3.org/2000/svg\u0022 preserveAspectRatio=\u0022xMidYMid meet\u0022 style=\u0022width:100%;height:100%;\u0022\u003e\u003cpath d=\u0022M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94\u0022\u003e\u003c/path\u003e\u003c/svg\u003e"},"title":"Non consectetur a erat nam at lectus urna duis?"},"className":"animate-aos data-aos_fade-up data-aos-delay_200"} -->
 <!-- wp:paragraph -->
 <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
@@ -34,6 +35,7 @@
 <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
 <!-- /wp:paragraph -->
 <!-- /wp:sage/faq --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
 <!-- /wp:group -->
