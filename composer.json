@@ -83,44 +83,28 @@
       "Composer\\Config::disableProcessTimeout"
     ],
     "post-install-cmd":[
-      "@php -r \"chdir('web/app/themes/flexor') && passthru('composer install && yarn') && exit(0) || exit(1);\""
+      "cd web/app/themes/flexor && composer install && yarn"
     ],
     "post-root-package-install": [
-      "php -r \"copy('.env.example', '.env');\"",
-      "composer run remove-old-wp-themes"
-    ],
-    "post-update-cmd": [
-      "composer run remove-old-wp-themes"
-    ],
-    "remove-old-wp-themes": [
-      "rm -rf web/wp/wp-content/themes/twentyten",
-      "rm -rf web/wp/wp-content/themes/twentyeleven",
-      "rm -rf web/wp/wp-content/themes/twentytwelve",
-      "rm -rf web/wp/wp-content/themes/twentythirteen",
-      "rm -rf web/wp/wp-content/themes/twentyfourteen",
-      "rm -rf web/wp/wp-content/themes/twentyfifteen",
-      "rm -rf web/wp/wp-content/themes/twentysixteen",
-      "rm -rf web/wp/wp-content/themes/twentyseventeen",
-      "rm -rf web/wp/wp-content/themes/twentynineteen",
-      "rm -rf web/wp/wp-content/themes/twentytwenty"
+      "php -r \"copy('.env.example', '.env');\""
     ],
     "upgrade-theme": [
       "Composer\\Config::disableProcessTimeout",
-      "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn upgrade') && exit(0) || exit(1);\""
+      "cd web/app/themes/flexor && yarn upgrade"
     ],
     "build-theme":[
-      "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn build --clean') && exit(0) || exit(1);\""
+      "cd web/app/themes/flexor && yarn build --clean"
     ],
     "dev-theme":[
       "Composer\\Config::disableProcessTimeout",
-      "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn dev') && exit(0) || exit(1);\""
+      "cd web/app/themes/flexor && yarn dev"
     ],
     "debug-theme":[
       "Composer\\Config::disableProcessTimeout",
-      "@php -r \"chdir('web/app/themes/flexor') && passthru('yarn debug') && exit(0) || exit(1);\""
+      "cd web/app/themes/flexor && yarn debug"
     ],
     "vendor:publish":[
-      "@php -r \"chdir('web/app/themes/flexor') && passthru('wp acorn vendor:publish') && exit(0) || exit(1);\""
+      "cd web/app/themes/flexor && wp acorn vendor:publish"
     ],
     "test": [
       "phpcs"

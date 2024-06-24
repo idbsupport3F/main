@@ -1,4 +1,9 @@
 <?php
+    /**
+     * Customize Global
+     * 
+     * @see https://developer.wordpress.org/reference/hooks/customize_register/
+     */
     function site_contact($wp_customize){
         // Settings
         $wp_customize->add_setting('site_email', array('default' => ''));
@@ -9,14 +14,15 @@
         $wp_customize->add_setting('instagram', array('default' => ''));
         $wp_customize->add_setting('linkedin', array('default' => ''));
         $wp_customize->add_setting('show_site_contacts', array('default' => ''));
+        $wp_customize->add_setting('site_address', array('default' => ''));
 
         //Sections
         $wp_customize->add_section(
-            'site_contact',
+            'site_info',
             array(
-                'title' => __( 'Site Contacts', 'sage' ),
+                'title' => __( 'Site Info', 'sage' ),
                 'priority' => 1,
-                'description' => __( 'Site contacts for your site', 'sage' )
+                'description' => __( 'Site Info for your site', 'sage' )
             )
         );
 
@@ -38,8 +44,22 @@
                 array(
                     'label'     =>  __('Show Header Site Contacts?', 'sage'),
                     'type'      =>  'checkbox',
-                    'section'   =>  'site_contact',
+                    'section'   =>  'site_info',
                     'settings'  =>  'show_site_contacts'
+                )
+            )
+        );
+
+        // Site Address
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'site_address',
+                array(
+                    'label'     =>  __('Address:', 'sage'),
+                    'type'      =>  'textarea',
+                    'section'   =>  'site_info',
+                    'settings'  =>  'site_address'
                 )
             )
         );
@@ -52,7 +72,7 @@
                 array(
                     'label'     =>  __('Email Address:', 'sage'),
                     'type'      =>  'email',
-                    'section'   =>  'site_contact',
+                    'section'   =>  'site_info',
                     'settings'  =>  'site_email'
                 )
             )
@@ -66,7 +86,7 @@
                 array(
                     'label'     =>  __('Phone Number:', 'sage'),
                     'type'      =>  'tel',
-                    'section'   =>  'site_contact',
+                    'section'   =>  'site_info',
                     'settings'  =>  'site_phone'
                 )
             )
@@ -79,7 +99,7 @@
                 'site_logo',
                 array(
                     'label'     => __('Upload Header Image:', 'sage'),
-                    'section'   => 'site_contact',
+                    'section'   => 'site_info',
                     'settings'  => 'site_logo'
                 )
             )
@@ -186,6 +206,5 @@
         );
     }, 12);
 
-    //
     add_action('customize_register', 'site_contact');
 ?>

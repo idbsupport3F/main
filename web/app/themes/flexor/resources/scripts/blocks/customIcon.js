@@ -95,7 +95,6 @@ export default function Edit(props) {
     }, [defaultIconStyle])
 
     const setPaddingIconStyle = useCallback((val) => {
-        console.log('Padding:', val)
         setAttributes({
             paddingIconStyle: val
         })

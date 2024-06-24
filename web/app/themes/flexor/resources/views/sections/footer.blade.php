@@ -6,35 +6,38 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Flexor</span>
+          <a href="{{ home_url('/') }}" class="logo d-flex align-items-center">
+            {{-- Uncomment the line below if you also wish to use an image logo --}}
+            @if (get_theme_mod('site_logo'))
+            <img src="{!! $footer_image !!}" alt="{{ get_bloginfo('name') }}">
+            @else
+            <span class="sitename">{!! $title !!}</span>
+            @endif
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            {{ $address }}
+            @isset($phone)<p class="mt-3"><strong>Phone:</strong> <span>{!! $phone !!}</span></p>@endisset
+            @isset($contact)<p><strong>Email:</strong> <span>{!! $contact !!}</span></p>@endisset
           </div>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            @isset($social_medias)
+            @foreach ($social_medias as $type => $link)
+                <a href="{{ $link }}" class="{{ $type }}"><i class="bi bi-{{$type}}"></i></a>
+            @endforeach
+            @endisset
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
+        <div class="col-lg-4 col-md-3 footer-links">
+          <h4>{!! wp_get_nav_menu_name('footer_navigation') !!}</h4>
+          {!! wp_nav_menu( array(
+              'theme_location'  => 'footer_navigation',
+              'depth'           => get_theme_mod('menu_depth') ? esc_attr(get_theme_mod('menu_depth')) : 1, // 1 = no dropdowns, 2 = with dropdowns.
+              'container'       => false
+          ) ) !!}
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        {{-- <div class="col-lg-2 col-md-3 footer-links">
           <h4>Our Services</h4>
           <ul>
             <li><a href="#">Web Design</a></li>
@@ -43,30 +46,25 @@
             <li><a href="#">Marketing</a></li>
             <li><a href="#">Graphic Design</a></li>
           </ul>
-        </div>
+        </div> --}}
 
-        <div class="col-lg-4 col-md-12 footer-newsletter">
-          <h4>Our Newsletter</h4>
-          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-          </form>
+        <div class="col-lg-2 col-md-12 footer-newsletter">
+          <h4>Visitor Counter</h4>
+           <a href='https://www.free-counters.org/'>free-counters.org</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=4c2a4bcfc73db3af5095fd61fd04a09c7f01bb34'></script>
+<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1196310/t/1"></script>
         </div>
 
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Flexor</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">{!! get_bloginfo( 'name' ) !!}</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://github.com/ammein">Amin Shazrin</a>
       </div>
     </div>
 

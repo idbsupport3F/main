@@ -3,8 +3,8 @@
   <div class="topbar d-flex align-items-center {!! get_theme_mod('show_site_contacts') ? 'd-none' : null !!}">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:{!! $contact !!}">{!! $contact !!}</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+{{ $phone }}</span></i>
+        @isset($contact)<i class="bi bi-envelope d-flex align-items-center"><a href="mailto:{!! $contact !!}">{!! $contact !!}</a></i>@endisset
+        @isset($phone)<i class="bi bi-phone d-flex align-items-center ms-4"><span>+{{ $phone }}</span></i>@endisset
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
       @isset($social_medias)
