@@ -62,4 +62,21 @@
         }
         return $classes;
     }
+
+    /**
+     * Limit Footer Navigation Items to 5 only
+     * 
+     * @param array Array Menu Items that has string HTML value
+     * @param array Arguments for wp_nav_menu
+     * @source https://stackoverflow.com/a/75850270
+     */
+    function limit_quicklinks_menu_items($items, $args)
+    {
+        if (is_array($items) && $args->theme_location == 'footer_navigation') {
+            $items = array_slice($items, 0, 5);
+        }
+        return $items;
+    }
+
+    add_filter('wp_nav_menu_items', 'limit_quicklinks_menu_items', 10, 4);
 ?>

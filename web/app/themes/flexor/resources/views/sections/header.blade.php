@@ -22,7 +22,8 @@
       <a href="{{ home_url('/') }}" class="logo d-flex align-items-center">
          {{-- Uncomment the line below if you also wish to use an image logo --}}
         @if (get_theme_mod('site_logo'))
-        <img src="{!! $header_image !!}" alt="{{ get_bloginfo('name') }}">
+        <img src="{!! $site_logo !!}" alt="{{ get_bloginfo('name') }}">
+        <h1 class="sitename">{!! $title !!}</h1>
         @else
         <h1 class="sitename">{!! $title !!}</h1>
         @endif

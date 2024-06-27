@@ -9,24 +9,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'swiper/css/bundle';
 
-function ismatchAOS(str) {
+function ismatch(str) {
   var ret = null;
-  var tab = ['data-aos_', 'data-aos-delay_', 'data-aos-duration_', 'data-aos-easing_'];
-  Object.values(tab).forEach(function (value) {
-    if (String(str).match(value)) {
-      ret = str.split('_');
-      return false;
-    }
-  });
+  if (String(str).match(new RegExp(/^data\-.*(_)/, 'g'))) {
+    ret = str.split('_');
+    return false;
+  }
   return ret;
 }
-
-// forEach method, could be shipped as part of an Object Literal/Module
-var forEachElement = function (array, callback, scope) {
-  for (var i = 0; i < array.length; i++) {
-    callback.call(scope, i, array[i]); // passes back stuff we need
-  }
-};
 
 /**
  * Application entrypoint
@@ -41,7 +31,7 @@ domReady(async () => {
       var tab = $this.getAttribute('class').split(' ')
       var keep;
       Object.values(tab).forEach(function (item) {
-        var ello = ismatchAOS(item)
+        var ello = ismatch(item)
         if (ello !== null)
           $this.setAttribute(ello[0], ello[1]);
       });

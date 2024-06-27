@@ -1,4 +1,4 @@
-<footer id="footer" class="footer">
+<footer id="footer" class="footer" style="background:#ffeecf;">
 
     <div class="container footer-top">
       <div class="row gy-4">
@@ -27,7 +27,7 @@
         </div>
 
         @if(strlen(wp_get_nav_menu_name('footer_navigation')) > 0)
-        <div class="col-lg-2 col-md-3 footer-links">
+        <div class="col-lg-4 col-md-3 footer-links">
           <h4>{!! wp_get_nav_menu_name('footer_navigation') !!}</h4>
           <div class="d-flex">
             {!! wp_nav_menu( array(
@@ -51,15 +51,9 @@
         </div> --}}
 
         <div class="col-lg-2 col-md-12 footer-newsletter">
-        <div>
           <h4>Visitor Counter</h4>
-            <a href='https://www.free-counters.org/'>free-counters.org</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=4c2a4bcfc73db3af5095fd61fd04a09c7f01bb34'></script>
-            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1196310/t/1"></script>
-          <div>
-          <div>
-          <h4>Tarikh Kemaskini</h4>
-            {!! get_the_modified_date('') !!}
-          </div>
+           <a href='https://www.free-counters.org/'>free-counters.org</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=4c2a4bcfc73db3af5095fd61fd04a09c7f01bb34'></script>
+<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1196310/t/1"></script>
         </div>
 
       </div>

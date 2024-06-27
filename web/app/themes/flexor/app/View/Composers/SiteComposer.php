@@ -4,7 +4,7 @@ namespace App\View\Composers;
 
 use Roots\Acorn\View\Composer;
 
-class HeaderComposer extends Composer
+class SiteComposer extends Composer
 {
     /**
      * List of views served by this composer.
@@ -12,7 +12,9 @@ class HeaderComposer extends Composer
      * @var string[]
      */
     protected static $views = [
-        'sections.header'
+        'sections.header',
+        'sections.footer',
+        'sections.peperiksaan-footer'
     ];
 
     public function with()
@@ -21,8 +23,10 @@ class HeaderComposer extends Composer
             'contact'       => $this->get_site_email(),
             'phone'         => $this->get_site_phone(),
             'title'         => $this->title(),
-            'header_image'  => $this->get_image_header(),
-            'social_medias' => $this->get_social_medias()
+            'pageTitle'     => $this->pageTitle(),
+            'site_logo'     => $this->get_site_logo(),
+            'social_medias' => $this->get_social_medias(),
+            'address'       => $this->get_site_address()
         ];
     }
 
@@ -31,7 +35,17 @@ class HeaderComposer extends Composer
      *
      * @return string
      */
-    public function title()
+    static public function title()
+    {
+        return get_bloginfo('name');
+    }
+
+    /**
+     * Retrieve the post title.
+     *
+     * @return string
+     */
+    static public function pageTitle()
     {
 
         if (is_home()) {
@@ -39,7 +53,7 @@ class HeaderComposer extends Composer
                 return get_the_title($home);
             }
 
-            return get_bloginfo('name');
+            return get_the_title();
         }
 
         if (is_archive()) {
@@ -66,7 +80,7 @@ class HeaderComposer extends Composer
      * 
      * @return string
      */
-    public function get_site_email(){
+    static public function get_site_email(){
         if (get_theme_mod('site_email')) {
             return esc_attr(get_theme_mod('site_email'));
         }
@@ -78,7 +92,7 @@ class HeaderComposer extends Composer
      * 
      * @return string
      */
-    public function get_site_phone(){
+    static public function get_site_phone(){
         if (get_theme_mod('site_phone')) {
             return esc_attr(get_theme_mod('site_phone'));
         }
@@ -89,7 +103,7 @@ class HeaderComposer extends Composer
      *  Check image if used
      *  @return string
      */
-    public function get_image_header(){
+    static public function get_site_logo(){
         if (get_theme_mod('site_logo')) {
             return esc_attr(get_theme_mod('site_logo'));
         }
@@ -101,26 +115,39 @@ class HeaderComposer extends Composer
      * 
      * @return array[string]
      */
-    public function get_social_medias(){
+    static public function get_social_medias(){
         $social_media = array();
-
-        if(get_theme_mod('twitter-x')){
-            $social_media["twitter-x"] = esc_attr(get_theme_mod('twitter-x'));
-        }
 
         if(get_theme_mod('facebook')){
             $social_media["facebook"] = esc_attr(get_theme_mod('facebook'));
+        }
+
+        if (get_theme_mod('twitter-x')) {
+            $social_media["twitter-x"] = esc_attr(get_theme_mod('twitter-x'));
         }
 
         if(get_theme_mod('instagram')){
             $social_media["instagram"] = esc_attr(get_theme_mod('instagram'));
         }
 
-        if(get_theme_mod('linkedin')){
-            $social_media["linkedin"] = esc_attr(get_theme_mod('linkedin'));
+        if(get_theme_mod('youtube')){
+            $social_media["youtube"] = esc_attr(get_theme_mod('youtube'));
+        }
+
+        if(get_theme_mod('youtube')){
+            $social_media["tiktok"] = esc_attr(get_theme_mod('tiktok'));
         }
 
         return $social_media;
+    }
+
+    static public function get_site_address()
+    {
+        if (get_theme_mod('site_address')) {
+            return esc_attr(get_theme_mod('site_address'));
+        }
+
+        return null;
     }
 
 }

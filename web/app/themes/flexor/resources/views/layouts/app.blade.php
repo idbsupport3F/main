@@ -30,8 +30,10 @@
           @yield('sidebar')
         </aside>
       @endif
-
-      @include('sections.footer')
+    
+    @hasSection('footer')
+      @yield('footer')
+    @endif
     </div>
 
     @php(do_action('get_footer'))
