@@ -22,22 +22,11 @@ class SiteComposer extends Composer
         return [
             'contact'       => $this->get_site_email(),
             'phone'         => $this->get_site_phone(),
-            'title'         => $this->title(),
             'pageTitle'     => $this->pageTitle(),
             'site_logo'     => $this->get_site_logo(),
             'social_medias' => $this->get_social_medias(),
             'address'       => $this->get_site_address()
         ];
-    }
-
-    /**
-     * Retrieve the post title.
-     *
-     * @return string
-     */
-    static public function title()
-    {
-        return get_bloginfo('name');
     }
 
     /**

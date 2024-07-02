@@ -23,9 +23,9 @@
          {{-- Uncomment the line below if you also wish to use an image logo --}}
         @if (get_theme_mod('site_logo'))
         <img src="{!! $site_logo !!}" alt="{{ get_bloginfo('name') }}">
-        <h1 class="sitename">{!! $title !!}</h1>
+        <h1 class="sitename">{!! $siteName !!}</h1>
         @else
-        <h1 class="sitename">{!! $title !!}</h1>
+        <h1 class="sitename">{!! $siteName !!}</h1>
         @endif
       </a>
       <nav id="navmenu" class="navmenu" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
