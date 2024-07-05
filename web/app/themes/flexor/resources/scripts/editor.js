@@ -32,6 +32,7 @@ import icons from './blocks/customIcon'
 import testimonials from './blocks/testimonials'
 import faq from './blocks/faq'
 import link from './blocks/link'
+import fixed from './blocks/fixed'
 import { iconsPaths } from './helper/bootstrap-icons'
 
 registerBlockType(`sage/swiperlogo`, {
@@ -94,6 +95,20 @@ registerBlockType('sage/link', {
         lock: false
     },
     edit: link,
+    save() {
+        return <InnerBlocks.Content/>
+    }
+})
+
+registerBlockType('sage/fixed', {
+    title: __('Fixed Container', 'sage'),
+    category: 'flexor',
+    icon: 'editor-insertmore',
+    apiVersion: 3,
+    supports: {
+        lock: false
+    },
+    edit: fixed,
     save() {
         return <InnerBlocks.Content/>
     }

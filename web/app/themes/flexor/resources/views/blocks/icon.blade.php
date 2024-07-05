@@ -9,7 +9,9 @@
                 $className = 'icon-component-no-hover';
             }
         @endphp
-        <div class="{!! $className !!}" style="padding: {!! $data->paddingIconStyle['top'] .
+        <div {!! get_block_wrapper_attributes([
+        'class' => $className
+    ]) !!} style="padding: {!! $data->paddingIconStyle['top'] .
             ' ' .
             $data->paddingIconStyle['right'] .
             ' ' .
@@ -33,7 +35,9 @@
 
         {{-- No Default Style --}}
     @else
-        <div class="icon" style="{!! isset($data->color) ? 'color:' . $data->color . ' !important;' : null !!}{!! $data->size ? 'width:' . $data->size . ';height:' . $data->size . ";'" : null !!}">
+        <div {!! get_block_wrapper_attributes([
+        'class' => 'icon'
+    ]) !!} style="{!! isset($data->color) ? 'color:' . $data->color . ' !important;' : null !!}{!! $data->size ? 'width:' . $data->size . ';height:' . $data->size . ";'" : null !!}">
             @isset($data->link)
                 <a href="$data->link" {!! isset($data->target) ? 'target="__blank"' : null !!}>
                     @isset($data->icon)

@@ -151,3 +151,14 @@
         }
     }
 }
+
+.fixed-component-container {
+    position: sticky !important;
+}
+
+.fixed-mobile-container{
+    display: inline-flex;
+    text-align: center;
+    align-content: center;
+    z-index: 99999;
+}
