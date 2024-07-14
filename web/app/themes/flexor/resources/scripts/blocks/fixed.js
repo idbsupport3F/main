@@ -30,18 +30,19 @@ import {
  * @see https://developer.wordpress.org/block-editor/reference-guides/components
  */
 import {
-    PanelBody, PanelRow, Panel, PanelHeader, Placeholder, __experimentalBorderBoxControl as BorderBoxControl, __experimentalBoxControl as BoxControl,
+    PanelBody, PanelRow, Panel, Placeholder, __experimentalBorderBoxControl as BorderBoxControl, __experimentalBoxControl as BoxControl,
     __experimentalUnitControl as UnitControl,
     __experimentalAlignmentMatrixControl as AlignmentMatrixControl,
     ToggleControl,
     ColorPalette,
-    ToolbarGroup
+    ToolbarGroup,
+    TextControl
 } from '@wordpress/components';
 
-import { border as iconBorder, color as labelColor, settings } from '@wordpress/icons';
+import { border as iconBorder, color as labelColor, settings, grid as gridIcon } from '@wordpress/icons';
 
 
-import { useState, useEffect, useCallback } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 
 import { useSelect } from '@wordpress/data';
 
@@ -57,15 +58,16 @@ export default function Edit(props) {
 
     const { attributes, setAttributes } = props;
 
-    const { mobilePosition, icon, border, borderRadius, backgroundColor, paddingIcon, size } = attributes;
+    const { mobilePosition, icon, border, borderRadius, iconColor, backgroundIconColor, paddingIcon, size, title } = attributes;
 
     const [ mobileView, setMobileView ] = useState(false);
+    const [ mobilePos, setMobilePos ] = useState({});
 
     const colorPalette = useSelect('core/block-editor').getSettings().colors;
 
-    const setMobileViewValue = useCallback((val) => {
-        setMobileView(val);
-    }, [mobileView])
+    useEffect(() => {
+        setMobilePosition(mobilePosition)
+    }, [])
 
     const setBorderRadius = value => setAttributes({
         borderRadius: value
@@ -94,62 +96,109 @@ export default function Edit(props) {
     }
 
     const setMobilePosition = value => {
-        var positionMobile = '';
         switch (value) {
             case 'center':
-                positionMobile = 'top-50 start-50 translate-middle';
+                setMobilePos({
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%,-50%) !important"
+                });
                 break;
 
             case 'top center':
-                positionMobile = 'top-0 start-50 translate-middle-x';
+                setMobilePos({
+                    top: "0",
+                    left: "50%",
+                    transform: "translateX(-50%) !important"
+                });
                 break;
 
             case 'top left':
-                positionMobile = 'top-0 start-0';
+                setMobilePos({
+                    top: "0",
+                    left: "0"
+                });
                 break;
 
             case 'top right':
-                positionMobile = 'top-0 end-0';
+                setMobilePos({
+                    top: "0",
+                    right: "0",
+                });
                 break;
 
             case 'center left':
-                positionMobile = 'top-50 start-0 translate-middle-y';
+                setMobilePos({
+                    top: "50%",
+                    left: "0",
+                    transform: "translateY(-50%) !important"
+                });
                 break;
 
             case 'center center':
-                positionMobile = 'top-50 start-50 translate-middle';
+                setMobilePos({
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%,-50%) !important"
+                });
                 break;
 
             case 'center right':
-                positionMobile = 'top-50 end-0 translate-middle-y';
+                setMobilePos({
+                    top: "50%",
+                    right: "0",
+                    transform: "translateY(-50%) !important"
+                });
                 break;
 
             case 'bottom left':
-                positionMobile = 'bottom-0 start-0';
+                setMobilePos({
+                    bottom: "0",
+                    left: "0"
+                });
                 break;
 
             case 'bottom center':
-                positionMobile = 'bottom-0 start-50 translate-middle-x';
+                setMobilePos({
+                    bottom: "0",
+                    left: "50%",
+                    transform: "translateX(-50%) !important"
+                });
                 break;
 
             case 'bottom right':
-                positionMobile = 'bottom-0 end-0';
+                setMobilePos({
+                    bottom: "0",
+                    right: "0"
+                });
                 break;
         }
 
         setAttributes({
-            mobilePosition: positionMobile
+            mobilePosition: value
         })
     }
 
-    const setBackgroundColor = value => {
+    const setBackgroundIconColor = value => {
         setAttributes({
-            backgroundColor: value
+            backgroundIconColor: value
+        })
+    }
+
+    const setIconColor = value => {
+        setAttributes({
+            iconColor: value
+        })
+    }
+
+    const setTitle = value => {
+        setAttributes({
+            title: value
         })
     }
 
     return (
-        <div {...useBlockProps()}>
+        <React.Fragment {...useBlockProps()}>
             <BlockControls>
                 {mobileView ? <ToolbarGroup>
                     <IconPickerToolbarButton value={icon} onChange={setIcon} />
@@ -157,86 +206,114 @@ export default function Edit(props) {
             </BlockControls>
             <InspectorControls>
                 <Panel>
-                    <PanelHeader>
-                        Link Block Component for your own good
-                    </PanelHeader>
                     <PanelBody title={__('Fixed Component Setting', 'sage')} initialOpen={true}>
+                        <PanelRow>
+                            <TextControl
+                                label={__('Title:', 'sage')}
+                                type='text'
+                                help={__('This title will reflect in mobile responsive view.')}
+                                value={title}
+                                onChange={setTitle}
+                            />
+                        </PanelRow>
                         <PanelRow>
                             <ToggleControl
                                 label={__('Toggle Mobile View?', 'sage')}
-                                value={mobileView}
-                                onChange={(val) => setMobileViewValue(val)}
+                                checked={mobileView}
+                                onChange={setMobileView}
                             />
                         </PanelRow>
-                        {mobileView ? <PanelRow>
-                            <AlignmentMatrixControl
-                                value={mobilePosition}
-                                onChange={setMobilePosition}
-                            />
-                        </PanelRow> : null}
-                        {mobileView ? <PanelRow>
-                            <IconPicker label={__('Icon:', 'sage')} value={icon} onChange={(val) => setIcon({
+                    </PanelBody>
+                    {mobileView &&
+                        <PanelBody title={__('Mobile Settings', 'sage')}>
+                            <PanelRow>
+                                <IconPicker label={__('Choose Icon:', 'sage')} value={icon} onChange={(val) => setIcon({
                                     name: val.name,
                                     iconSet: val.iconSet,
                                     source: val.source
-                            })} />
-                        </PanelRow> : null}
-                        {mobileView ? <PanelRow>
-                            <Placeholder label={__('Icon Color', 'sage')} icon={labelColor}>
-                                <ColorPalette
-                                    colors={colorPalette}
-                                    enableAlpha={true}
-                                    value={backgroundColor}
-                                    onChange={(val) => setBackgroundColor(val)}
+                                })} />
+                            </PanelRow>
+                            <PanelRow>
+                                <Placeholder
+                                    icon={gridIcon} 
+                                    label={__('Button Position', 'sage')}
+                                    instructions={__('Press any square position here to place your round fixed button.', 'sage')}
+                                >
+                                <AlignmentMatrixControl
+                                    value={mobilePosition}
+                                    onChange={setMobilePosition}
                                 />
-                            </Placeholder>
-                        </PanelRow> : null}
-                        {mobileView ? <PanelRow>
-                            <UnitControl
-                                label={__("Mobile Icon Size", "sage")}
-                                labelPosition="top"
-                                onChange={(val) => setSize(val)}
-                                value={size}
-                            />
-                        </PanelRow> : null}
-                        {mobileView ? <PanelRow>
-                            <Placeholder label={__('Container Padding Setting')} icon={settings}>
-                                <BoxControl
-                                    label={__('Padding', 'sage')}
-                                    values={paddingIcon}
-                                    resetValues={{
-                                        top: '22px',
-                                        right: '22px',
-                                        bottom: '22px',
-                                        left: '22px'
-                                    }}
-                                    onChange={(val) => setPaddingIcon(val)}
+                                </Placeholder>
+                            </PanelRow>
+                            <PanelRow>
+                                <Placeholder label={__('Icon Color', 'sage')} icon={labelColor}>
+                                    <ColorPalette
+                                        colors={colorPalette}
+                                        enableAlpha={true}
+                                        value={iconColor}
+                                        onChange={(val) => setIconColor(val)}
+                                    />
+                                </Placeholder>
+                            </PanelRow>
+                            <PanelRow>
+                                <Placeholder label={__('Background Icon Color', 'sage')} icon={labelColor}>
+                                    <ColorPalette
+                                        colors={colorPalette}
+                                        enableAlpha={true}
+                                        value={backgroundIconColor}
+                                        onChange={(val) => setBackgroundIconColor(val)}
+                                    />
+                                </Placeholder>
+                            </PanelRow>
+                            <PanelRow>
+                                <UnitControl
+                                    label={__("Mobile Icon Size", "sage")}
+                                    labelPosition="top"
+                                    onChange={(val) => setSize(val)}
+                                    value={size}
                                 />
-                            </Placeholder>
-                        </PanelRow>: null}
-                        {mobileView && <PanelRow>
-                            <Placeholder label={__('Border Style Control:', 'sage')} icon={iconBorder}>
-                                <BorderBoxControl
-                                    label={__('Border Style:', 'sage')}
-                                    value={border}
-                                    onChange={(val) => setBorders(val)}
-                                />
-                            </Placeholder>
-                        </PanelRow>}
-                        {mobileView && <PanelRow>
-                            <Placeholder label={__('Border Radius Style Control:', 'sage')} icon={iconBorder}>
-                                <BoxControl
-                                    values={borderRadius}
-                                    onChange={(val) => setBorderRadius(val)}
-                                />
-                            </Placeholder>
-                        </PanelRow>}
-                    </PanelBody>
+                            </PanelRow>
+                            <PanelRow>
+                                <Placeholder label={__('Container Padding Setting')} icon={settings}>
+                                    <BoxControl
+                                        label={__('Padding', 'sage')}
+                                        values={paddingIcon}
+                                        resetValues={{
+                                            top: '22px',
+                                            right: '22px',
+                                            bottom: '22px',
+                                            left: '22px'
+                                        }}
+                                        onChange={(val) => setPaddingIcon(val)}
+                                    />
+                                </Placeholder>
+                            </PanelRow>
+                            <PanelRow>
+                                <Placeholder label={__('Border Style Control:', 'sage')} icon={iconBorder}>
+                                    <BorderBoxControl
+                                        label={__('Border Style:', 'sage')}
+                                        value={border}
+                                        onChange={(val) => setBorders(val)}
+                                    />
+                                </Placeholder>
+                            </PanelRow>
+                            <PanelRow>
+                                <Placeholder label={__('Border Radius Style Control:', 'sage')} icon={iconBorder}>
+                                    <BoxControl
+                                        values={borderRadius}
+                                        onChange={(val) => setBorderRadius(val)}
+                                    />
+                                </Placeholder>
+                            </PanelRow>
+                        </PanelBody>
+                    }
                 </Panel>
             </InspectorControls>
-            <div className={'fixed-mobile-container position-absolute d-none d-block d-md-none ' + (mobilePosition && mobilePosition.length > 0 ? mobilePosition : '')} style={{
+            <div className={'fixed-mobile-container'} style={{
                 display: mobileView ? 'inline-flex' : 'none',
-                backgroundColor: backgroundColor,
+                position: 'fixed',
+                ...mobilePos,
+                backgroundColor: backgroundIconColor,
                 padding: paddingIcon.top + ' ' + paddingIcon.right + ' ' + paddingIcon.bottom + ' ' + paddingIcon.left,
                 border: border && Object.values(border).length > 0 ? Object.values(border).join(' ') : null,
                 borderTopLeftRadius: borderRadius && borderRadius.left,
@@ -251,14 +328,18 @@ export default function Edit(props) {
                 })} className="icon-preview" style={{
                     width: size ? size : null,
                     height: size ? size : null,
+                    color: iconColor
                 }}/>
             </div>
-            <div className='fixed-component-container fixed-bottom' style={{
-                border,
-                display: mobileView ? 'none' : 'block'
-            }}>
+            <div {...useBlockProps({
+                className: 'fixed-component-container fixed-bottom',
+                style:{
+                    border,
+                    display: mobileView ? 'none' : 'block'
+                }
+            })}>
                 <InnerBlocks />
             </div>
-        </div >
+        </React.Fragment>
     );
 }

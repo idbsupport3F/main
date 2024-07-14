@@ -156,9 +156,21 @@
     position: sticky !important;
 }
 
+@include media-breakpoint-down(lg) {
+    .fixed-component-container{
+        position:relative;
+    }
+}
+
 .fixed-mobile-container{
     display: inline-flex;
     text-align: center;
     align-content: center;
-    z-index: 99999;
+    z-index: var(--bs-offcanvas-zindex);
+}
+
+.offcanvas {
+    #fixed-container {
+        padding: 0 !important;
+    }
 }

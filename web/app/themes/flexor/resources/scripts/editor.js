@@ -24,7 +24,7 @@ import { registerIcons } from '@10up/block-components';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 /** components */
 import images from './blocks/swiper-images'
@@ -92,11 +92,38 @@ registerBlockType('sage/link', {
     icon: 'admin-links',
     apiVersion: 3,
     supports: {
-        lock: false
+        lock: false,
+        color: {
+            text: false,
+            gradients: true
+        },
+        background: {
+            backgroundImage: true, // Enable background image control.
+            backgroundSize: true // Enable background image + size control.
+        },
+        shadow: true, // Enable the box-shadow picker.
+        spacing: {
+            margin: true,  // Enable margin UI control.
+            padding: true, // Enable padding UI control.
+        }
     },
     edit: link,
-    save() {
-        return <InnerBlocks.Content/>
+    save({attributes}) {
+        const { link, newTab, text, border, borderRadius } = attributes;
+        const blockProps = useBlockProps.save({
+            className: "link-container-component",
+            style: {
+                border: border ? Object.values(border) : undefined,
+                borderTopLeftRadius: borderRadius ? borderRadius.left : undefined,
+                borderTopRightRadius: borderRadius ? borderRadius.top : undefined,
+                borderBottomLeftRadius: borderRadius ? borderRadius.bottom : undefined,
+                borderBottomRightRadius: borderRadius ? borderRadius.right : undefined,
+                overflow: 'hidden'
+            }
+        });
+        const innerBlocksProps = useInnerBlocksProps.save(blockProps);
+
+        return <a href={(link && link.length > 0) ? link : null } target={newTab ? '_blank' : null} data-bs-toggle="tooltip" data-bs-placement="top" title={text ? __(text, 'sage') : null} {...innerBlocksProps} />;
     }
 })
 
@@ -106,11 +133,26 @@ registerBlockType('sage/fixed', {
     icon: 'editor-insertmore',
     apiVersion: 3,
     supports: {
-        lock: false
+        lock: false,
+        color: {
+            text: false,
+            gradients: true
+        },
+        align: true,
+        dimensions: {
+            aspectRatio: true, // Enable aspect ratio control.
+            minHeight: true // Enable min height control.
+        },
+        spacing: {
+            margin: true,  // Enable margin UI control.
+            padding: true, // Enable padding UI control.
+        }
     },
     edit: fixed,
     save() {
-        return <InnerBlocks.Content/>
+        const blockProps = useBlockProps.save();
+        const innerBlocksProps = useInnerBlocksProps.save(blockProps);
+        return <div {...innerBlocksProps} />;
     }
 })
 

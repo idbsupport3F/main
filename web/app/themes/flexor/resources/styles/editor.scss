@@ -5,13 +5,13 @@
  */
 
 @import 'root.scss';
-@import 'components.scss';
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
+@import 'components.scss';
 
 .wp-block-create-block-swiper-logo-slider {
     border: 1px dotted #f00;

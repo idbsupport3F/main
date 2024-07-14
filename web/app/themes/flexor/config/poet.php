@@ -172,6 +172,9 @@ return [
         ],
         'sage/fixed' => [
             'attributes' => [
+                'title' => [
+                    'type' => 'string'
+                ],
                 'mobilePosition' => [
                     'type' => 'string',
                     'default' => 'bottom right'
@@ -192,7 +195,10 @@ return [
                         'right' => '22px'
                     ]
                 ],
-                'backgroundColor' => [
+                'iconColor' => [
+                    'type' => 'string'
+                ],
+                'backgroundIconColor' => [
                     'type' => 'string'
                 ],
                 'border' => [

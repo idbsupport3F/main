@@ -13,29 +13,33 @@ function ismatch(str) {
   var ret = null;
   if (String(str).match(new RegExp(/^data\-.*(_)/, 'g'))) {
     ret = str.split('_');
-    return false;
   }
   return ret;
 }
+
+(function(){
+  "use strict";
+
+  /**
+ * Animation on scroll function and init
+ */
+  document.querySelectorAll('.animate-aos').forEach((val, i) => {
+    var $this = val;
+    var tab = $this.getAttribute('class').split(' ')
+    var keep;
+    Object.values(tab).forEach(function (item) {
+      var ello = ismatch(item)
+      if (ello !== null){
+        $this.setAttribute(ello[0], ello[1]);
+      }
+    });
+  })
+})();
 
 /**
  * Application entrypoint
  */
 domReady(async () => {
-
-  /**
-   * Animation on scroll function and init
-   */
-    document.querySelectorAll('.animate-aos').forEach((val, i) => {
-      var $this = val;
-      var tab = $this.getAttribute('class').split(' ')
-      var keep;
-      Object.values(tab).forEach(function (item) {
-        var ello = ismatch(item)
-        if (ello !== null)
-          $this.setAttribute(ello[0], ello[1]);
-      });
-    })
 
   /**
    * Bootstrap Tooltip
@@ -195,8 +199,6 @@ domReady(async () => {
     faqItem.addEventListener('click', () => {
       faqItem.classList.toggle('faq-active');
       toggleInnerContentDisplay(faqItem);
-      // console.log(faqItem.querySelector('.faq-content').children)
-      // faqItem.childNodes.classList.toggle('d-none');
     });
   });
 
@@ -244,9 +246,9 @@ domReady(async () => {
   initSwiper();
 
   /**
-   * DO NOT REMOVE BELOW CODE. IT MUST HAPPEN AT LAST LINE OF DOM READY EXECUTION!
-   * Must Execute AOS at the final stage for this to happen due to onload, we are trying to adjust css into data-attribute such as `data-aos="fade-out"`.
-   */
+ * DO NOT REMOVE BELOW CODE. IT MUST HAPPEN AT LAST LINE OF DOM READY EXECUTION!
+ * Must Execute AOS at the final stage for this to happen due to onload, we are trying to adjust css into data-attribute such as `data-aos="fade-out"`.
+ */
   AOS.init({
     duration: 600,
     easing: 'ease-in-out',
