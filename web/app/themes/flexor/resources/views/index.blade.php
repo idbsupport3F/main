@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
 
   {{-- @if (! have_posts())
     <x-alert type="warning">
@@ -17,7 +16,11 @@
 
   {!! get_the_posts_navigation() !!} --}}
 @endsection
-
+{{-- 
 @section('sidebar')
   @include('sections.sidebar')
+@endsection --}}
+
+@section('footer')
+  @include('sections.footer')
 @endsection

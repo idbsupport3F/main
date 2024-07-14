@@ -12,8 +12,9 @@
         $wp_customize->add_setting('twitter-x', array('default' => ''));
         $wp_customize->add_setting('facebook', array('default' => ''));
         $wp_customize->add_setting('instagram', array('default' => ''));
-        $wp_customize->add_setting('linkedin', array('default' => ''));
-        $wp_customize->add_setting('show_site_contacts', array('default' => ''));
+        $wp_customize->add_setting('youtube', array('default' => ''));
+        $wp_customize->add_setting('tiktok', array('default' => ''));
+        $wp_customize->add_setting('show_site_contacts', array('default' => false));
         $wp_customize->add_setting('site_address', array('default' => ''));
 
         //Sections
@@ -105,20 +106,6 @@
             )
         );
 
-        // Twitter
-        $wp_customize->add_control(
-            new WP_Customize_Control(
-                $wp_customize,
-                'twitter-x',
-                array(
-                    'label'     =>  __('Twitter URL:', 'sage'),
-                    'type'      =>  'url',
-                    'section'   =>  'social_media',
-                    'settings'  =>  'twitter-x'
-                )
-            )
-        );
-
         // Facebook
         $wp_customize->add_control(
             new WP_Customize_Control(
@@ -133,13 +120,27 @@
             )
         );
 
+        // Twitter
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'twitter-x',
+                array(
+                    'label'     =>  __('Twitter URL:', 'sage'),
+                    'type'      =>  'url',
+                    'section'   =>  'social_media',
+                    'settings'  =>  'twitter-x'
+                )
+            )
+        );
+
         // Instagram
         $wp_customize->add_control(
             new WP_Customize_Control(
                 $wp_customize,
                 'instagram',
                 array(
-                    'label'     =>  __('Facebook URL:', 'sage'),
+                    'label'     =>  __('Instagram URL:', 'sage'),
                     'type'      =>  'url',
                     'section'   =>  'social_media',
                     'settings'  =>  'instagram'
@@ -147,16 +148,30 @@
             )
         );
 
-        // LinkedIn
+        // Youtube
         $wp_customize->add_control(
             new WP_Customize_Control(
                 $wp_customize,
-                'linkedin',
+                'youtube',
                 array(
-                    'label'     =>  __('Facebook URL:', 'sage'),
+                    'label'     =>  __('Youtube URL:', 'sage'),
                     'type'      =>  'url',
                     'section'   =>  'social_media',
-                    'settings'  =>  'linkedin'
+                    'settings'  =>  'youtube'
+                )
+            )
+        );
+
+        // Tiktok
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'tiktok',
+                array(
+                    'label'     =>  __('Tiktok URL:', 'sage'),
+                    'type'      =>  'url',
+                    'section'   =>  'social_media',
+                    'settings'  =>  'tiktok'
                 )
             )
         );
@@ -173,7 +188,7 @@
         $wp_customize->add_panel('menu_depth_panel', array(
             'priority' => 12,
             'title' => 'Menu Depth',
-            'description' => 'You can set the depth of your header menu items in this template'
+            'description' => __('You can set the depth of your header menu items in this template', 'sage')
         ));
         // Add Custom Section
         $wp_customize->add_section(
@@ -193,12 +208,12 @@
                     'label'         =>  __('Menu Depth:', 'sage'),
                     'type'          =>  'number',
                     'section'       =>  'menu_depth_section',
-                    'description'   =>  'How many levels of the hierarchy are to be included.',
+                    'description'   =>  __('How many levels of the hierarchy are to be included.', 'sage'),
                     'input_attrs'   =>  [
                         'value'         =>  1,
                         'min'           => 0,
                         'max'           => 10,
-                        'placeholder'   => 'Insert your desire depth hierarchy'
+                        'placeholder'   => __('Insert your desire depth hierarchy', 'sage')
                     ],
                     'settings'      =>  'menu_depth'
                 )

@@ -169,6 +169,51 @@ return [
                     ]
                 ]
             ]
+        ],
+        'sage/fixed' => [
+            'attributes' => [
+                'title' => [
+                    'type' => 'string'
+                ],
+                'mobilePosition' => [
+                    'type' => 'string',
+                    'default' => 'bottom right'
+                ],
+                'size' => [
+                    'type' => 'string',
+                    'default' => '40px'
+                ],
+                'icon' => [
+                    'type' => 'object'
+                ],
+                'paddingIcon' => [
+                    'type' => 'array',
+                    'default' => [
+                        'top' => '22px',
+                        'bottom' => '22px',
+                        'left' => '22px',
+                        'right' => '22px'
+                    ]
+                ],
+                'iconColor' => [
+                    'type' => 'string'
+                ],
+                'backgroundIconColor' => [
+                    'type' => 'string'
+                ],
+                'border' => [
+                    'type' => 'object'
+                ],
+                'borderRadius' => [
+                    'type' => 'object',
+                    'default' => [
+                        'top' => '0px',
+                        'left' => '0px',
+                        'right' => '0px',
+                        'bottom' => '0px'
+                    ]
+                ]
+            ]
         ]
     ],
 

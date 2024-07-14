@@ -16,84 +16,9 @@
       "duotone": [],
       "palette": [
         {
-          "slug": "red-status50",
-          "color": "#ffe6e7",
-          "name": "Red Status 50"
-        },
-        {
-          "slug": "red-status100",
-          "color": "#ffccd0",
-          "name": "Red Status 100"
-        },
-        {
-          "slug": "red-status200",
-          "color": "#ff99a0",
-          "name": "Red Status 200"
-        },
-        {
-          "slug": "red-status300",
-          "color": "#fe6771",
-          "name": "Red Status 300"
-        },
-        {
-          "slug": "red-status400",
-          "color": "#fe3441",
-          "name": "Red Status 400"
-        },
-        {
           "slug": "red-status500",
           "color": "#e20110",
           "name": "Red Status 500"
-        },
-        {
-          "slug": "red-status600",
-          "color": "#cb010e",
-          "name": "Red Status 600"
-        },
-        {
-          "slug": "red-status700",
-          "color": "#98010b",
-          "name": "Red Status 700"
-        },
-        {
-          "slug": "red-status800",
-          "color": "#660007",
-          "name": "Red Status 800"
-        },
-        {
-          "slug": "red-status900",
-          "color": "#330004",
-          "name": "Red Status 900"
-        },
-        {
-          "slug": "red-status950",
-          "color": "#190002",
-          "name": "Red Status 950"
-        },
-        {
-          "slug": "main-color50",
-          "color": "#ffece5",
-          "name": "Main Color 50"
-        },
-        {
-          "slug": "main-color100",
-          "color": "#ffd9cc",
-          "name": "Main Color 100"
-        },
-        {
-          "slug": "main-color200",
-          "color": "#ffb399",
-          "name": "Main Color 200"
-        },
-        {
-          "slug": "main-color300",
-          "color": "#ff8c66",
-          "name": "Main Color 300"
-        },
-        {
-          "slug": "main-color400",
-          "color": "#ff6633",
-          "name": "Main Color 400"
         },
         {
           "slug": "main-color500",
@@ -101,109 +26,9 @@
           "name": "Main Color 500"
         },
         {
-          "slug": "main-color600",
-          "color": "#cc3300",
-          "name": "Main Color 600"
-        },
-        {
-          "slug": "main-color700",
-          "color": "#992600",
-          "name": "Main Color 700"
-        },
-        {
-          "slug": "main-color800",
-          "color": "#661a00",
-          "name": "Main Color 800"
-        },
-        {
-          "slug": "main-color900",
-          "color": "#330d00",
-          "name": "Main Color 900"
-        },
-        {
-          "slug": "main-color950",
-          "color": "#1a0600",
-          "name": "Main Color 950"
-        },
-        {
-          "slug": "text-color50",
-          "color": "#f2f2f2",
-          "name": "Text Color 50"
-        },
-        {
-          "slug": "text-color100",
-          "color": "#e6e6e6",
-          "name": "Text Color 100"
-        },
-        {
-          "slug": "text-color200",
-          "color": "#cccccc",
-          "name": "Text Color 200"
-        },
-        {
-          "slug": "text-color300",
-          "color": "#b3b3b3",
-          "name": "Text Color 300"
-        },
-        {
-          "slug": "text-color400",
-          "color": "#999999",
-          "name": "Text Color 400"
-        },
-        {
           "slug": "text-color500",
           "color": "#242424",
           "name": "Text Color 500"
-        },
-        {
-          "slug": "text-color600",
-          "color": "#666666",
-          "name": "Text Color 600"
-        },
-        {
-          "slug": "text-color700",
-          "color": "#4d4d4d",
-          "name": "Text Color 700"
-        },
-        {
-          "slug": "text-color800",
-          "color": "#333333",
-          "name": "Text Color 800"
-        },
-        {
-          "slug": "text-color900",
-          "color": "#1a1a1a",
-          "name": "Text Color 900"
-        },
-        {
-          "slug": "text-color950",
-          "color": "#0d0d0d",
-          "name": "Text Color 950"
-        },
-        {
-          "slug": "background50",
-          "color": "#f2f2f2",
-          "name": "Background 50"
-        },
-        {
-          "slug": "background100",
-          "color": "#e6e6e6",
-          "name": "Background 100"
-        },
-        {
-          "slug": "background200",
-          "color": "#cccccc",
-          "name": "Background 200"
-        },
-        {
-          "slug": "background300",
-          "color": "#b3b3b3",
-          "name": "Background 300"
-        },
-        {
-          "slug": "background400",
-          "color": "#999999",
-          "name": "Background 400"
         },
         {
           "slug": "background500",
@@ -211,139 +36,14 @@
           "name": "Background 500"
         },
         {
-          "slug": "background600",
-          "color": "#666666",
-          "name": "Background 600"
-        },
-        {
-          "slug": "background700",
-          "color": "#4d4d4d",
-          "name": "Background 700"
-        },
-        {
-          "slug": "background800",
-          "color": "#333333",
-          "name": "Background 800"
-        },
-        {
-          "slug": "background900",
-          "color": "#1a1a1a",
-          "name": "Background 900"
-        },
-        {
-          "slug": "background950",
-          "color": "#0d0d0d",
-          "name": "Background 950"
-        },
-        {
-          "slug": "yellow-status50",
-          "color": "#fffde6",
-          "name": "Yellow Status 50"
-        },
-        {
-          "slug": "yellow-status100",
-          "color": "#fffbcc",
-          "name": "Yellow Status 100"
-        },
-        {
-          "slug": "yellow-status200",
-          "color": "#fff899",
-          "name": "Yellow Status 200"
-        },
-        {
-          "slug": "yellow-status300",
-          "color": "#fef467",
-          "name": "Yellow Status 300"
-        },
-        {
-          "slug": "yellow-status400",
-          "color": "#fef134",
-          "name": "Yellow Status 400"
-        },
-        {
           "slug": "yellow-status500",
           "color": "#feed01",
           "name": "Yellow Status 500"
         },
         {
-          "slug": "yellow-status600",
-          "color": "#cbbe01",
-          "name": "Yellow Status 600"
-        },
-        {
-          "slug": "yellow-status700",
-          "color": "#988e01",
-          "name": "Yellow Status 700"
-        },
-        {
-          "slug": "yellow-status800",
-          "color": "#665f00",
-          "name": "Yellow Status 800"
-        },
-        {
-          "slug": "yellow-status900",
-          "color": "#332f00",
-          "name": "Yellow Status 900"
-        },
-        {
-          "slug": "yellow-status950",
-          "color": "#191800",
-          "name": "Yellow Status 950"
-        },
-        {
-          "slug": "green-status50",
-          "color": "#e6feef",
-          "name": "Green Status 50"
-        },
-        {
-          "slug": "green-status100",
-          "color": "#cdfedf",
-          "name": "Green Status 100"
-        },
-        {
-          "slug": "green-status200",
-          "color": "#9bfdbf",
-          "name": "Green Status 200"
-        },
-        {
-          "slug": "green-status300",
-          "color": "#6afb9f",
-          "name": "Green Status 300"
-        },
-        {
-          "slug": "green-status400",
-          "color": "#38fa7f",
-          "name": "Green Status 400"
-        },
-        {
           "slug": "green-status500",
           "color": "#037f30",
           "name": "Green Status 500"
-        },
-        {
-          "slug": "green-status600",
-          "color": "#05c74c",
-          "name": "Green Status 600"
-        },
-        {
-          "slug": "green-status700",
-          "color": "#049539",
-          "name": "Green Status 700"
-        },
-        {
-          "slug": "green-status800",
-          "color": "#026426",
-          "name": "Green Status 800"
-        },
-        {
-          "slug": "green-status900",
-          "color": "#013213",
-          "name": "Green Status 900"
-        },
-        {
-          "slug": "green-status950",
-          "color": "#01190a",
-          "name": "Green Status 950"
         }
       ]
     },
@@ -370,6 +70,36 @@
         "rem",
         "vw",
         "vh"
+      ]
+    },
+    "shadow": {
+      "defaultPresets": true,
+      "presets": [
+        {
+          "name": "Natural",
+          "slug": "natural",
+          "shadow": "6px 6px 9px rgba(0, 0, 0, 0.2)"
+        },
+        {
+          "name": "Deep",
+          "slug": "deep",
+          "shadow": "12px 12px 50px rgba(0, 0, 0, 0.4)"
+        },
+        {
+          "name": "Sharp",
+          "slug": "sharp",
+          "shadow": "6px 6px 0px rgba(0, 0, 0, 0.2)"
+        },
+        {
+          "name": "Outlined",
+          "slug": "outlined",
+          "shadow": "6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1)"
+        },
+        {
+          "name": "Crisp",
+          "slug": "crisp",
+          "shadow": "6px 6px 0px rgba(0, 0, 0, 1)"
+        }
       ]
     },
     "typography": {
@@ -438,8 +168,7 @@
       }
     },
     "layout": {
-      "contentSize": "1320px",
-      "wideSize": "1320px"
+      "contentSize": "1320px"
     }
   }
 }

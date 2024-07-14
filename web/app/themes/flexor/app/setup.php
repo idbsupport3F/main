@@ -66,7 +66,7 @@ add_action('after_setup_theme', function () {
      * 
      * @link https://developer.wordpress.org/reference/functions/add_image_size/
      */
-    add_image_size( 'logo-client', 116 ); // 300 pixels wide (and unlimited height)
+    add_image_size( 'logo-client', 116 ); // 116 pixels wide (and unlimited height)
 
     /**
      * Add Testimonial Image Size

@@ -1,0 +1,14 @@
+{
+    "maven.view": "flat",
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "blade": "html"
+    },
+    "files.associations": {
+        "*.php": "php",
+        "*.blade.php": "blade"
+    },
+    "[blade]": {
+        "editor.autoClosingBrackets": "always"
+    }
+}

@@ -17,3 +17,7 @@
 
   {!! get_the_posts_navigation() !!}
 @endsection
+
+@section('footer')
+  @include('sections.footer')
+@endsection

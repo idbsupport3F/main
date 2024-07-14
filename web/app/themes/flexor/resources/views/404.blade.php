@@ -11,3 +11,7 @@
     {!! get_search_form(false) !!}
   @endif
 @endsection
+
+@section('footer')
+  @include('sections.footer')
+@endsection

@@ -1,4 +1,4 @@
-<footer id="footer" class="footer">
+<footer id="footer" class="footer" style="background:#ffeecf;">
 
     <div class="container footer-top">
         <div class="row gy-4">
@@ -45,20 +45,16 @@
             @endif
 
             <div class="col-lg-2 col-md-12 footer-newsletter">
-                <div class="row">
-                    <h4 class="footer-etc">Visitor Counter</h4>
-                    <div>
-                        <a href='https://www.free-counters.org/'>free-counters.org</a>
-                        <script type='text/javascript'
-                            src='https://www.freevisitorcounters.com/auth.php?id=4c2a4bcfc73db3af5095fd61fd04a09c7f01bb34'></script>
-                        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1196310/t/1"></script>
-                    </div>
+                <h4>Visitor Counter</h4>
+                <div>
+                    <a href='https://www.free-counters.org/'>free-counters.org</a>
+                    <script type='text/javascript'
+                        src='https://www.freevisitorcounters.com/auth.php?id=4c2a4bcfc73db3af5095fd61fd04a09c7f01bb34'></script>
+                    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1196310/t/1"></script>
                 </div>
-                <div class="row">
-                    <h4 class="footer-etc">Tarikh Kemaskini</h4>
-                    <div>
-                        <p>{!! get_the_modified_date('') !!}</p>
-                    </div>
+                <h4>Tarikh Kemaskini</h4>
+                <div>
+                    <p>{!! get_the_modified_date('') !!}</p>
                 </div>
 
             </div>

@@ -80,12 +80,18 @@ export default function Edit(props) {
     }
 
     return (
-        <div {...useBlockProps()}>
+        <div {...useBlockProps({
+            style: {
+                border: Object.values(border),
+                borderTopLeftRadius: borderRadius.left,
+                borderTopRightRadius: borderRadius.top,
+                borderBottomLeftRadius: borderRadius.bottom,
+                borderBottomRightRadius: borderRadius.right,
+                overflow: 'hidden'
+            }
+            })}>
             <InspectorControls>
                 <Panel>
-                    <PanelHeader>
-                        Link Block Component for your own good
-                    </PanelHeader>
                     <PanelBody title={__('Link Setting', 'sage')} initialOpen={true}>
                         <PanelRow>
                             <Placeholder label={__('Choose your link:', 'sage')} icon={iconLink}>
@@ -120,9 +126,7 @@ export default function Edit(props) {
                     </PanelBody>
                 </Panel>
             </InspectorControls>
-            <a data-bs-toggle={text ? "tooltip" : null} data-bs-placement={text ? "top" : null} title={text ?? null} className='link-container-component' style={{
-                border
-            }}>
+            <a data-bs-toggle={text ? "tooltip" : null} data-bs-placement={text ? "top" : null} title={text ?? null} className='link-container-component'>
                 <InnerBlocks allowedBlocks={DISALLOWEDBLOCKS} />
             </a>
         </div >
