@@ -1,4 +1,3 @@
-{{-- {{ dd($data) }} --}}
 @php
     $positionMobile = '';
     switch ($data->mobilePosition) {
