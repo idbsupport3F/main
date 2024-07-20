@@ -82,8 +82,16 @@ class SiteComposer extends Composer
      * @return string
      */
     static public function get_site_phone(){
-        if (get_theme_mod('site_phone')) {
-            return esc_attr(get_theme_mod('site_phone'));
+        $pageTemplateFilter = is_page_template('template-peperiksaan.blade.php');
+        if (get_theme_mod('site_phone') && !$pageTemplateFilter) {
+            return [
+                'phone' => esc_attr(get_theme_mod('site_phone')),
+            ];
+        } else if(get_theme_mod('site_phone') && $pageTemplateFilter) {
+            return [
+                'phone' => esc_attr(get_theme_mod('peperiksaan_phone')),
+                'fax' => esc_attr(get_theme_mod('peperiksaan_fax')),
+            ];
         }
         return null;
     }

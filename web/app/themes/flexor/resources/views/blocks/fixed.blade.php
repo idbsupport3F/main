@@ -1,3 +1,4 @@
+{{-- {{ dd($data->marginMobile) }} --}}
 @php
     $positionMobile = '';
     switch ($data->mobilePosition) {
@@ -64,7 +65,7 @@
         ' ' .
         $data->paddingIcon['bottom'] .
         ' ' .
-        $data->paddingIcon['left'] !!}">
+        $data->paddingIcon['left'] . ';' !!}margin:{!! $data->marginMobile['top'] . ' ' . $data->marginMobile['right'] . ' ' . $data->marginMobile['bottom'] . ' ' . $data->marginMobile['left'] . ' !important;' !!}">
     <div style="{!! isset($data->iconColor)
         ? 'color:' . $data->iconColor . ';'
         : 'background-color:#ff5921;' !!}{!! isset($data->size) ? 'width:' . $data->size . ';height:' . $data->size . ';' : null !!}">

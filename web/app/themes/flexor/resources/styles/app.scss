@@ -23,3 +23,7 @@ figure{
 .wp-block-cb-carousel .slick-slide{
     padding: 0 !important;
 }
+
+.unclickable {
+    pointer-events: none;
+}

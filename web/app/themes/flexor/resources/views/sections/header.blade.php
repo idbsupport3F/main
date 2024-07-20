@@ -4,7 +4,7 @@
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
         @isset($contact)<i class="bi bi-envelope d-flex align-items-center"><a href="mailto:{!! $contact !!}">{!! $contact !!}</a></i>@endisset
-        @isset($phone)<i class="bi bi-phone d-flex align-items-center ms-4"><span>+{{ $phone }}</span></i>@endisset
+        @isset($phone)<i class="bi bi-phone d-flex align-items-center ms-4"><span>+{{ $phone['phone'] }}</span></i>@endisset
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
       @isset($social_medias)
@@ -23,9 +23,9 @@
          {{-- Uncomment the line below if you also wish to use an image logo --}}
         @if (get_theme_mod('site_logo'))
         <img src="{!! $site_logo !!}" alt="{{ get_bloginfo('name') }}">
-        <h1 class="sitename">{!! $siteName !!}</h1>
-        @else
-        <h1 class="sitename">{!! $siteName !!}</h1>
+        @endif
+        @if(get_theme_mod('show_site_name'))
+          <h1 class="sitename">{!! $siteName !!}</h1>
         @endif
       </a>
       <nav id="navmenu" class="navmenu" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">

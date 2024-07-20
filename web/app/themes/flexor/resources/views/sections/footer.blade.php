@@ -4,18 +4,21 @@
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
                 <a href="{{ home_url('/') }}" class="logo d-flex align-items-center">
-                    {{-- Uncomment the line below if you also wish to use an image logo --}}
                     @if (get_theme_mod('site_logo'))
-                        <img src="{!! $site_logo !!}" alt="{{ get_bloginfo('name') }}">
-                        <span class="sitename">{!! $siteName !!}</span>
+                        <div class="d-flex flex-column">
+                            @if(get_theme_mod('hide_footer_site_name'))
+                            <span class="sitename mb-2">{!! $siteName !!}</span>
+                            @endif
+                            <img src="{{ $site_logo }}" alt="{{ get_bloginfo('name') }}">
+                        </div>
                     @else
                         <span class="sitename">{!! $siteName !!}</span>
                     @endif
                 </a>
                 <div class="footer-contact pt-3">
-                    <p>{!! $address !!}</p>
+                    <p>{!! htmlspecialchars_decode(nl2br($address)) !!}</p>
                     @isset($phone)
-                        <p class="mt-3"><strong>Phone:</strong> <span>{!! $phone !!}</span></p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>{!! $phone['phone'] !!}</span></p>
                     @endisset
                     @isset($contact)
                         <p><strong>Email:</strong> <span>{!! $contact !!}</span></p>
@@ -31,18 +34,18 @@
                 </div>
             </div>
 
+            <div class="col-lg-4 col-md-3 footer-links">
             @if (strlen(wp_get_nav_menu_name('footer_navigation')) > 0)
-                <div class="col-lg-4 col-md-3 footer-links">
-                    <h4>{!! wp_get_nav_menu_name('footer_navigation') !!}</h4>
-                        {!! wp_nav_menu([
-                            'theme_location' => 'footer_navigation',
-                            'depth' => get_theme_mod('menu_depth') ? esc_attr(get_theme_mod('menu_depth')) : 1, // 1 = no dropdowns, 2 = with dropdowns.
-                            'container' => false,
-                            'fallback_cb' => false,
-                            'items_wrap' => '<ul id="%1$s" class="%2$s menu-lain d-flex flex-wrap flex-column align-content-start">%3$s</ul>',
-                        ]) !!}
-                </div>
+                <h4>{!! wp_get_nav_menu_name('footer_navigation') !!}</h4>
+                    {!! wp_nav_menu([
+                        'theme_location' => 'footer_navigation',
+                        'depth' => get_theme_mod('menu_depth') ? esc_attr(get_theme_mod('menu_depth')) : 1, // 1 = no dropdowns, 2 = with dropdowns.
+                        'container' => false,
+                        'fallback_cb' => false,
+                        'items_wrap' => '<ul id="%1$s" class="%2$s menu-lain d-flex flex-wrap flex-column align-content-start">%3$s</ul>',
+                    ]) !!}
             @endif
+            </div>
 
             <div class="col-lg-2 col-md-12 footer-newsletter">
                 <div class="row">
@@ -65,7 +68,7 @@
         </div>
 
         <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">{!! get_bloginfo('name') !!}</strong> <span>All Rights
+            <p>© <span>Copyright</span> <strong class="px-1">{!! get_bloginfo('name') !!}</strong> <span>All Rights
                     Reserved</span></p>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->

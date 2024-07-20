@@ -1,4 +1,48 @@
 <?php
+
+    /**
+     * Bootstrap Menu Controller
+     */
+    function menu_controller($wp_customize) {
+        $wp_customize->add_setting('menu_depth', array('default' => 3));
+        // Get Existing Panel named 'nav_menus'
+        $panel = $wp_customize->get_panel('nav_menus');
+        // Add Custom Panel
+        $wp_customize->add_panel('menu_depth_panel', array(
+            'priority' => 12,
+            'title' => 'Menu Depth',
+            'description' => __('You can set the depth of your header menu items in this template', 'sage')
+        ));
+        // Add Custom Section
+        $wp_customize->add_section(
+            'menu_depth_section',
+            array(
+                'title' => __('Adjust Depth', 'sage'),
+                'description' => __('You may adjust the depth value of a page that appears in header.', 'sage'),
+                'panel' =>  $panel->id,
+            )
+        );
+        // Depth Number
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'menu_depth',
+                array(
+                    'label'         =>  __('Menu Depth:', 'sage'),
+                    'type'          =>  'number',
+                    'section'       =>  'menu_depth_section',
+                    'description'   =>  __('How many levels of the hierarchy are to be included.', 'sage'),
+                    'input_attrs'   =>  [
+                        'value'         =>  1,
+                        'min'           => 0,
+                        'max'           => 10,
+                        'placeholder'   => __('Insert your desire depth hierarchy', 'sage')
+                    ],
+                    'settings'      =>  'menu_depth'
+                )
+            )
+        );
+    }
     /**
      * Customize Global
      * 
@@ -8,14 +52,43 @@
         // Settings
         $wp_customize->add_setting('site_email', array('default' => ''));
         $wp_customize->add_setting('site_phone', array('default' => ''));
+        $wp_customize->add_setting('peperiksaan_phone', array('default' => ''));
+        $wp_customize->add_setting('peperiksaan_fax', array('default' => ''));
         $wp_customize->add_setting('site_logo', array('default' => ''));
         $wp_customize->add_setting('twitter-x', array('default' => ''));
         $wp_customize->add_setting('facebook', array('default' => ''));
         $wp_customize->add_setting('instagram', array('default' => ''));
         $wp_customize->add_setting('youtube', array('default' => ''));
         $wp_customize->add_setting('tiktok', array('default' => ''));
-        $wp_customize->add_setting('show_site_contacts', array('default' => false));
-        $wp_customize->add_setting('site_address', array('default' => ''));
+        $wp_customize->add_setting('show_site_contacts',
+            array(
+                'default' => false,
+                'transport' => 'refresh',
+                'sanitize_callback' => 'skyrocket_switch_sanitization'
+            )
+        );
+        $wp_customize->add_setting('site_address',
+            array(
+                'default' => '',
+                'transport' => 'postMessage',
+                'sanitize_callback' => 'wp_kses_post'
+            )
+        );
+        $wp_customize->add_setting('show_site_name', 
+            array(
+                'default' => false,
+                'transport' => 'refresh',
+                'sanitize_callback' => 'skyrocket_switch_sanitization'
+            )
+        );
+        $wp_customize->add_setting('hide_footer_site_name',
+            array(
+                'default' => false,
+                'transport' => 'refresh',
+                'sanitize_callback' => 'skyrocket_switch_sanitization'
+            )
+        );
+
 
         //Sections
         $wp_customize->add_section(
@@ -39,31 +112,50 @@
         // Controls
         // Show Site Contacts
         $wp_customize->add_control(
-            new WP_Customize_Control(
-                $wp_customize,
-                'show_site_contacts',
+            new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'show_site_contacts',
                 array(
-                    'label'     =>  __('Show Header Site Contacts?', 'sage'),
-                    'type'      =>  'checkbox',
-                    'section'   =>  'site_info',
-                    'settings'  =>  'show_site_contacts'
+                    'label' => __('Hide header site contacts?', 'sage'),
+                    'section' => 'site_info'
+                )
+            ) 
+        );
+
+        // Show Site Name
+        $wp_customize->add_control(
+            new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'show_site_name',
+                array(
+                    'label' => __('Show site title?', 'sage'),
+                    'section' => 'site_info'
+                )
+            ) 
+        );
+
+        // Hide Footer Site Name
+        $wp_customize->add_control(
+            new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'hide_footer_site_name',
+                array(
+                    'label' => __('Hide footer site title?', 'sage'),
+                    'section' => 'site_info'
                 )
             )
         );
 
         // Site Address
         $wp_customize->add_control(
-            new WP_Customize_Control(
-                $wp_customize,
-                'site_address',
-                array(
-                    'label'     =>  __('Address:', 'sage'),
-                    'type'      =>  'textarea',
-                    'section'   =>  'site_info',
-                    'settings'  =>  'site_address'
+        new Skyrocket_TinyMCE_Custom_control(
+            $wp_customize,
+            'site_address',
+            array(
+                'label' => __('Site Address', 'sage'),
+                'description' => __('Type the site address location in here.', 'sage'),
+                'section' => 'site_info',
+                'input_attrs' => array(
+                    'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
+                    'toolbar2' => 'formatselect outdent indent | blockquote charmap',
+                    'mediaButtons' => false,
                 )
             )
-        );
+        ));
 
         // Email Address
         $wp_customize->add_control(
@@ -89,6 +181,34 @@
                     'type'      =>  'tel',
                     'section'   =>  'site_info',
                     'settings'  =>  'site_phone'
+                )
+            )
+        );
+
+        // Peperiksaan Phone Number
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'peperiksaan_phone',
+                array(
+                    'label'     =>  __('Peperiksaan Phone Number:', 'sage'),
+                    'type'      =>  'tel',
+                    'section'   =>  'site_info',
+                    'settings'  =>  'peperiksaan_phone'
+                )
+            )
+        );
+
+        // Peperiksaan Phone Number
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'peperiksaan_fax',
+                array(
+                    'label'     =>  __('Peperiksaan Fax Number:', 'sage'),
+                    'type'      =>  'tel',
+                    'section'   =>  'site_info',
+                    'settings'  =>  'peperiksaan_fax'
                 )
             )
         );
@@ -178,48 +298,9 @@
     }
 
     /**
-     * Adjust Menu to control depth
+     * Register Actions
      */
-    add_action('customize_register', function ($wp_customize) {
-        $wp_customize->add_setting('menu_depth', array('default' => 3));
-        // Get Existing Panel named 'nav_menus'
-        $panel = $wp_customize->get_panel('nav_menus');
-        // Add Custom Panel
-        $wp_customize->add_panel('menu_depth_panel', array(
-            'priority' => 12,
-            'title' => 'Menu Depth',
-            'description' => __('You can set the depth of your header menu items in this template', 'sage')
-        ));
-        // Add Custom Section
-        $wp_customize->add_section(
-            'menu_depth_section',
-            array(
-                'title' => __('Adjust Depth', 'sage'),
-                'description' => __('You may adjust the depth value of a page that appears in header.', 'sage'),
-                'panel' =>  $panel->id,
-            )
-        );
-        // Depth Number
-        $wp_customize->add_control(
-            new WP_Customize_Control(
-                $wp_customize,
-                'menu_depth',
-                array(
-                    'label'         =>  __('Menu Depth:', 'sage'),
-                    'type'          =>  'number',
-                    'section'       =>  'menu_depth_section',
-                    'description'   =>  __('How many levels of the hierarchy are to be included.', 'sage'),
-                    'input_attrs'   =>  [
-                        'value'         =>  1,
-                        'min'           => 0,
-                        'max'           => 10,
-                        'placeholder'   => __('Insert your desire depth hierarchy', 'sage')
-                    ],
-                    'settings'      =>  'menu_depth'
-                )
-            )
-        );
-    }, 12);
+    add_action('customize_register', 'menu_controller', 12);
 
     add_action('customize_register', 'site_contact');
 ?>

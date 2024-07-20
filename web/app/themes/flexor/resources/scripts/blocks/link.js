@@ -82,11 +82,11 @@ export default function Edit(props) {
     return (
         <div {...useBlockProps({
             style: {
-                border: Object.values(border),
-                borderTopLeftRadius: borderRadius.left,
-                borderTopRightRadius: borderRadius.top,
-                borderBottomLeftRadius: borderRadius.bottom,
-                borderBottomRightRadius: borderRadius.right,
+                border: border && Object.values(border).length > 0 ? Object.values(border).join(' ') : null,
+                borderTopLeftRadius: borderRadius && borderRadius.left,
+                borderTopRightRadius: borderRadius && borderRadius.top,
+                borderBottomLeftRadius: borderRadius && borderRadius.bottom,
+                borderBottomRightRadius:borderRadius && borderRadius.right,
                 overflow: 'hidden'
             }
             })}>
@@ -102,7 +102,7 @@ export default function Edit(props) {
                                     onTextChange={handleTextChange}
                                     onLinkChange={handleLinkChange}
                                     onLinkRemove={handleLinkRemove}
-                                    placeholder={__('Enter tooltip text here', 'sage')}
+                                    placeholder={__('Enter tooltip title text here', 'sage')}
                                 />
                             </Placeholder>
                         </PanelRow>
@@ -126,7 +126,7 @@ export default function Edit(props) {
                     </PanelBody>
                 </Panel>
             </InspectorControls>
-            <a data-bs-toggle={text ? "tooltip" : null} data-bs-placement={text ? "top" : null} title={text ?? null} className='link-container-component'>
+            <a title={text ?? null} className='link-container-component'>
                 <InnerBlocks allowedBlocks={DISALLOWEDBLOCKS} />
             </a>
         </div >

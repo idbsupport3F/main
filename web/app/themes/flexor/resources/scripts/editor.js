@@ -123,7 +123,7 @@ registerBlockType('sage/link', {
         });
         const innerBlocksProps = useInnerBlocksProps.save(blockProps);
 
-        return <a href={(link && link.length > 0) ? link : null } target={newTab ? '_blank' : null} data-bs-toggle="tooltip" data-bs-placement="top" title={text ? __(text, 'sage') : null} {...innerBlocksProps} />;
+        return <a href={(link && link.length > 0) ? link : null } target={newTab ? '_blank' : null} title={text ? __(text, 'sage') : null} {...innerBlocksProps} />;
     }
 })
 

@@ -5,7 +5,7 @@
     color: var(--default-color);
     transition: all 0.5s;
     z-index: 997;
-    background-color: var(--background-color);
+    background-color: var(--accent-color);
 }
 
 .header .topbar {
@@ -70,15 +70,15 @@
     margin-right: 8px;
 }
 
-.header .logo h1 {
+.scrolled .header {
+    box-shadow: 0px 0 18px color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.sitename {
     font-size: 30px;
     margin: 0;
     font-weight: 700;
     color: var(--heading-color);
-}
-
-.scrolled .header {
-    box-shadow: 0px 0 18px color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
 /*--------------------------------------------------------------
@@ -104,7 +104,7 @@
 
     .navmenu a,
     .navmenu a:focus {
-        color: var(--nav-color);
+        color: var(--background-color);
         padding: 18px 12px;
         font-size: 15px;
         font-family: var(--nav-font);
@@ -131,7 +131,7 @@
     .navmenu li:hover>a,
     .navmenu .active,
     .navmenu .active:focus {
-        color: var(--nav-hover-color);
+        color: var(--nav-color);
     }
 
     .navmenu .dropdown ul {
@@ -194,7 +194,7 @@
 /* Navmenu - Mobile */
 @media (max-width: 1199px) {
     .mobile-nav-toggle {
-        color: var(--nav-color);
+        color: var(--background-color);
         font-size: 28px;
         line-height: 0;
         margin-right: 10px;

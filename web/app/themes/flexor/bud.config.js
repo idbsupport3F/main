@@ -75,7 +75,7 @@ export default async (app) => {
    *
    * @see {@link https://bud.js.org/reference/bud.setPublicPath}
    */
-  app.setPublicPath('/app/themes/sage/public/');
+  app.setPublicPath('/app/themes/flexor/public/');
 
   /**
    * Development server settings
@@ -85,7 +85,7 @@ export default async (app) => {
    * @see {@link https://bud.js.org/reference/bud.watch}
    */
   app
-    .setUrl('http://idbkl.local')
+    .setUrl('http://portalv6.local')
     .setProxyUrl('http://example.test')
     .watch(['resources/views', 'app']);
 
@@ -192,37 +192,37 @@ export default async (app) => {
         elements: {
           h1: {
             typography: {
-              "fontFamily": "var(--wp--preset--font-family--headline)"
+              "fontFamily": "var(--heading-font)"
             }
           },
           h2: {
             typography: {
-              "fontFamily": "var(--wp--preset--font-family--headline)"
+              "fontFamily": "var(--heading-font)"
             }
           },
           h3: {
             typography: {
-              "fontFamily": "var(--wp--preset--font-family--headline)"
+              "fontFamily": "var(--heading-font)"
             }
           },
           h4: {
             typography: {
-              "fontFamily": "var(--wp--preset--font-family--headline)"
+              "fontFamily": "var(--heading-font)"
             }
           },
           h5: {
             typography: {
-              "fontFamily": "var(--wp--preset--font-family--headline)"
+              "fontFamily": "var(--heading-font)"
             }
           },
           h6: {
             typography: {
-              "fontFamily": "var(--wp--preset--font-family--headline)"
+              "fontFamily": "var(--heading-font)"
             }
           },
           p: {
             typography: {
-              "fontFamily": "var(--wp--preset--font-family--paragraph)"
+              "fontFamily": "var(--default-font)"
             }
           },
         }

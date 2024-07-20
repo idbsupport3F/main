@@ -39,7 +39,7 @@ import {
     TextControl
 } from '@wordpress/components';
 
-import { border as iconBorder, color as labelColor, settings, grid as gridIcon } from '@wordpress/icons';
+import { border as iconBorder, color as labelColor, settings, grid as gridIcon, fullscreen as fullscreenIcon } from '@wordpress/icons';
 
 
 import { useState, useEffect } from '@wordpress/element';
@@ -58,7 +58,7 @@ export default function Edit(props) {
 
     const { attributes, setAttributes } = props;
 
-    const { mobilePosition, icon, border, borderRadius, iconColor, backgroundIconColor, paddingIcon, size, title } = attributes;
+    const { mobilePosition, icon, border, borderRadius, iconColor, backgroundIconColor, paddingIcon, size, title, marginMobile } = attributes;
 
     const [ mobileView, setMobileView ] = useState(false);
     const [ mobilePos, setMobilePos ] = useState({});
@@ -92,6 +92,12 @@ export default function Edit(props) {
     const setPaddingIcon = value => {
         setAttributes({
             paddingIcon: value
+        })
+    }
+
+    const setMarginMobile = value => {
+        setAttributes({
+            marginMobile: value
         })
     }
 
@@ -274,7 +280,7 @@ export default function Edit(props) {
                                 />
                             </PanelRow>
                             <PanelRow>
-                                <Placeholder label={__('Container Padding Setting')} icon={settings}>
+                                <Placeholder label={__('Padding Container')} icon={settings}>
                                     <BoxControl
                                         label={__('Padding', 'sage')}
                                         values={paddingIcon}
@@ -285,6 +291,21 @@ export default function Edit(props) {
                                             left: '22px'
                                         }}
                                         onChange={(val) => setPaddingIcon(val)}
+                                    />
+                                </Placeholder>
+                            </PanelRow>
+                            <PanelRow>
+                                <Placeholder label={__('Margin Container')} icon={fullscreenIcon}>
+                                    <BoxControl
+                                        label={__('Margin', 'sage')}
+                                        values={marginMobile}
+                                        resetValues={{
+                                            top: '0px',
+                                            right: '0px',
+                                            bottom: '0px',
+                                            left: '0px'
+                                        }}
+                                        onChange={(val) => setMarginMobile(val)}
                                     />
                                 </Placeholder>
                             </PanelRow>
@@ -309,7 +330,14 @@ export default function Edit(props) {
                     }
                 </Panel>
             </InspectorControls>
-            <div className={'fixed-mobile-container'} style={{
+            <div className={'fixed-mobile-container'} ref={(node) => {
+                if(node) {
+                    node.style.setProperty('margin-top', marginMobile.top, 'important');
+                    node.style.setProperty('margin-right', marginMobile.right, 'important');
+                    node.style.setProperty('margin-left', marginMobile.left, 'important');
+                    node.style.setProperty('margin-bottom', marginMobile.bottom, 'important');
+                }
+            }} style={{
                 display: mobileView ? 'inline-flex' : 'none',
                 position: 'fixed',
                 ...mobilePos,

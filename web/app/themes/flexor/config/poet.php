@@ -187,12 +187,21 @@ return [
                     'type' => 'object'
                 ],
                 'paddingIcon' => [
-                    'type' => 'array',
+                    'type' => 'object',
                     'default' => [
                         'top' => '22px',
                         'bottom' => '22px',
                         'left' => '22px',
                         'right' => '22px'
+                    ]
+                ],
+                'marginMobile' => [
+                    'type' => 'object',
+                    'default' => [
+                        'top' => '0px',
+                        'bottom' => '0px',
+                        'left' => '0px',
+                        'right' => '0px'
                     ]
                 ],
                 'iconColor' => [
