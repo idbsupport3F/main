@@ -73,7 +73,7 @@ class SiteComposer extends Composer
         $pageTemplateFilter = is_page_template('template-peperiksaan.blade.php');
         if (get_theme_mod('site_email') && !$pageTemplateFilter) {
             return esc_attr(get_theme_mod('site_email'));
-        } else if(get_theme_mod('site_email') && $pageTemplateFilter) {
+        } else if(get_theme_mod('peperiksaan_email') && $pageTemplateFilter) {
             return esc_attr(get_theme_mod('peperiksaan_email'));
         }
         return null;
@@ -82,7 +82,7 @@ class SiteComposer extends Composer
     /**
      * Retrieve Site Phone Settings
      * 
-     * @return string
+     * @return array
      */
     static public function get_site_phone(){
         $pageTemplateFilter = is_page_template('template-peperiksaan.blade.php');
@@ -90,7 +90,7 @@ class SiteComposer extends Composer
             return [
                 'phone' => esc_attr(get_theme_mod('site_phone')),
             ];
-        } else if(get_theme_mod('site_phone') && $pageTemplateFilter) {
+        } else if((get_theme_mod('peperiksaan_phone') || get_theme_mod('peperiksaan_fax') ) && $pageTemplateFilter) {
             return [
                 'phone' => esc_attr(get_theme_mod('peperiksaan_phone')),
                 'fax' => esc_attr(get_theme_mod('peperiksaan_fax')),
@@ -143,8 +143,11 @@ class SiteComposer extends Composer
 
     static public function get_site_address()
     {
-        if (get_theme_mod('site_address')) {
+        $pageTemplateFilter = is_page_template('template-peperiksaan.blade.php');
+        if (get_theme_mod('site_address') && !$pageTemplateFilter) {
             return esc_attr(get_theme_mod('site_address'));
+        } else if (get_theme_mod('peperiksaan_address') && $pageTemplateFilter) {
+            return esc_attr(get_theme_mod('peperiksaan_address'));
         }
 
         return null;

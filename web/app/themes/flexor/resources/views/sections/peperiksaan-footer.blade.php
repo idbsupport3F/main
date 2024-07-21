@@ -1,4 +1,4 @@
-<footer id="footer" class="footer" style="background:#ffeecf;">
+<footer id="footer" class="footer" style="background:color-mix(in srgb,gray,transparent 90%);">
 
     <div class="container footer-top">
         <div class="row gy-4">

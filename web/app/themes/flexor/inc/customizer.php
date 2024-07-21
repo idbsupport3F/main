@@ -75,6 +75,13 @@
                 'sanitize_callback' => 'wp_kses_post'
             )
         );
+        $wp_customize->add_setting('peperiksaan_address',
+            array(
+                'default' => '',
+                'transport' => 'postMessage',
+                'sanitize_callback' => 'wp_kses_post'
+            )
+        );
         $wp_customize->add_setting('show_site_name', 
             array(
                 'default' => false,
@@ -149,6 +156,23 @@
             array(
                 'label' => __('Site Address', 'sage'),
                 'description' => __('Type the site address location in here.', 'sage'),
+                'section' => 'site_info',
+                'input_attrs' => array(
+                    'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
+                    'toolbar2' => 'formatselect outdent indent | blockquote charmap',
+                    'mediaButtons' => false,
+                )
+            )
+        ));
+
+        // Peperiksaan Address
+        $wp_customize->add_control(
+        new Skyrocket_TinyMCE_Custom_control(
+            $wp_customize,
+            'peperiksaan_address',
+            array(
+                'label' => __('Peperiksaan Address', 'sage'),
+                'description' => __('Type the peperiksaan address location in here.', 'sage'),
                 'section' => 'site_info',
                 'input_attrs' => array(
                     'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
