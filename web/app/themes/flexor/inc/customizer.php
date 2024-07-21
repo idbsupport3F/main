@@ -51,6 +51,7 @@
     function site_contact($wp_customize){
         // Settings
         $wp_customize->add_setting('site_email', array('default' => ''));
+        $wp_customize->add_setting('peperiksaan_email', array('default' => ''));
         $wp_customize->add_setting('site_phone', array('default' => ''));
         $wp_customize->add_setting('peperiksaan_phone', array('default' => ''));
         $wp_customize->add_setting('peperiksaan_fax', array('default' => ''));
@@ -163,10 +164,24 @@
                 $wp_customize,
                 'site_email',
                 array(
-                    'label'     =>  __('Email Address:', 'sage'),
+                    'label'     =>  __('Main Email Address:', 'sage'),
                     'type'      =>  'email',
                     'section'   =>  'site_info',
                     'settings'  =>  'site_email'
+                )
+            )
+        );
+
+        // Peperiksaan Email Address
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'peperiksaan_email',
+                array(
+                    'label'     =>  __('Peperiksaan Email Address:', 'sage'),
+                    'type'      =>  'email',
+                    'section'   =>  'site_info',
+                    'settings'  =>  'peperiksaan_email'
                 )
             )
         );

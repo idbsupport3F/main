@@ -6,8 +6,8 @@
                 <a href="{{ home_url('/') }}" class="logo d-flex align-items-center">
                     @if (get_theme_mod('site_logo'))
                         <div class="d-flex flex-column">
-                            @if(get_theme_mod('hide_footer_site_name'))
-                            <span class="sitename mb-2">{!! $siteName !!}</span>
+                            @if (get_theme_mod('hide_footer_site_name'))
+                                <span class="sitename mb-2">{!! $siteName !!}</span>
                             @endif
                             <img src="{!! $site_logo !!}" alt="{{ get_bloginfo('name') }}">
                         </div>
@@ -16,15 +16,23 @@
                     @endif
                 </a>
                 <div class="footer-contact pt-3">
-                    <p>{!! $address !!}</p>
-                    @isset($phone)
-                        <p class="mt-3"><strong>Phone:</strong> <span>{!! $phone['phone'] !!}</span></p>
-                        <p><strong>Fax:</strong> <span>{!! $phone['fax'] !!}</span></p>
-                    @endisset
-                    @isset($contact)
-                        <p><strong>Email:</strong> <span>{!! $contact !!}</span></p>
-                    @endisset
+                    <div class="row">
+                        <div class="col-8">
+                            <p>{!! htmlspecialchars_decode(nl2br($address)) !!}</p>
+                            @isset($phone)
+                                <p class="mt-3"><strong>Phone:</strong> <span>{!! $phone['phone'] !!}</span></p>
+                                <p><strong>Fax:</strong> <span>{!! $phone['fax'] !!}</span></p>
+                            @endisset
+                            @isset($contact)
+                                <p><strong>Email:</strong> <span>{!! $contact !!}</span></p>
+                            @endisset
+                        </div>
+                        <div class="col align-self-center">
+                            <img style="height:80px;" src="@asset('images/qr-code-location.png')" alt="{{ $siteName }} Location">
+                        </div>
+                    </div>
                 </div>
+
                 <div class="social-links d-flex mt-4">
                     @isset($social_medias)
                         @foreach ($social_medias as $type => $link)
@@ -36,8 +44,8 @@
             </div>
 
             <div class="col-lg-4 col-md-3 footer-links">
-            @if (strlen(wp_get_nav_menu_name('footer_navigation')) > 0)
-                <h4>{!! wp_get_nav_menu_name('footer_navigation') !!}</h4>
+                @if (strlen(wp_get_nav_menu_name('footer_navigation')) > 0)
+                    <h4>{!! wp_get_nav_menu_name('footer_navigation') !!}</h4>
                     {!! wp_nav_menu([
                         'theme_location' => 'footer_navigation',
                         'depth' => get_theme_mod('menu_depth') ? esc_attr(get_theme_mod('menu_depth')) : 1, // 1 = no dropdowns, 2 = with dropdowns.
@@ -45,22 +53,31 @@
                         'fallback_cb' => false,
                         'items_wrap' => '<ul id="%1$s" class="%2$s menu-lain d-flex flex-wrap flex-column align-content-start">%3$s</ul>',
                     ]) !!}
-            @endif
+                @endif
             </div>
 
             <div class="col-lg-2 col-md-12 footer-newsletter">
-                <h4>Visitor Counter</h4>
-                <div>
-                    <a href='https://www.free-counters.org/'>free-counters.org</a>
-                    <script type='text/javascript'
-                        src='https://www.freevisitorcounters.com/auth.php?id=4c2a4bcfc73db3af5095fd61fd04a09c7f01bb34'></script>
-                    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1196310/t/1"></script>
-                </div>
-                <h4>Tarikh Kemaskini</h4>
+                <h4 class="footer-etc">Visitor Counter</h4>
+                <a href='https://www.acadoo.de/fachrichtungen/ghostwriter-medizin/'>Med. Ghostwriting</a>
+                <script type='text/javascript'
+                    src='https://www.freevisitorcounters.com/auth.php?id=b50988fd82099ee9719807c13b62d82c6f030fa4'></script>
+                <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1205921/t/5"></script>
+                <h4 class="footer-etc mt-4">Tarikh Kemaskini</h4>
                 <div>
                     <p>{!! get_the_modified_date('') !!}</p>
                 </div>
+                <div class="mt-4">
+                    <img style="height:50px;" src="@asset('images/msc.webp')" alt="MSC">
+                </div>
+            </div>
+        </div>
 
+        <div class="container copyright mt-4 text-start">
+            <div class="row">
+                <div class="col-lg">
+                    <p class="disclaimer">Institut Dewan Bandaraya Kuala Lumpur tidak bertanggungjawab terhadap sebarang
+                        kehilangan atau kerosakan yang dialami kerana menggunakan maklumat dalam laman ini</p>
+                </div>
             </div>
         </div>
 

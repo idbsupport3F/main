@@ -27,3 +27,32 @@ figure{
 .unclickable {
     pointer-events: none;
 }
+
+p{
+    margin-bottom: 0 !important;
+}
+
+// Override Arrow Size
+.slick-next:before,
+.slick-prev:before {
+    font-size: 40px !important;
+    color: var(--background-color) !important;
+}
+
+.slick-next,
+.slick-prev {
+    z-index: 999999;
+}
+
+.slick-prev {
+    left: 20px;
+}
+
+.slick-next {
+    right: 30px;
+}
+
+.justify {
+    text-align: justify;
+    text-justify: inter-word;
+}

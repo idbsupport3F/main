@@ -70,8 +70,11 @@ class SiteComposer extends Composer
      * @return string
      */
     static public function get_site_email(){
-        if (get_theme_mod('site_email')) {
+        $pageTemplateFilter = is_page_template('template-peperiksaan.blade.php');
+        if (get_theme_mod('site_email') && !$pageTemplateFilter) {
             return esc_attr(get_theme_mod('site_email'));
+        } else if(get_theme_mod('site_email') && $pageTemplateFilter) {
+            return esc_attr(get_theme_mod('peperiksaan_email'));
         }
         return null;
     }
