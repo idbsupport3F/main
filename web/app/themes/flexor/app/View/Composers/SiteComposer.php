@@ -34,7 +34,7 @@ class SiteComposer extends Composer
      *
      * @return string
      */
-    static public function pageTitle()
+    public function pageTitle()
     {
 
         if (is_home()) {
@@ -69,11 +69,10 @@ class SiteComposer extends Composer
      * 
      * @return string
      */
-    static public function get_site_email(){
-        $pageTemplateFilter = is_page_template('template-peperiksaan.blade.php');
-        if (get_theme_mod('site_email') && !$pageTemplateFilter) {
+    public function get_site_email(){
+        if (get_theme_mod('site_email') && !$this->is_peperiksaan()) {
             return esc_attr(get_theme_mod('site_email'));
-        } else if(get_theme_mod('peperiksaan_email') && $pageTemplateFilter) {
+        } else if(get_theme_mod('peperiksaan_email') && $this->is_peperiksaan()) {
             return esc_attr(get_theme_mod('peperiksaan_email'));
         }
         return null;
@@ -84,13 +83,12 @@ class SiteComposer extends Composer
      * 
      * @return array
      */
-    static public function get_site_phone(){
-        $pageTemplateFilter = is_page_template('template-peperiksaan.blade.php');
-        if (get_theme_mod('site_phone') && !$pageTemplateFilter) {
+    public function get_site_phone(){
+        if (get_theme_mod('site_phone') && !$this->is_peperiksaan()) {
             return [
                 'phone' => esc_attr(get_theme_mod('site_phone')),
             ];
-        } else if((get_theme_mod('peperiksaan_phone') || get_theme_mod('peperiksaan_fax') ) && $pageTemplateFilter) {
+        } else if((get_theme_mod('peperiksaan_phone') || get_theme_mod('peperiksaan_fax') ) && $this->is_peperiksaan()) {
             return [
                 'phone' => esc_attr(get_theme_mod('peperiksaan_phone')),
                 'fax' => esc_attr(get_theme_mod('peperiksaan_fax')),
@@ -103,7 +101,7 @@ class SiteComposer extends Composer
      *  Check image if used
      *  @return string
      */
-    static public function get_site_logo(){
+    public function get_site_logo(){
         if (get_theme_mod('site_logo')) {
             return esc_attr(get_theme_mod('site_logo'));
         }
@@ -115,7 +113,7 @@ class SiteComposer extends Composer
      * 
      * @return array[string]
      */
-    static public function get_social_medias(){
+    public function get_social_medias(){
         $social_media = array();
 
         if(get_theme_mod('facebook')){
@@ -141,16 +139,29 @@ class SiteComposer extends Composer
         return $social_media;
     }
 
-    static public function get_site_address()
+    /**
+     * Get Site/Peperiksaan Address dynamically
+     * 
+     * @return string
+     */
+    public function get_site_address()
     {
-        $pageTemplateFilter = is_page_template('template-peperiksaan.blade.php');
-        if (get_theme_mod('site_address') && !$pageTemplateFilter) {
+        if (get_theme_mod('site_address') && !$this->is_peperiksaan()) {
             return esc_attr(get_theme_mod('site_address'));
-        } else if (get_theme_mod('peperiksaan_address') && $pageTemplateFilter) {
+        } else if (get_theme_mod('peperiksaan_address') && $this->is_peperiksaan()) {
             return esc_attr(get_theme_mod('peperiksaan_address'));
         }
 
         return null;
+    }
+
+    /**
+     * Peperiksaan Checker
+     * 
+     * @return bool
+     */
+    static private function is_peperiksaan(){
+        return is_page_template('template-peperiksaan.blade.php');
     }
 
 }

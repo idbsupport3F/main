@@ -87,34 +87,24 @@
   },
   "scripts": {
     "pre-install-cmd": [
-      "Composer\\Config::disableProcessTimeout",
-      "export $(grep -v '^#' .env | xargs) && cd web/app/themes/flexor && [ $WP_ENV == \"development\" ] && yarn install --production=false || yarn install --production=true"
+      "Composer\\Config::disableProcessTimeout"
     ],
     "post-install-cmd":[
-      "unset $(grep -v '^#' .env | sed -E 's/(.*)=.*/\\1/' | xargs)",
-      "cd web/app/themes/flexor && composer install"
+      "cd web/app/themes/flexor && composer install && yarn install"
     ],
     "post-root-package-install": [
       "php -r \"copy('.env.example', '.env');\""
     ],
-    "install-production": [
-      "Composer\\Config::disableProcessTimeout",
-      "cd web/app/themes/flexor && composer install && yarn install"
-    ],
-    "upgrade-theme": [
-      "Composer\\Config::disableProcessTimeout",
-      "cd web/app/themes/flexor && yarn upgrade"
-    ],
     "build-theme":[
-      "cd web/app/themes/flexor && yarn build --clean"
+      "(cd web/app/themes/flexor && yarn build) || (cd web/app/themes/flexor && NODE_ENV=development && yarn install && yarn build)"
     ],
     "dev-theme":[
       "Composer\\Config::disableProcessTimeout",
-      "cd web/app/themes/flexor && yarn dev"
+      "(cd web/app/themes/flexor && yarn dev) || (cd web/app/themes/flexor && NODE_ENV=development && yarn install && yarn dev)"
     ],
     "debug-theme":[
       "Composer\\Config::disableProcessTimeout",
-      "cd web/app/themes/flexor && yarn debug"
+      "(cd web/app/themes/flexor && yarn debug) || (cd web/app/themes/flexor && NODE_ENV=development && yarn install && yarn debug)"
     ],
     "vendor:publish":[
       "cd web/app/themes/flexor && wp acorn vendor:publish"
