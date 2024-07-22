@@ -5,9 +5,10 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
   @while(have_posts()) @php(the_post())
-    @include('partials.page-header')
+    @if(!is_front_page())
+      @include('partials.page-header')
+    @endif
     @includeFirst(['partials.content-page', 'partials.content'])
   @endwhile
 @endsection

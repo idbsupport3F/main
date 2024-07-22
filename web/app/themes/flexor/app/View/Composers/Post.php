@@ -77,8 +77,10 @@ class Post extends Composer
     {
         return wp_link_pages([
             'echo' => 0,
-            'before' => '<p>'.__('Pages:', 'sage'),
-            'after' => '</p>',
+            'link_before'       => '<span class="page-link">',
+            'link_after'        => '</span>',
+            'next_or_number'    => 'next',
+            'separator'         => ' / '
         ]);
     }
 }

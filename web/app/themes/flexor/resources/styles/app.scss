@@ -4,6 +4,10 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import 'components.scss';
 
+
+/**
+* Overrides
+*/
 .stack-column {
     gap: 0.5em !important;
 }
@@ -46,13 +50,36 @@ p{
 
 .slick-prev {
     left: 20px;
+    &::before {
+        content: "‹";
+    }
 }
 
 .slick-next {
     right: 30px;
+    &::before {
+        content: "›";
+    }
 }
 
+hr {
+    opacity: unset;
+}
+
+
+/**
+* Custom CSS
+*/
 .justify {
     text-align: justify;
     text-justify: inter-word;
+}
+
+.underline_animation {
+    @include underline;
+    @include underline_hover;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--accent-color) !important;
 }

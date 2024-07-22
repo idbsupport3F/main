@@ -1,15 +1,22 @@
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
+.page-title {
+    font-size: 48px;
+    font-weight: 700;
+    background-color: unset !important;
+    color: var(--accent-color) !important;
+}
+
 .header {
     color: var(--default-color);
     transition: all 0.5s;
     z-index: 997;
-    background-color: var(--accent-color);
+    background-color: var(--background-color);
 }
 
 .header .topbar {
-    background-color: var(--alt-background-color);
+    background-color: var(--accent-color);
     height: 40px;
     padding: 0;
     font-size: 14px;
@@ -18,7 +25,7 @@
 
 .header .topbar .contact-info i {
     font-style: normal;
-    color: var(--accent-color);
+    color: var(--background-color);
 }
 
 .header .topbar .contact-info i a,
@@ -74,6 +81,12 @@
     box-shadow: 0px 0 18px color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
+.scrolled .header .topbar {
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
 .sitename {
     font-size: 30px;
     margin: 0;
@@ -88,6 +101,11 @@
 @media (min-width: 1200px) {
     .navmenu {
         padding: 0;
+
+        .dropdown-item {
+            @include underline;
+            @include underline_hover;
+        }
     }
 
     .navmenu ul {
@@ -104,7 +122,7 @@
 
     .navmenu a,
     .navmenu a:focus {
-        color: var(--background-color);
+        color: var(--nav-color);
         padding: 18px 12px;
         font-size: 15px;
         font-family: var(--nav-font);
@@ -131,7 +149,14 @@
     .navmenu li:hover>a,
     .navmenu .active,
     .navmenu .active:focus {
-        color: var(--nav-color);
+        color: var(--accent-color);
+    }
+
+    .navmenu .menu-item {
+        &:not(.dropdown) {
+            @include underline;
+            @include underline_hover;
+        }
     }
 
     .navmenu .dropdown ul {

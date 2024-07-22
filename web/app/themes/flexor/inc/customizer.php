@@ -142,7 +142,7 @@
         $wp_customize->add_control(
             new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'hide_footer_site_name',
                 array(
-                    'label' => __('Hide footer site title?', 'sage'),
+                    'label' => __('Show footer site title?', 'sage'),
                     'section' => 'site_info'
                 )
             )

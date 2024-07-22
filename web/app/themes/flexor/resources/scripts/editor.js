@@ -123,7 +123,7 @@ registerBlockType('sage/link', {
         });
         const innerBlocksProps = useInnerBlocksProps.save(blockProps);
 
-        return <a href={(link && link.length > 0) ? link : null } target={newTab ? '_blank' : null} title={text ? __(text, 'sage') : null} {...innerBlocksProps} />;
+        return <a href={(link && link.length > 0) ? link : null } target={newTab ? '_blank' : null} rel={newTab ? 'noopener' : null} title={text ? __(text, 'sage') : null} {...innerBlocksProps} />;
     }
 })
 
@@ -136,7 +136,12 @@ registerBlockType('sage/fixed', {
         lock: false,
         color: {
             text: false,
+            background: true,
             gradients: true
+        },
+        background: {
+            backgroundImage: true, // Enable background image control.
+            backgroundSize: true // Enable background image + size control.
         },
         align: true,
         dimensions: {
