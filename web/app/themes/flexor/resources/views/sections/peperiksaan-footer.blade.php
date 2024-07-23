@@ -9,7 +9,9 @@
                             @if (get_theme_mod('hide_footer_site_name'))
                                 <span class="sitename mb-2">{!! $siteName !!}</span>
                             @endif
-                            <img src="{!! $site_logo !!}" alt="{{ get_bloginfo('name') }}">
+                            @if (get_theme_mod('show_footer_logo_image'))
+                                <img src="{{ $site_logo }}" alt="{{ get_bloginfo('name') }}">
+                            @endif
                         </div>
                     @else
                         <span class="sitename">{!! $siteName !!}</span>
@@ -57,7 +59,8 @@
             </div>
 
             <div class="col-lg-2 col-md-12 footer-newsletter">
-                <h4 class="footer-etc">Visitor Counter</h4>
+                <h4 class="footer-etc" style="margin-top: 13px !important;">Bilangan Pelawat</h4>
+                <p style="margin-top: -20px;"></p>
                 <a href='https://www.acadoo.de/fachrichtungen/ghostwriter-medizin/'>Med. Ghostwriting</a>
                 <script type='text/javascript'
                     src='https://www.freevisitorcounters.com/auth.php?id=b50988fd82099ee9719807c13b62d82c6f030fa4'></script>
@@ -67,7 +70,7 @@
                     <p>{!! get_the_modified_date('') !!}</p>
                 </div>
                 <div class="mt-4">
-                    <img style="height:50px;" src="@asset('images/msc.webp')" alt="MSC">
+                    <img style="height:50px;" src="@asset('images/msc.webp')" alt="MSC" />
                 </div>
             </div>
         </div>

@@ -68,6 +68,13 @@
                 'sanitize_callback' => 'skyrocket_switch_sanitization'
             )
         );
+        $wp_customize->add_setting('show_footer_logo_image',
+            array(
+                'default' => true,
+                'transport' => 'refresh',
+                'sanitize_callback' => 'skyrocket_switch_sanitization'
+            )
+        );
         $wp_customize->add_setting('site_address',
             array(
                 'default' => '',
@@ -143,6 +150,17 @@
             new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'hide_footer_site_name',
                 array(
                     'label' => __('Show footer site title?', 'sage'),
+                    'section' => 'site_info'
+                )
+            )
+        );
+
+        // Show Footer  Image
+        $wp_customize->add_control(
+            new Skyrocket_Toggle_Switch_Custom_control( $wp_customize,
+            'show_footer_logo_image',
+                array(
+                    'label' => __('Show footer image?', 'sage'),
                     'section' => 'site_info'
                 )
             )
