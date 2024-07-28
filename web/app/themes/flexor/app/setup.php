@@ -9,6 +9,16 @@ namespace App;
 use function Roots\bundle;
 
 /**
+ * Register the theme customizer
+ *
+ * @return void
+ */
+add_action('after_setup_theme', function() {
+    include_once get_template_directory() . '/inc/customizer.php';
+    include_once get_template_directory() . '/inc/menu.php';
+});
+
+/**
  * Register the theme assets.
  *
  * @return void

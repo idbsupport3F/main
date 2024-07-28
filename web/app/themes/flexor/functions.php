@@ -1,6 +1,4 @@
 <?php
-require get_template_directory() . '/inc/customizer.php';
-require get_template_directory() . '/inc/menu.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,18 +33,6 @@ if (! file_exists($composer = __DIR__.'/vendor/autoload.php')) {
 
 require $composer;
 
-if (! function_exists('\Roots\bootloader')) {
-    wp_die(
-        __('You need to install Acorn to use this site.', 'domain'),
-        '',
-        [
-            'link_url' => 'https://roots.io/acorn/docs/installation/',
-            'link_text' => __('Acorn Docs: Installation', 'domain'),
-        ]
-    );
-}
-
-add_action('after_setup_theme', fn () => \Roots\bootloader()->boot());
 
 /*
 |--------------------------------------------------------------------------
@@ -59,10 +45,9 @@ add_action('after_setup_theme', fn () => \Roots\bootloader()->boot());
 | the IoC container for the system binding all of the various parts.
 |
 */
-
 if (! function_exists('\Roots\bootloader')) {
     wp_die(
-        __('You need to install Acorn to use this theme.', 'sage'),
+        __('You need to install Acorn to use this site.', 'sage'),
         '',
         [
             'link_url' => 'https://roots.io/acorn/docs/installation/',
@@ -71,7 +56,7 @@ if (! function_exists('\Roots\bootloader')) {
     );
 }
 
-\Roots\bootloader()->boot();
+add_action('after_setup_theme', fn () => \Roots\bootloader()->boot());
 
 /*
 |--------------------------------------------------------------------------

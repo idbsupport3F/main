@@ -56,6 +56,11 @@
         $wp_customize->add_setting('peperiksaan_phone', array('default' => ''));
         $wp_customize->add_setting('peperiksaan_fax', array('default' => ''));
         $wp_customize->add_setting('site_logo', array('default' => ''));
+        $wp_customize->add_setting('site_logo_height', array(
+            'default' => 26,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_sanitize_integer'
+        ));
         $wp_customize->add_setting('twitter-x', array('default' => ''));
         $wp_customize->add_setting('facebook', array('default' => ''));
         $wp_customize->add_setting('instagram', array('default' => ''));
@@ -279,6 +284,23 @@
                     'label'     => __('Upload Header Image:', 'sage'),
                     'section'   => 'site_info',
                     'settings'  => 'site_logo'
+                )
+            )
+        );
+
+        // Header Height Image
+        $wp_customize->add_control(
+            new Skyrocket_Slider_Custom_Control(
+                $wp_customize, 
+                'site_logo_height', 
+                array(
+                    'label' => __('Logo Height (px)', 'sage'),
+                    'section' => 'site_info',
+                    'input_attrs' => array(
+                        'min' => 1,
+                        'max' => 100,
+                        'step' => 1
+                    )
                 )
             )
         );

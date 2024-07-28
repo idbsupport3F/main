@@ -4,13 +4,13 @@
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
                 <a href="{{ home_url('/') }}" class="logo d-flex align-items-center">
-                    @if (get_theme_mod('site_logo'))
+                    @if (array_key_exists('logo', $site_logo))
                         <div class="d-flex flex-column">
                             @if (get_theme_mod('hide_footer_site_name'))
                                 <span class="sitename mb-2">{!! $siteName !!}</span>
                             @endif
                             @if (get_theme_mod('show_footer_logo_image'))
-                                <img src="{{ $site_logo }}" alt="{{ get_bloginfo('name') }}">
+                                <img src="{{ $site_logo['logo'] }}" {!! array_key_exists('height', $site_logo) ? 'height="' . $site_logo['height'] . 'px"' : 'height="26px"' !!} alt="{{ get_bloginfo('name') }}">
                             @endif
                         </div>
                     @else

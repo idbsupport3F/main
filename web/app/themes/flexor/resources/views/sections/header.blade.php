@@ -21,8 +21,8 @@
     <div class="container position-relative d-flex align-items-center justify-content-between">
       <a href="{{ home_url('/') }}" class="logo d-flex align-items-center">
          {{-- Uncomment the line below if you also wish to use an image logo --}}
-        @if (get_theme_mod('site_logo'))
-        <img src="{!! $site_logo !!}" alt="{{ get_bloginfo('name') }}">
+        @if (array_key_exists('logo', $site_logo))
+        <img src="{{ $site_logo['logo'] }}" {!! array_key_exists('height', $site_logo) ? 'height="' . $site_logo['height'] . 'px"' : 'height="26px"' !!} alt="{{ get_bloginfo('name') }}">
         @endif
         @if(get_theme_mod('show_site_name'))
           <h1 class="sitename">{!! $siteName !!}</h1>

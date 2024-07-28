@@ -102,10 +102,19 @@ class SiteComposer extends Composer
      *  @return string
      */
     public function get_site_logo(){
+        $site_logo = array();
+
         if (get_theme_mod('site_logo')) {
-            return esc_attr(get_theme_mod('site_logo'));
+            $site_logo['logo'] =
+            esc_attr(get_theme_mod('site_logo'));
         }
-        return "";
+
+        if(get_theme_mod('site_logo_height')) {
+            $site_logo['height'] =
+            esc_attr(get_theme_mod('site_logo_height'));
+        }
+        
+        return $site_logo;
     }
     
     /**

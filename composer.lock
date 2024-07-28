@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b901ee5909bc5d91d3984a8bebc75b39",
+    "content-hash": "e2adea30dc0387aac72b961ae7fa6c84",
     "packages": [
         {
             "name": "composer/installers",
@@ -216,16 +216,16 @@
         },
         {
             "name": "idbsupport3f/custom-controls",
-            "version": "1.2.1",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:idbsupport3F/Custom-Controls.git",
-                "reference": "f0fd37afd18233a6663bd71a440ab37edbad986b"
+                "reference": "e18c690614744c8903590ad1c892c18e2daaee83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/idbsupport3F/Custom-Controls/zipball/f0fd37afd18233a6663bd71a440ab37edbad986b",
-                "reference": "f0fd37afd18233a6663bd71a440ab37edbad986b",
+                "url": "https://api.github.com/repos/idbsupport3F/Custom-Controls/zipball/e18c690614744c8903590ad1c892c18e2daaee83",
+                "reference": "e18c690614744c8903590ad1c892c18e2daaee83",
                 "shasum": ""
             },
             "require": {
@@ -247,10 +247,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/idbsupport3F/Custom-Controls/tree/1.2.1",
+                "source": "https://github.com/idbsupport3F/Custom-Controls/tree/1.2.4",
                 "issues": "https://github.com/idbsupport3F/Custom-Controls/issues"
             },
-            "time": "2024-07-19T18:42:47+00:00"
+            "time": "2024-07-28T17:44:32+00:00"
         },
         {
             "name": "oscarotero/env",

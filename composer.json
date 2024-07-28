@@ -55,7 +55,7 @@
     "wpackagist-theme/twentytwentyfour": "^1.0",
     "wpackagist-plugin/carousel-block": "^1.0",
     "wpackagist-plugin/riovizual": "^2.0",
-    "idbsupport3f/custom-controls": "1.2.1"
+    "idbsupport3f/custom-controls": "^1.2"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
@@ -89,13 +89,14 @@
     "pre-install-cmd": [
       "Composer\\Config::disableProcessTimeout"
     ],
-    "post-install-cmd":[
-      "cd ./web/app/themes/flexor && composer install && yarn install"
-    ],
-    "post-root-package-install": [
-      "php -r \"copy('.env.example', '.env');\""
+    "deploy": [
+      "Composer\\Config::disableProcessTimeout",
+      "composer install",
+      "cd ./web/app/themes/flexor && yarn build && composer install --no-dev --optimize-autoloader",
+      "ce ./web/app/themes/flexor && wp acorn optimize"
     ],
     "build-theme":[
+      "Composer\\Config::disableProcessTimeout",
       "(cd ./web/app/themes/flexor && yarn build) || (cd ./web/app/themes/flexor && NODE_ENV=development && yarn install && yarn build)"
     ],
     "dev-theme":[
