@@ -46,6 +46,7 @@
 
 .fixed-component-container {
     position: sticky !important;
+    z-index: 0 !important;
 }
 
 @import './base.scss'

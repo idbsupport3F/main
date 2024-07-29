@@ -94,6 +94,10 @@
             opacity: 1;
             padding-top: 10px;
             color: var(--contrast-color);
+
+            > ul, ol, pre {
+                display: block;
+            }
         }
     }
 
@@ -132,6 +136,10 @@
             margin-bottom: 0;
             overflow: hidden;
         }
+
+        > ul, ol, pre {
+            display: none;
+        }
     }
 
     h3 {
@@ -154,6 +162,7 @@
 
 .fixed-component-container {
     position: sticky !important;
+    z-index: 99 !important;
 }
 
 @include media-breakpoint-down(lg) {
@@ -166,7 +175,7 @@
     display: inline-flex;
     text-align: center;
     align-content: center;
-    z-index: 1045;
+    z-index: 1030;
 }
 
 .offcanvas {

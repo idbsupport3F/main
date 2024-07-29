@@ -7,8 +7,8 @@
         @isset($phone)<i class="bi bi-phone d-flex align-items-center ms-4"><span>+{{ $phone['phone'] }}</span></i>@endisset
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
-      @isset($social_medias)
-      @foreach ($social_medias as $type => $link)
+      @isset($socialMedias)
+      @foreach ($socialMedias as $type => $link)
           <a href="{{ $link }}" class="{{ $type }}"><i class="bi bi-{{$type}}"></i></a>
       @endforeach
       @endisset
@@ -21,8 +21,8 @@
     <div class="container position-relative d-flex align-items-center justify-content-between">
       <a href="{{ home_url('/') }}" class="logo d-flex align-items-center">
          {{-- Uncomment the line below if you also wish to use an image logo --}}
-        @if (array_key_exists('logo', $site_logo))
-        <img src="{{ $site_logo['logo'] }}" {!! array_key_exists('height', $site_logo) ? 'height="' . $site_logo['height'] . 'px"' : 'height="26px"' !!} alt="{{ get_bloginfo('name') }}">
+        @if (array_key_exists('logo', $siteLogo))
+        <img src="{{ $siteLogo['logo'] }}" {!! array_key_exists('height', $siteLogo) ? 'height="' . $siteLogo['height'] . 'px"' : 'height="26px"' !!} alt="{{ get_bloginfo('name') }}">
         @endif
         @if(get_theme_mod('show_site_name'))
           <h1 class="sitename">{!! $siteName !!}</h1>

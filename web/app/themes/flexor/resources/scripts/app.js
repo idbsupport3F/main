@@ -18,6 +18,20 @@ function ismatch(str) {
 }
 
 /**
+ * Contains Selector
+ * @see https://stackoverflow.com/a/37098508
+ * @param {string} selector 
+ * @param {string} text 
+ * @returns Element
+ */
+function contains(selector, text) {
+  var elements = document.querySelectorAll(selector);
+  return Array.prototype.filter.call(elements, function (element) {
+    return RegExp(text).test(element.textContent);
+  });
+}
+
+/**
    * Apply .scrolled class to the body as the page is scrolled down
    */
 function toggleScrolled() {
@@ -52,6 +66,23 @@ function toggleScrolled() {
  * Application entrypoint
  */
 domReady(async () => {
+
+  /**
+   * Remove Visitor Counter Link
+   */
+  let $ = undefined;
+  if(window.hasOwnProperty("jQuery")) {
+    $ = jQuery;
+  } else if (window.hasOwnProperty("$")) {
+    $ = $;
+  }
+  if(typeof $ !== 'undefined') {
+    $(".footer-utils a:contains('Med. Ghostwriting')").css("opacity", 0);
+  } else {
+    contains(".footer-utils a", "Med. Ghostwriting").forEach((val, i) => {
+      val.style.opacity = 0;
+    })
+  }
 
   toggleScrolled();
 

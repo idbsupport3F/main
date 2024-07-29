@@ -23,8 +23,8 @@ class SiteComposer extends Composer
             'contact'       => $this->get_site_email(),
             'phone'         => $this->get_site_phone(),
             'pageTitle'     => $this->pageTitle(),
-            'site_logo'     => $this->get_site_logo(),
-            'social_medias' => $this->get_social_medias(),
+            'siteLogo'     => $this->get_site_logo(),
+            'socialMedias' => $this->get_social_medias(),
             'address'       => $this->get_site_address()
         ];
     }
@@ -112,6 +112,10 @@ class SiteComposer extends Composer
         if(get_theme_mod('site_logo_height')) {
             $site_logo['height'] =
             esc_attr(get_theme_mod('site_logo_height'));
+        }
+
+        if(get_theme_mod('footer_logo_height')) {
+            $site_logo['footer_logo_height'] = esc_attr(get_theme_mod('footer_logo_height'));
         }
         
         return $site_logo;

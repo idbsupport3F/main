@@ -170,7 +170,7 @@
         opacity: 0;
         transition: 0.3s;
         border-radius: 4px;
-        z-index: 99;
+        z-index: 1031;
         box-shadow: 0px 0px 30px color-mix(in srgb, var(--default-color), transparent 85%);
     }
 
@@ -365,7 +365,6 @@
 }
 
 .footer .footer-about .logo img {
-    max-height: 40px;
     margin-right: 6px;
 }
 
@@ -411,6 +410,7 @@
     font-weight: bold;
     position: relative;
     padding-bottom: 12px;
+    color: var(--accent-color);
 }
 
 .footer .footer-etc {
