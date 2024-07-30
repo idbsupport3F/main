@@ -1,8 +1,8 @@
 <footer id="footer" class="footer">
 
     <div class="container footer-top">
-        <div class="row gy-4">
-            <div class="col-lg-4 col-md-6 footer-about">
+        <div class="row gy-4 align-items-center">
+            <div class="col-lg-4 col-md-6 footer-about mt-0">
                 @if (array_key_exists('logo', $siteLogo) &&
                         (get_theme_mod('hide_footer_site_name') || get_theme_mod('show_footer_logo_image')))
                     <a href="{{ home_url('/') }}" class="logo d-flex align-items-center">
@@ -27,7 +27,6 @@
                     @isset($contact)
                         <p><strong>Email:</strong> <span>{!! $contact !!}</span></p>
                     @endisset
-                    <img class="mt-4" style="height:80px;" src="@asset('images/qr-code-location.png')" alt="{{ $siteName }} Location" />
                 </div>
                 <div class="footer-utils pt-3">
                     <div class="row">
@@ -57,7 +56,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-3 footer-links">
+            <div class="col-lg-4 col-md-3 footer-links mt-0">
                 @if (strlen(wp_get_nav_menu_name('footer_navigation')) > 0)
                     <h4>{!! wp_get_nav_menu_name('footer_navigation') !!}</h4>
                     {!! wp_nav_menu([
@@ -70,10 +69,9 @@
                 @endif
             </div>
 
-            <div class="col-lg-2 col-md-12 footer-newsletter align-self-end">
-                <div class="mt-4">
-                    <img style="height:50px;" src="@asset('images/msc.webp')" alt="MSC" />
-                </div>
+            <div class="col-lg-4 col-md-12 footer-newsletter mt-0 text-center">
+                <img class="mt-4" style="height:180px;" src="@asset('images/qr-code-location.png')" alt="{{ $siteName }} Location" />
+                <img class="mt-4" style="height:50px;" src="@asset('images/msc.webp')" alt="MSC" />
             </div>
         </div>
 

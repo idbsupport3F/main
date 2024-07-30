@@ -98,11 +98,11 @@ $ npm install --global yarn
     "@10up/block-components": "^1.18.2",
     ```
 
-## Getting Started
+## Getting Started (Local Development)
 
 1. Clone this github using this command:
 ```bash
-git clone https://github.com/ammein/idbkl
+git clone https://github.com/idbsupport3F/portalv6.git
 ```
 
 2. Make sure you have composer [install here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
@@ -110,18 +110,29 @@ git clone https://github.com/ammein/idbkl
 3. Then, you need to create new `.env` file to store all the server/database info here. Then copy all the codes from `.env.example` to your new created `.env` file and adjust your server/database data in it. For more info, you can refer [Bedrock documentation here](https://roots.io/bedrock/docs/installation/#getting-started).
 > P/s: Make sure in your own public/private repo, this `.env` file won't be able to view by any parties. It should be hold secretly in server using superadmin access.
 
-4. In the current idbkl directory, run composer like this:
+4. Update `bud.config.js` with your local dev URL in `web/app/themes/flexor/bud.config.js`
+
+5. At root directory, run composer like this:
     ```bash
     composer install
+    ```
+
+6. Then go to sage theme directoy, run this:
+    ```bash
+    # Go to flexor directory
+    cd /web/app/themes/flexor
+
+    # Install Composer
+    composer install
+
+    # If the above installation outputs error to tell you to run `composer update`. Run `composer update`.
     ```
     <details>
       <summary>Don't have command for <code>yarn</code>?</summary>
       Visit this <a href='https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable'>yarn installation link</a> to install yarn cli in your system
     </details>
 
-5. Update `bud.config.js` with your local dev URL in `web/app/themes/flexor/bud.config.js`
-
-6. To Compile assets, run this command in your root folder `idbkl`:
+7. To Compile assets, run this command in your root folder `idbkl`:
     ```bash
     # Build Asset
     composer run-script build-theme
@@ -130,12 +141,29 @@ git clone https://github.com/ammein/idbkl
     composer run-script dev-theme
     ```
 
-### Troubleshoot Getting Started
-If you receieved error while building the theme, it may due to the package mismatched with your current installed packaged. You need to run this command from your root folder:
+## Getting Started (Production)
+
+1. Clone this github using this command:
 ```bash
-# Upgrade Flexor Packages (Client)
-composer run-script upgrade-theme
+git clone https://github.com/idbsupport3F/portalv6.git
 ```
+
+2. Make sure you have composer [install here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
+
+3. Then, you need to create new `.env` file to store all the server/database info here. Then copy all the codes from `.env.example` to your new created `.env` file and adjust your server/database data in it. For more info, you can refer [Bedrock documentation here](https://roots.io/bedrock/docs/installation/#getting-started).
+> P/s: Make sure in your own public/private repo, this `.env` file won't be able to view by any parties. It should be hold secretly in server using superadmin access.
+
+4. Update `bud.config.js` with your local dev URL in `web/app/themes/flexor/bud.config.js`
+
+5. At root directory, run composer like this:
+    ```bash
+    composer run-script deploy
+    ```
+    <details>
+      <summary>Don't have command for <code>yarn</code>?</summary>
+      Visit this <a href='https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable'>yarn installation link</a> to install yarn cli in your system
+    </details>
+
 
 ## Development Tips
 ### Create custom blocks
@@ -174,10 +202,6 @@ composer run-script upgrade-theme
       @isset ($data->title)
         <h2>{!! $data->title !!}</h2>
       @endisset
-
-      <div>
-        {!! $content ?? 'Please feed me InnerBlocks.' !!}
-      </div>
     </div>
     ```
 
@@ -254,6 +278,7 @@ composer run-script upgrade-theme
         );
     }
     ```
+    > Use this guideline for your wordpress gutenberg editor react components for your uses in file `edit.js` above: https://wordpress.github.io/gutenberg/
     <details>
       <summary>Woah! Where to learn this format?</summary>
       Just visit this <a href="https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/">page</a>. You also can learn attributes fetching from <a href="https://developer.wordpress.org/block-editor/reference-guides/block-api/block-attributes/#query-source">here</a>.
