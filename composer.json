@@ -92,7 +92,8 @@
     "deploy": [
       "Composer\\Config::disableProcessTimeout",
       "composer install",
-      "composer run-script build-theme && composer install --no-dev --optimize-autoloader",
+      "composer run-script build-theme",
+      "cd ./web/app/themes/flexor &&  composer install --no-dev --optimize-autoloader",
       "cd ./web/app/themes/flexor && wp acorn optimize"
     ],
     "build-theme":[
