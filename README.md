@@ -54,6 +54,7 @@ Bedrock is a WordPress boilerplate for developers that want to manage their proj
 - [Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
 - [Yarn](https://yarnpkg.com/)
 - NodeJS >= 20.
+- [WP-CLI](https://wp-cli.org/)
 
 ### Sage Package Compatibilty Setup
 #### Windows users. 
