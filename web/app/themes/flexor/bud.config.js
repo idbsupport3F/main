@@ -85,7 +85,7 @@ export default async (app) => {
    * @see {@link https://bud.js.org/reference/bud.watch}
    */
   app
-    .setUrl('http://idbtrainingcentre.dbkl.gov.my')
+    .setUrl('https://idbtrainingcentre.dbkl.gov.my')
     .setProxyUrl('http://example.test')
     .watch(['resources/views', 'app']);
 

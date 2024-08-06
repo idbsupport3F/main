@@ -220,7 +220,7 @@ const SVGJSON = function(iconsObj) {
                 return svg.outerHTML;
             }).join(' ');
         }
-        var source = `<svg fill="${obj.fill}" viewBox="${obj.viewBox}" height="16" width="16" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;">${pathSVG}</svg>`
+        var source = `<svg fill="${obj.fill}" viewBox="${obj.viewBox}" height="16" width="16" xmlns="https://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;">${pathSVG}</svg>`
 
         return {
             source,

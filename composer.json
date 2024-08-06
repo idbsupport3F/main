@@ -111,6 +111,10 @@
     "vendor:publish":[
       "cd ./web/app/themes/flexor && wp acorn vendor:publish"
     ],
+    "svgtojson":[
+      "Composer\\Config::disableProcessTimeout",
+      "cd ./web/app/themes/flexor && yarn run svgtojson"
+    ],
     "test": [
       "phpcs"
     ]

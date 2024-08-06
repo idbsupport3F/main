@@ -15,7 +15,7 @@
  * GitHub Plugin URI: https://github.com/wp-bootstrap/wp-bootstrap-navwalker
  * GitHub Branch: master
  * License: GPL-3.0+
- * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
  */
 
 // Check if Class Exists.
@@ -404,7 +404,7 @@ if (!class_exists('WP_Bootstrap_Navwalker')) :
             if (isset($args['items_wrap'])) {
                 $wrap = $args['items_wrap'];
                 if (strpos($wrap, 'SiteNavigationElement') === false) {
-                    $args['items_wrap'] = preg_replace('/(>).*>?\%3\$s/', ' itemscope itemtype="http://www.schema.org/SiteNavigationElement"$0', $wrap);
+                    $args['items_wrap'] = preg_replace('/(>).*>?\%3\$s/', ' itemscope itemtype="https://www.schema.org/SiteNavigationElement"$0', $wrap);
                 }
             }
             return $args;
