@@ -77,14 +77,7 @@
             </div>
         </div>
 
-        <div class="container copyright mt-4 text-start">
-            <div class="row">
-                <div class="col-lg">
-                    <p class="disclaimer">Institut Dewan Bandaraya Kuala Lumpur tidak bertanggungjawab terhadap sebarang
-                        kehilangan atau kerosakan yang dialami kerana menggunakan maklumat dalam laman ini</p>
-                </div>
-            </div>
-        </div>
+        @include('partials.copyright')
 
         <div class="container copyright text-center mt-4">
             <p>© <span>Copyright</span> <strong class="px-1">{!! get_bloginfo('name') !!}</strong> <span>All Rights
