@@ -2,7 +2,7 @@
 
     <div class="container footer-top">
         <div class="row gy-4 align-items-center">
-            <div class="col-lg-4 col-md-6 footer-about mt-0">
+            <div class="{!! (strlen(wp_get_nav_menu_name('footer_navigation')) > 0) ? "col-lg-4 col-md-6"  : "col"!!} footer-about mt-0">
                 @if (array_key_exists('logo', $siteLogo) &&
                         (get_theme_mod('hide_footer_site_name') || get_theme_mod('show_footer_logo_image')))
                     <a href="{{ home_url('/') }}" class="logo d-flex align-items-center">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="footer-utils pt-3">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-3">
                             <h4 class="footer-etc">Bilangan Pelawat</h4>
                             <div style="margin-top: -20px;"></div>
                             <a href='https://www.acadoo.de/fachrichtungen/ghostwriter-medizin/'>Med. Ghostwriting</a>
@@ -56,8 +56,8 @@
                 </div>
             </div>
 
+            @if (strlen(wp_get_nav_menu_name('footer_navigation')) > 0)
             <div class="col-lg-4 col-md-3 footer-links mt-0">
-                @if (strlen(wp_get_nav_menu_name('footer_navigation')) > 0)
                     <h4>{!! wp_get_nav_menu_name('footer_navigation') !!}</h4>
                     {!! wp_nav_menu([
                         'theme_location' => 'footer_navigation',
@@ -66,8 +66,8 @@
                         'fallback_cb' => false,
                         'items_wrap' => '<ul id="%1$s" class="%2$s menu-lain d-flex flex-wrap flex-column align-content-start">%3$s</ul>',
                     ]) !!}
-                @endif
             </div>
+            @endif
 
             <div class="col-lg-4 col-md-12 footer-newsletter mt-0 text-center">
                 <img class="mt-4" style="height:180px;" src="@asset('images/qr-code-location.png')" alt="{{ $siteName }} Location" />
@@ -78,8 +78,7 @@
         @include('partials.copyright')
 
         <div class="container copyright text-center">
-            <p>© <span>Copyright</span> <strong class="px-1">{!! get_bloginfo('name') !!}</strong> <span>All Rights
-                    Reserved</span></p>
+            <p><span>Hak Milik Terpelihara</span> © {{ currentYear() }}<strong class="px-1">{!! get_bloginfo('name') !!}</strong></p>
             {{-- <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you've purchased the pro version. -->

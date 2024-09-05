@@ -587,8 +587,18 @@ function site_contact($wp_customize)
 }
 
 /**
- * Register Actions
+ * Shortcode to get current year
+ */
+function currentYear()
+{
+    return date('Y');
+}
+
+/**
+ * Register Actions/Shortcode
  */
 add_action('customize_register', 'menu_controller', 100);
 
 add_action('customize_register', 'site_contact');
+
+add_shortcode('year', 'currentYear');
