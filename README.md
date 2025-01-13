@@ -141,6 +141,31 @@ git clone https://github.com/idbsupport3F/portalv6.git
     # Build Asset as development (Hot Reload)
     composer run-script dev-theme
     ```
+8. Before start the server, [Configure your server from this setup (Apache/Nginx)](https://roots.io/bedrock/docs/server-configuration/). If you wish to configure Apache using `.htaccess`, you may put the file inside `/web` directory. Example apache server config in `/web/.htaccess` :
+    ```
+    <FilesMatch ".+\.(blade\.php)$">
+      # Apache 2.4
+      <IfModule mod_authz_core.c>
+          Require all denied
+      </IfModule>
+
+      # Apache 2.2
+      <IfModule !mod_authz_core.c>
+          Order deny,allow
+          Deny from all
+      </IfModule>
+    </FilesMatch>
+    # BEGIN WordPress
+    <IfModule mod_rewrite.c>
+      RewriteEngine On
+      RewriteBase /
+      RewriteRule ^index.php$ - [L]
+      RewriteCond %{REQUEST_FILENAME} !-f
+      RewriteCond %{REQUEST_FILENAME} !-d
+      RewriteRule . /index.php [L]
+    </IfModule>
+    # END WordPress
+    ```
 
 ## Getting Started (Production)
 

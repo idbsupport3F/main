@@ -18,6 +18,20 @@ if (!file_exists(get_template_directory() . '/class-wp-bootstrap-navwalker.php')
 
 /*
 |--------------------------------------------------------------------------
+| Use Custom Tiny MCE Editor on Excerpt
+|--------------------------------------------------------------------------
+|
+| https://github.com/wp-bootstrap/wp-bootstrap-navwalker
+|
+*/
+if (!file_exists(get_template_directory() . '/excerpt-rich-text-editor.php')) {
+    return new WP_Error('class-wp-bootstrap-navwalker-missing', __('It appears the excerpt-rich-text-editor.php file may be missing.', 'wp-bootstrap-navwalker'));
+} else {
+    require_once get_template_directory() . '/excerpt-rich-text-editor.php';
+}
+
+/*
+|--------------------------------------------------------------------------
 | Register The Auto Loader
 |--------------------------------------------------------------------------
 |

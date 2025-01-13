@@ -225,6 +225,22 @@ export default async (app) => {
               "fontFamily": "var(--default-font)"
             }
           },
+          a: {
+            typography: {
+              "textDecoration": "underline"
+            },
+            color: {
+              "text": "var(--accent-color)"
+            },
+            ":hover" :{
+              color: {
+                "text": "color-mix(in srgb, var(--accent-color), transparent 25%)"
+              },
+              typography: {
+                "textDecoration": false
+              },
+            }
+          }
         }
       },
       layout: {
