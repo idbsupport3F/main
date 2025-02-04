@@ -22,10 +22,10 @@
                 <div class="footer-contact {!! get_theme_mod('show_footer_logo_image') ? 'pt-3' : '' !!}">
                     <p>{!! htmlspecialchars_decode(nl2br($address)) !!}</p>
                     @isset($phone)
-                        <p class="mt-3"><strong>{!! __("Telephone Number", "sage") !!}:</strong> <span>{!! $phone['phone'] !!}</span></p>
+                        <p class="mt-3"><strong>Nombor Telefon:</strong> <span>{!! $phone['phone'] !!}</span></p>
                     @endisset
                     @isset($contact)
-                        <p><strong>{!! __("Email", "sage") !!}:</strong> <span>{!! $contact !!}</span></p>
+                        <p><strong>Emel:</strong> <span>{!! $contact !!}</span></p>
                     @endisset
                 </div>
                 <div class="footer-utils pt-3">
