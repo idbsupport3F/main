@@ -16,6 +16,8 @@ use function Roots\bundle;
 add_action('after_setup_theme', function() {
     include_once get_template_directory() . '/inc/customizer.php';
     include_once get_template_directory() . '/inc/menu.php';
+    // For Internation Language
+    load_theme_textdomain('sage', get_template_directory() . '/resources/lang');
 });
 
 /**

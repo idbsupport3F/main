@@ -18,6 +18,7 @@
     "translate:compile": "npm run translate:mo && npm run translate:js",
     "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
     "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang",
+    "convert:mo": "msgfmt -o ./resources/lang/sage.mo ./resources/lang/sage.pot",
     "svgtojson": "svgToJson"
   },
   "devDependencies": {

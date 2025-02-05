@@ -1,0 +1,629 @@
+# Copyright (C) 2025 Bootstrap Made
+# This file is distributed under the MIT License.
+# Run command from: https://codex.wordpress.org/I18n_for_WordPress_Developers
+msgid ""
+msgstr ""
+"Project-Id-Version: Flexor Bootstrap Theme 1.0.x-dev\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/flexor\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-02-05T01:39:29+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: sage\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Flexor Bootstrap Theme"
+msgstr "Tema Flexor Bootstrap"
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://roots.io/sage/"
+msgstr "https://roots.io/sage/"
+
+#. Description of the theme
+#: style.css
+msgid "Custom Made by Amin Shazrin by implementing Bootstrap into Sage Template (Github: ammein)"
+msgstr "Dibuat Khusus oleh Amin Shazrin dengan melaksanakan Bootstrap ke dalam Templat Sage (Github: ammein)"
+
+#. Author of the theme
+#: style.css
+msgid "Bootstrap Made"
+msgstr "Dibuat menggunakan Bootstrap"
+
+#. Author URI of the theme
+#: style.css
+msgid "https: //bootstrapmade.com/flexor-free-multipurpose-bootstrap-template/"
+msgstr "https: //bootstrapmade.com/flexor-free-multipurpose-bootstrap-template/"
+
+#: app/filters.php:15
+msgid "Continued"
+msgstr "Bersambung"
+
+#: app/setup.php:70
+msgid "Primary Navigation"
+msgstr "Navigasi Utama"
+
+#: app/setup.php:71
+msgid "Footer Navigation"
+msgstr "Navigasi Pengaki"
+
+#: app/setup.php:160
+msgid "Primary"
+msgstr "Utama"
+
+#. translators: %1$s is replaced with the number of comments and %2$s with the post title
+#: app/View/Composers/Comments.php:44
+msgctxt "comments title"
+msgid "%1$s response to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s responses to &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s respons kepada &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s respons kepada &ldquo;%2$s&rdquo;"
+
+#: app/View/Composers/Comments.php:45
+msgctxt "comments title"
+msgid "One"
+msgstr "Satu"
+
+#: app/View/Composers/Comments.php:80
+msgid "&larr; Older comments"
+msgstr "&larr; Komen lama"
+
+#: app/View/Composers/Comments.php:96
+msgid "Newer comments &rarr;"
+msgstr "Komen baru &rarr;"
+
+#: app/View/Composers/Post.php:49
+msgid "Latest Posts"
+msgstr "Catatan Terkini"
+
+#. translators: %s is replaced with the search query
+#: app/View/Composers/Post.php:59
+#: app/View/Composers/SiteComposer.php:55
+msgid "Search Results for %s"
+msgstr "Hasil Carian untuk %s"
+
+#: app/View/Composers/Post.php:65
+#: app/View/Composers/SiteComposer.php:61
+msgid "Not Found"
+msgstr "Tidak Ditemui"
+
+#: functions.php:45
+msgid "Error locating autoloader. Please run <code>composer install</code>."
+msgstr "Gagal mencari autoloader. Sila jalankan <code>composer install</code>."
+
+#: functions.php:64
+msgid "You need to install Acorn to use this site."
+msgstr "Anda perlu memasang Acorn untuk menggunakan tapak ini."
+
+#: functions.php:68
+msgid "Acorn Docs: Installation"
+msgstr "Acorn Docs: Pemasangan"
+
+#. translators: %s is replaced with the relative file path
+#: functions.php:92
+msgid "Error locating <code>%s</code> for inclusion."
+msgstr "Gagal mencari <code>%s</code> untuk dimasukkan."
+
+#: inc/customizer.php:71
+msgid "Footer Styling"
+msgstr "Penggayaan Pengaki"
+
+#: inc/customizer.php:72
+msgid "You may adjust footer styles here to your liking. "
+msgstr "Anda boleh melaraskan gaya pengaki di sini mengikut keinginan anda. "
+
+#: inc/customizer.php:82
+msgid "Footer Navigation Link Limits:"
+msgstr "Had Pautan Navigasi Pengaki:"
+
+#: inc/customizer.php:101
+msgid "You can set the depth of your header menu items in this template"
+msgstr "Anda boleh menetapkan kedalaman item menu pengepala anda dalam templat ini"
+
+#: inc/customizer.php:108
+msgid "Adjust Depth"
+msgstr "Laraskan Kedalaman"
+
+#: inc/customizer.php:109
+msgid "You may adjust the depth value of a page that appears in header. Maximum depth is 5, minimum allowed is 0. 0 means all."
+msgstr "Anda boleh melaraskan nilai kedalaman halaman yang muncul dalam pengepala. Kedalaman maksimum ialah 5, minimum dibenarkan ialah 0. 0 bermaksud semua."
+
+#: inc/customizer.php:120
+msgid "Menu Depth:"
+msgstr "Kedalaman Menu:"
+
+#: inc/customizer.php:142
+msgid "Site Info"
+msgstr "Maklumat Tapak"
+
+#: inc/customizer.php:149
+msgid "Main Info"
+msgstr "Maklumat Utama"
+
+#: inc/customizer.php:151
+msgid "Main Info for your site"
+msgstr "Maklumat Utama untuk tapak anda"
+
+#: inc/customizer.php:158
+msgid "Peperiksaan Info"
+msgstr "Maklumat Peperiksaan"
+
+#: inc/customizer.php:160
+msgid "Peperiksaan Info for your site"
+msgstr "Maklumat Peperiksaan untuk laman web anda"
+
+#: inc/customizer.php:167
+msgid "Social Media"
+msgstr "Media Sosial"
+
+#: inc/customizer.php:169
+msgid "Insert your social media links here"
+msgstr "Masukkan pautan media sosial anda di sini"
+
+#: inc/customizer.php:175
+msgid "Site Settings"
+msgstr "Tetapan Tapak"
+
+#: inc/customizer.php:177
+msgid "Settings for your site by simply turn on/off. Once you turn some of the settings on, it is best for you to <b>refresh the page again</b> and see this settings again for more configs."
+msgstr "Tetapan untuk tapak anda dengan hanya menghidupkan/mematikan. Sebaik sahaja anda menghidupkan beberapa tetapan, sebaiknya anda <b>memuat semula halaman (refresh the page)</b> dan melihat tetapan ini sekali lagi untuk lebih banyak konfigurasi."
+
+#: inc/customizer.php:291
+msgid "Hide header site contacts?"
+msgstr "Sembunyikan kenalan tapak pengepala?"
+
+#: inc/customizer.php:303
+msgid "Show site title?"
+msgstr "Tunjukkan tajuk tapak?"
+
+#: inc/customizer.php:315
+msgid "Show footer site title?"
+msgstr "Tunjukkan tajuk tapak pengaki?"
+
+#: inc/customizer.php:327
+msgid "Show footer image?"
+msgstr "Tunjukkan imej pengaki?"
+
+#: inc/customizer.php:339
+#: inc/customizer.php:357
+msgid "Address"
+msgstr "Alamat"
+
+#: inc/customizer.php:340
+msgid "Type the site address location in here."
+msgstr "Taip lokasi alamat tapak di sini."
+
+#: inc/customizer.php:358
+msgid "Type the peperiksaan address location in here."
+msgstr "Taip lokasi alamat peperiksaan di sini."
+
+#: inc/customizer.php:375
+#: inc/customizer.php:389
+msgid "Email Address:"
+msgstr "Alamat E-mel:"
+
+#: inc/customizer.php:403
+#: inc/customizer.php:417
+msgid "Phone Number:"
+msgstr "Nombor Telefon:"
+
+#: inc/customizer.php:431
+msgid "Fax Number:"
+msgstr "Nombor Faks:"
+
+#: inc/customizer.php:445
+msgid "Upload Logo:"
+msgstr "Muat Naik Logo:"
+
+#: inc/customizer.php:459
+msgid "Facebook URL:"
+msgstr "URL Facebook:"
+
+#: inc/customizer.php:473
+msgid "Twitter URL:"
+msgstr "URL Twitter:"
+
+#: inc/customizer.php:487
+msgid "Instagram URL:"
+msgstr "URL Instagram:"
+
+#: inc/customizer.php:501
+msgid "Youtube URL:"
+msgstr "URL Youtube:"
+
+#: inc/customizer.php:515
+msgid "Tiktok URL:"
+msgstr "URL Tiktok"
+
+#: inc/customizer.php:543
+msgid "Logo Styling"
+msgstr "Penggayaan Logo"
+
+#: inc/customizer.php:544
+msgid "You may adjust header styles here to your liking. "
+msgstr "Anda boleh melaraskan gaya pengepala di sini mengikut keinginan anda. "
+
+#: inc/customizer.php:556
+msgid "Header Logo Height (px)"
+msgstr "Ketinggian Logo Pengepala (px)"
+
+#: inc/customizer.php:575
+msgid "Footer Logo Height (px):"
+msgstr "Ketinggian Logo Pengaki (px):"
+
+#. Template Name of the theme
+msgid "Peperiksaan Template"
+msgstr "Templat Peperiksaan"
+
+#: resources/views/404.blade.php:6
+msgid "Sorry, but the page you are trying to view does not exist."
+msgstr "Maaf, tetapi halaman yang anda cuba lihat tidak wujud."
+
+#: resources/views/forms/search.blade.php:4
+msgctxt "label"
+msgid "Search for:"
+msgstr "Cari untuk:"
+
+#: resources/views/forms/search.blade.php:10
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr "Cari &hellip;"
+
+#: resources/views/forms/search.blade.php:16
+msgctxt "submit button"
+msgid "Search"
+msgstr "Cari"
+
+#: resources/views/index.blade.php:7
+#: resources/views/search.blade.php:8
+msgid "Sorry, no results were found."
+msgstr "Maaf, tiada keputusan ditemui."
+
+#: resources/views/partials/comments.blade.php:37
+msgid "Comments are closed."
+msgstr "Komen ditutup."
+
+#: resources/views/partials/entry-meta.blade.php:7
+msgid "By"
+msgstr "Oleh"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/editor.js:39
+msgid "Swiper Logo"
+msgstr "Logo Swiper"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/swiper-images.js:129
+msgid "Total Client's Logo"
+msgstr "Jumlah Logo Pelanggan"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/swiper-images.js:136
+msgid "Use \"+\" & \"-\" button to increase/decrease client's testimonial(s)"
+msgstr "Gunakan butang \"+\" & \"-\" untuk menambah/mengurangkan testimoni pelanggan"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/swiper-images.js:147
+#: resources/scripts/blocks/testimonials.js:211
+msgid "Upload an image or pick one from your media library."
+msgstr "Muat naik imej atau pilih satu daripada pustaka media anda."
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/editor.js:54
+msgid "Testimonials"
+msgstr "Testimoni"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:182
+msgid "Testimonial Settings"
+msgstr "Tetapan Testimoni"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:185
+msgid "Total Client's Testimonial(s)"
+msgstr "Jumlah Testimoni Pelanggan"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:191
+msgid "Once set, you must set all client's info below listed in tabs. Use \"+\" & \"-\" button to increase/decrease client's testimonial(s)"
+msgstr "Setelah ditetapkan, anda mesti menetapkan semua maklumat pelanggan di bawah disenaraikan dalam tab. Gunakan butang \"+\" & \"-\" untuk menambah/mengurangkan testimoni pelanggan"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:196
+msgid "Additional Class(es) for your container"
+msgstr "Kelas tambahan untuk 'container' anda"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:197
+msgid "You can put AOS animation classname such as \"data-aos_fade-up\" and other aos attributes"
+msgstr "Anda boleh meletakkan nama kelas animasi AOS seperti \"data-aos_fade-up\" dan atribut aos yang lain"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:207
+msgid "Client's Image"
+msgstr "Imej Pelanggan"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:207
+msgid "Image Size Recommended: 100x100"
+msgstr "Saiz Imej Disyorkan: 100x100"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:225
+msgid "Client Name"
+msgstr "Nama Klien"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:232
+msgid "Client's Role"
+msgstr "Peranan Klien"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:239
+msgid "Client Rank"
+msgstr "Kedudukan Pelanggan"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:249
+msgid "Client's Testimonial"
+msgstr "Testimoni Pelanggan"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:263
+msgid "Name Color"
+msgstr "Warna Nama"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:275
+msgid "Role Color"
+msgstr "Warna Peranan"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:287
+msgid "Star Color"
+msgstr "Warna Bintang"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:299
+msgid "Quote Color"
+msgstr "Warna Petikan"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/testimonials.js:311
+msgid "Description Color"
+msgstr "Warna Penerangan"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/editor.js:65
+msgid "Icon"
+msgstr "Ikon"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/customIcon.js:125
+msgid "Icon Settings"
+msgstr "Tetapan Ikon"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/customIcon.js:129
+msgid "Link Rel:"
+msgstr "Pautan Rel:"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/customIcon.js:136
+msgid "Open in new tab?"
+msgstr "Buka dalam tab baharu?"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/customIcon.js:142
+msgid "Icon Size"
+msgstr "Saiz Ikon"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/customIcon.js:153
+msgid "Use Default Icon Style?"
+msgstr "Gunakan Gaya Ikon Asal?"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/customIcon.js:158
+#: resources/scripts/blocks/fixed.js:255
+msgid "Icon Color"
+msgstr "Warna Ikon"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/customIcon.js:171
+#: resources/scripts/blocks/fixed.js:285
+msgid "Padding"
+msgstr "Padding"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/customIcon.js:185
+msgid "✅ With Hover"
+msgstr "✅ Dengan Hover"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/customIcon.js:186
+msgid "🚫 Without Hover"
+msgstr "🚫 Tanpa Hover"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/editor.js:76
+msgid "FAQ"
+msgstr "FAQ"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/faq.js:89
+msgid "FAQ Info"
+msgstr "Maklumat FAQ"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/faq.js:91
+msgid "Icon:"
+msgstr "Ikon:"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/faq.js:101
+msgid "FAQ Title"
+msgstr "Tajuk FAQ"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/editor.js:90
+msgid "Link Container"
+msgstr "Container Pautan"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/link.js:95
+msgid "Link Setting"
+msgstr "Tetapan Pautan"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/link.js:97
+msgid "Choose your link:"
+msgstr "Pilih pautan anda:"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/link.js:105
+msgid "Enter tooltip title text here"
+msgstr "Masukkan teks tajuk 'tooltip' di sini"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:313
+#: resources/scripts/blocks/link.js:110
+msgid "Border Style Control:"
+msgstr "Kawalan Gaya 'Border':"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:315
+#: resources/scripts/blocks/link.js:112
+msgid "Border Style:"
+msgstr "Gaya 'Border':"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:322
+#: resources/scripts/blocks/link.js:119
+msgid "Border Radius Style Control:"
+msgstr "Kawalan Gaya Keluasan Radius 'Border':"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/editor.js:131
+msgid "Fixed Container"
+msgstr "Container Tetap"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:215
+msgid "Fixed Component Setting"
+msgstr "Tetapan Komponen Tetap"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:218
+msgid "Title:"
+msgstr "Tajuk:"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:227
+msgid "Toggle Mobile View?"
+msgstr "Togol Paparan Mudah Alih?"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:234
+msgid "Mobile Settings"
+msgstr "Tetapan Mudah Alih"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:236
+msgid "Choose Icon:"
+msgstr "Pilih Ikon:"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:245
+msgid "Button Position"
+msgstr "Kedudukan Butang"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:246
+msgid "Press any square position here to place your round fixed button."
+msgstr "Tekan mana-mana kedudukan segi empat sama di sini untuk meletakkan butang tetap bulat anda."
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:265
+msgid "Background Icon Color"
+msgstr "Warna Ikon Latar Belakang"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:276
+msgid "Mobile Icon Size"
+msgstr "Saiz Ikon Mudah Alih"
+
+#: public/js/editor.375dbc.js:229
+#: resources/scripts/blocks/fixed.js:300
+msgid "Margin"
+msgstr "Margin"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Red Status 500"
+msgstr "Red Status 500"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Main Color 500"
+msgstr "Main Color 500"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Text Color 500"
+msgstr "Text Color 500"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Background 500"
+msgstr "Background 500"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow Status 500"
+msgstr "Yellow Status 500"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green Status 500"
+msgstr "Green Status 500"
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Natural"
+msgstr "Natural"
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Deep"
+msgstr "Deep"
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Sharp"
+msgstr "Sharp"
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Outlined"
+msgstr "Outlined"
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Crisp"
+msgstr "Crisp"
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Headline"
+msgstr "Headline"
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Paragraph"
+msgstr "Paragraph"

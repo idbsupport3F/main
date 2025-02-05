@@ -72,6 +72,9 @@
             <div class="col-lg-4 col-md-12 footer-newsletter mt-0 text-center">
                 <img class="mt-4" style="height:180px;" src="@asset('images/qr-code-location.png')" alt="{{ $siteName }} Location" />
                 <img class="mt-4" style="height:50px;" src="@asset('images/msc.webp')" alt="MSC" />
+                @if (!empty($lat) && !empty($long))
+                    <p class="mt-1 lat-long">Latitude: {!! $lat !!} Longitude: {!! $long !!}</p>
+                @endif
             </div>
         </div>
 

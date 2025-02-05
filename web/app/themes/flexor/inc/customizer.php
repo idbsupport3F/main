@@ -216,11 +216,35 @@ function site_contact($wp_customize)
         )
     );
     $wp_customize->add_setting(
+        'site_latitude',
+        array(
+            'default' => ''
+        )
+    );
+    $wp_customize->add_setting(
+        'site_longitude',
+        array(
+            'default' => ''
+        )
+    );
+    $wp_customize->add_setting(
         'peperiksaan_address',
         array(
             'default' => '',
             'transport' => 'postMessage',
             'sanitize_callback' => 'wp_kses_post'
+        )
+    );
+    $wp_customize->add_setting(
+        'peperiksaan_latitude',
+        array(
+            'default' => ''
+        )
+    );
+    $wp_customize->add_setting(
+        'peperiksaan_longitude',
+        array(
+            'default' => ''
         )
     );
     $wp_customize->add_setting(
@@ -348,6 +372,32 @@ function site_contact($wp_customize)
         )
     );
 
+    // Site Latitude
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'site_latitude',
+            array(
+                'label'     =>  __('Site Latitude:', 'sage'),
+                'type'      =>  'number',
+                'section'   =>  'main_info'
+            )
+        )
+    );
+
+    // Site Longitude
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'site_longitude',
+            array(
+                'label'     =>  __('Site Longitude:', 'sage'),
+                'type'      =>  'number',
+                'section'   =>  'main_info'
+            )
+        )
+    );
+
     // Peperiksaan Address
     $wp_customize->add_control(
         new Skyrocket_TinyMCE_Custom_control(
@@ -362,6 +412,33 @@ function site_contact($wp_customize)
                     'toolbar2' => 'formatselect outdent indent | blockquote charmap',
                     'mediaButtons' => false,
                 )
+            )
+        )
+    );
+
+
+    // Peperiksaan Latitude
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'peperiksaan_latitude',
+            array(
+                'label'     =>  __('Peperiksaan Latitude:', 'sage'),
+                'type'      =>  'number',
+                'section'   =>  'peperiksaan_info'
+            )
+        )
+    );
+
+    // Peperiksaan Longitude
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'peperiksaan_longitude',
+            array(
+                'label'     =>  __('Peperiksaan Longitude:', 'sage'),
+                'type'      =>  'number',
+                'section'   =>  'peperiksaan_info'
             )
         )
     );

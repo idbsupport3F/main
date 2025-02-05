@@ -23,9 +23,11 @@ class SiteComposer extends Composer
             'contact'       => $this->get_site_email(),
             'phone'         => $this->get_site_phone(),
             'pageTitle'     => $this->pageTitle(),
-            'siteLogo'     => $this->get_site_logo(),
-            'socialMedias' => $this->get_social_medias(),
-            'address'       => $this->get_site_address()
+            'siteLogo'      => $this->get_site_logo(),
+            'socialMedias'  => $this->get_social_medias(),
+            'address'       => $this->get_site_address(),
+            'lat'           => $this->get_lat(),
+            'long'           => $this->get_long()
         ];
     }
 
@@ -175,6 +177,38 @@ class SiteComposer extends Composer
      */
     static private function is_peperiksaan(){
         return is_page_template('template-peperiksaan.blade.php');
+    }
+
+    /**
+     * Get Latitude
+     * 
+     * @return string
+     */
+    public function get_lat() {
+
+        if (get_theme_mod('site_address') && !$this->is_peperiksaan()) {
+            return esc_attr(get_theme_mod('site_latitude'));
+        } else if (get_theme_mod('peperiksaan_address') && $this->is_peperiksaan()) {
+            return esc_attr(get_theme_mod('peperiksaan_latitude'));
+        }
+
+        return null;
+    }
+
+    /**
+     * Get Longitude
+     * 
+     * @return string
+     */
+    public function get_long() {
+
+        if (get_theme_mod('site_address') && !$this->is_peperiksaan()) {
+            return esc_attr(get_theme_mod('site_longitude'));
+        } else if (get_theme_mod('peperiksaan_address') && $this->is_peperiksaan()) {
+            return esc_attr(get_theme_mod('peperiksaan_longitude'));
+        }
+
+        return null;
     }
 
 }
