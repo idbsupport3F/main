@@ -76,7 +76,11 @@
                 <img class="mt-4" style="height:180px;" src="@asset('images/qr-code-location.png')" alt="{{ $siteName }} Location" />
                 <img class="mt-4" style="height:50px;" src="@asset('images/msc.webp')" alt="MSC" />
                 @if (!empty($lat) && !empty($long))
-                    <p class="mt-1 lat-long">Latitude: {!! $lat !!} Longitude: {!! $long !!}</p>
+                    @php 
+                        $northOrSouth = $lat['raw'] > 0 ? "N" : "S";
+                        $eastOrWest = $long['raw'] > 0 ? "E" : "W";
+                    @endphp
+                    <p class="mt-1 lat-long">{!! $lat['deg'] !!}&deg;{!! $lat['min'] !!}&#39;{!! $lat['sec'] !!}&#34;{{ $northOrSouth }}, {!! $long['deg'] !!}&deg;{!! $long['min'] !!}&#39;{!! $long['sec'] !!}&#34;{{ $eastOrWest }}</p>
                 @endif
             </div>
         </div>
